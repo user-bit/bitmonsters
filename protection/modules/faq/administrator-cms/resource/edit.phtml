@@ -1,0 +1,62 @@
+<?php echo $vars['message'] ?>
+
+<div class="main__top d-flex justify-content-space-between align-items-center">
+    <div class="main__title">Редактирование раздела:&nbsp;<b><?php echo $vars['edit']['name'] ?></b></div>
+</div>
+
+<div class="tool">
+    <a class="tool__link" href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . '/add') ?>">Добавить
+        раздел</a>
+    <a class="tool__link"
+       href="/<?php echo PathToTemplateAdmin . '/' . $vars['action'] ?>/delete/<?php echo $vars['edit']['id'] ?>">
+        Удалить этот раздел
+    </a>
+    <a class="tool__link" href="<?php echo Links::getURl('/news/'.$vars['edit']['link']) ?>"
+       title="<?php echo $vars['edit']['link'] ?>"
+       target="_blank">Предпросмотр</a>
+</div>
+<div class="section">
+    <form method="POST" name="update-form">
+        <input type="hidden" value="<?php echo $vars['edit']['id'] ?>" name="id"/>
+        <div class="section__content section__content-w-100">
+            <div class="section__title">Общая информация</div>
+            <div class="section__field">
+                <label class="required">Вопрос:<span>*</span></label>
+                <input type="text" class="form-control" value="<?php echo $vars['edit']['question'] ?>"
+                       name="question"/>
+            </div>
+            <div class="section__editor">
+                <label class="required">Ответ:<span>*</span></label>
+                <?php echo showEditor('answer', $vars['edit']['answer'])?>
+            </div>
+            <div class="section__field">
+                <label class="required">Состояние:<span>*</span></label>
+                <div class="select-field">
+                    <div class="select-field__item">
+                        <input type="radio" class="select-field__radio" value="1" id="page_data_0_d"
+                               name="active" <?php if ($vars['edit']['active'] == 1) echo ' checked="checked"'; ?>>
+                        <label for="page_data_0_d">Вкл.</label>
+                    </div>
+                    <div class="select-field__item">
+                        <input type="radio" class="select-field__radio" value="0" id="page_data_0_a"
+                               name="active" <?php if ($vars['edit']['active'] == 0) echo ' checked="checked"'; ?>>
+                        <label for="page_data_0_a">Выкл.</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-list-in">
+            <div class="btn-save">
+                <input type="submit" value="Сохранить" name="update">
+            </div>
+            <div class="btn-save-close">
+                <input type="submit" value="Сохранить и закрыть" name="update_close">
+            </div>
+        </div>
+        <input type="hidden" value="<?php echo $vars['action'] ?>" id="action"/>
+    </form>
+</div>
+
+
+

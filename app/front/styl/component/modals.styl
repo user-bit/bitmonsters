@@ -1,0 +1,56 @@
+.overflow
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: rgba(0,0,0,.19)
+  backdrop-filter: blur(10px)
+  z-index: 92
+  opacity: 0
+  visibility hidden
+  transition opacity 0.3s ease-in-out, visibility 0.3s ease-in-out
+  &.active
+    opacity 1
+    visibility visible
+
+.modal-close
+  padding-top: 5px
+  cursor pointer
+  &:hover
+    svg
+      fill rgba(182, 103, 255, 0.8)
+  & svg
+    fill: #fff
+    width: 32px
+    height: 32px
+    transition fill 0.3s ease-in-out
+
+.modal-thank
+  position: fixed
+  opacity: 0
+  visibility: hidden
+  z-index: 9991
+  background: #11141d
+  top: 90px
+  left: 50%
+  transform: translate(-50%, 0)
+  width: 500px
+  padding: 20px
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out
+  &.active
+    opacity 1
+    visibility visible
+  &__top
+    display: flex
+    justify-content: flex-end
+  &__title
+    margin-top: 18px
+    font-size: 32px
+    text-align: center
+    color: #fff
+  &__desc
+    text-align: center
+    margin-top: 35px
+    margin-bottom: 30px
+    font-size: 24px

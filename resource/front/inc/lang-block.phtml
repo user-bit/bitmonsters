@@ -1,0 +1,53 @@
+<div class="lang-block">
+    <?php if (isset($vars['lang'])) { ?>
+        <div class="lang-block__main">
+            <?php foreach ($vars['lang'] as $i => $lang) { ?>
+                <?php if ($lang['language'] == $_SESSION['key_lang']) { ?>
+                    <img src="/resource/front/img/flags/<?php echo $lang['language'] ?>.png"
+                         alt="<?php echo $lang['comment'] ?>">
+                    <span><?php echo $lang['comment'] ?></span>
+                    <svg>
+                        <use xlink:href="/resource/front/img/svg/svg-sprite.svg#arrow-down"></use>
+                    </svg>
+                <?php } ?>
+            <?php } ?>
+        </div>
+        <div class="lang-block__info scroll-custom">
+            <ul class="lang-block__list">
+                <?php foreach ($vars['lang'] as $i => $lang) {
+                    $class = '';
+                    if ($lang['default'] == '1') {
+                        if ($_SERVER['REQUEST_URI'] == '/')
+                            $url = "/" . $_SERVER['REQUEST_URI'];
+                        else
+                            $url = "/" . $_SERVER['REQUEST_URI'] . '/';
+                    } else {
+                        if ($_SERVER['REQUEST_URI'] == '/') {
+                            $url = "/" . $lang['language'] . '/';
+                        } else {
+                            $url = "/" . $lang['language'] . $_SERVER['REQUEST_URI'] . '/';
+                        }
+                    }
+                    $url = preg_replace('/\/\//', '/', $url);
+
+                    ?>
+                    <?php if ($lang['language'] == $_SESSION['key_lang']) { ?>
+                        <li class="lang-block__item active">
+                            <img src="/resource/front/img/flags/<?php echo $lang['language'] ?>.png"
+                                 alt="<?php echo $lang['comment'] ?>">
+                            <span><?php echo $lang['comment'] ?></span>
+                        </li>
+                    <?php } else { ?>
+                        <li class="lang-block__item <?php echo $class ?>">
+                            <a class="lang-block__link" href="<?php echo $url ?>">
+                                <img src="/resource/front/img/flags/<?php echo $lang['language'] ?>.png"
+                                     alt="<?php echo $lang['comment'] ?>">
+                                <?php echo $lang['comment'] ?>
+                            </a>
+                        </li>
+                    <?php } ?>
+                <?php } ?>
+            </ul>
+        </div>
+    <?php } ?>
+</div>

@@ -1,0 +1,308 @@
+<link rel="stylesheet" type="text/css" href="/resource/<?php echo PathToTemplateAdmin ?>/photos/main.css">
+<script type="application/javascript"
+        src="/resource/<?php echo PathToTemplateAdmin ?>/photos/lang/js/upload_image_lang.js"></script>
+<script type="application/javascript"
+        src="/resource/<?php echo PathToTemplateAdmin ?>/photos/main.js"></script>
+
+<?php
+if (!empty($vars['action_table'])) {
+    $this_table = $vars['action_table'];
+} else {
+    $this_table = $vars['action'];
+}
+?>
+
+<div class="container-photo">
+    <div class="main-image" id="image_uploader">
+        <?php if (!empty($vars['width']) && !empty($vars['height'])) { ?>
+            <div class="main-image__size">Размер картинки: ширина - <span><?php echo $vars['width'] ?>px</span> | высота
+                -
+                <span><?php echo $vars['height'] ?>px</span></div>
+        <?php } ?>
+        <div class="load-image">
+            <input type="hidden" value="<?php echo $vars['path'] ?>" id="path_image"/>
+            <input class="main-image__img" type="file" id="image_file" name="image_file"
+                   accept="<?php echo "image/" . implode(",image/", explode(',', ext_image)) ?>"/>
+            <div class="image">
+                <?php
+                $src = (isset($vars['edit']['photo']) && file_exists(strtok($vars['edit']['photo'], '?'))) ? strtok($vars['edit']['photo'], '?') : "resource/administrator-cms/images/no_image.gif";
+                if (!file_exists(strtok($vars['edit']['photo'], '?'))) $src = 'resource/administrator-cms/images/default.jpg';
+                ?>
+                <div class="image__icon">
+                    <svg>
+                        <use xlink:href="/resource/administrator-cms/images/svg/svg-sprite.svg#upload"></use>
+                    </svg>
+                </div>
+                <div class="image__title">Загрузить фото</div>
+                <div class="image__desc">Форматы (<?php echo ext_image ?>)</div>
+                <input type="hidden" id="current_photo" name="current_photo"
+                       value="<?php echo $vars['edit']['photo'] ?>"/>
+            </div>
+        </div>
+        <div class="photo-ressult" id="alert_text"></div>
+        <div class="show-image <?php echo (isset($vars['edit']['photo']) && file_exists(strtok($vars['edit']['photo'], '?'))) ? 'active' : '' ?>">
+            <div class="show-image__photo">
+                <img class="current-image" id="record_image" src="/<?php echo $src . '?' . time() ?>"/>
+            </div>
+            <div class="show-image__edit">
+                <?php if (isset($vars['edit'])) { ?>
+                    <div class="show-image-edit">
+                        <svg>
+                            <use xlink:href="/resource/administrator-cms/images/svg/svg-sprite.svg#edit"></use>
+                        </svg>
+                    </div>
+                <?php } ?>
+                <div class="del-image">
+                    <svg>
+                        <use xlink:href="/resource/administrator-cms/images/svg/svg-sprite.svg#delete"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="photo-edit" style="opacity: 0">
+        <div class="photo-edit__top">
+            <div class="photo-edit-close">
+                <svg>
+                    <use xlink:href="/resource/administrator-cms/images/svg/svg-sprite.svg#delete"></use>
+                </svg>
+            </div>
+        </div>
+        <div class="photo-edit__content">
+            <div class="photo-edit__left">
+                <div class="photo-edit__photo">
+                    <img class="photo-edit-large" src="/<?php echo $src . '?' . time() ?>">
+                </div>
+                <div class="photo-edit__bottom">
+
+                    <div class="photo-edit__mobi mobi">
+                        <?php
+                        $path_mobi = $vars['path'].'mobile-'.substr($src, ($a = strrpos($src, '/') +1));
+                        $mobi_src = (isset($src) && file_exists($path_mobi)) ? $path_mobi : "resource/administrator-cms/images/default.jpg";
+                        if (!file_exists($path_mobi)) $mobi_src = 'resource/administrator-cms/images/default.jpg';
+                        ?>
+                        <div class="mobi__top">
+                            <div class="mobi__icon">
+                                <svg>
+                                    <use xlink:href="/resource/administrator-cms/images/svg/svg-sprite.svg#mobi"></use>
+                                </svg>
+                            </div>
+                            <div class="mobi__info">
+                                <div class="mobi__text">
+                                    <span>Показ:</span> ширина меньше 575px
+                                </div>
+                                <div class="mobi__text">
+                                    <span>Название:</span> <?php echo (isset($src) && file_exists($path_mobi) ? basename($mobi_src) : 'none') ?>
+                                </div>
+                                <div class="mobi__text">
+                                    <span>Размер:</span> <?php echo number_format(filesize($mobi_src) / 1024, 2) ?> kB
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobi__photo">
+                            <input type="hidden" value="<?php echo 'mobile-' . substr($src, ($a = strrpos($src, '/') +1)) ?>"
+                                   name="mobi_name">
+                            <input class="mobi__img" type="file" id="mobi_file" name="mobi_file"
+                                   accept="<?php echo "image/" . implode(",image/", explode(',', ext_image)) ?>"/>
+                            <img class="mobi-photo" src="/<?php echo $mobi_src . '?' . time() ?>">
+                        </div>
+                    </div>
+
+                    <div class="photo-edit__webp webp">
+                        <?php
+                        $path_webp = substr($src, 0, strrpos($src, '.')).'.webp';
+                        $webp_src = (isset($src) && file_exists($path_webp)) ? $path_webp : "resource/administrator-cms/images/default.jpg";
+                        if (!file_exists($path_webp)) $webp_src = 'resource/administrator-cms/images/default.jpg';
+                        ?>
+                        <div class="webp__top">
+                            <div class="webp__icon">
+                                <svg>
+                                    <use xlink:href="/resource/administrator-cms/images/svg/svg-sprite.svg#webp"></use>
+                                </svg>
+                            </div>
+                            <div class="webp__info">
+                                <div class="webp__text">
+                                    <span>Показ:</span> если есть поддержка webp
+                                </div>
+                                <div class="webp__text">
+                                    <span>Название:</span> <?php echo(isset($src) && file_exists($path_webp) ? basename($webp_src) : 'none') ?>
+                                </div>
+                                <div class="webp__text">
+                                    <span>Размер:</span> <?php echo number_format(filesize($webp_src) / 1024, 2) ?> kB
+                                </div>
+                            </div>
+                        </div>
+                        <div class="webp__photo">
+                            <input type="hidden" value="<?php echo  substr(substr($src, 0, strrpos($src, '.')), ($a = strrpos(substr($src, 0, strrpos($src, '.')), '/') + 1))  ?>.webp" name="webp_name">
+                            <input class="webp__img" type="file" id="webp_file<?php echo $vars["increment"]?>" name="webp_file"
+                                   accept="image/webp"/>
+                            <img class="webp-photo" src="/<?php echo $webp_src . '?' . time() ?>">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-edit__edit">
+                <div class="photo-edit__info">
+                    <?php if (!empty($vars['width']) && !empty($vars['height'])) { ?>
+                        <div class="photo-edit-info__text">
+                            <span>Рекомендуемый размер:</span> <?php echo $vars['width'] ?>
+                            х <?php echo $vars['height'] ?>
+                            (px)
+                        </div>
+                    <?php } ?>
+                    <div class="photo-edit-info__text">
+                        <span>Имя файла:</span> <?php echo basename($src) ?>
+                    </div>
+                    <div class="photo-edit-info__text">
+                        <span>Тип файла:</span> <?php echo getimagesize($src)['mime'] ?>
+                    </div>
+                    <div class="photo-edit-info__text">
+                        <span>Размер картинки: <?php echo number_format(filesize($src) / 1024, 2) ?> kB</span>
+                    </div>
+                    <div class="photo-edit-info__text">
+                        <span>Размер:</span> <?php echo getimagesize($src)['0'] ?>
+                        х <?php echo getimagesize($src)['1'] ?>
+                        (px)
+                    </div>
+                </div>
+                <div class="photo-edit__ed">
+                    <div class="section-photo__field">
+                        <label>Атрибут alt:</label>
+                        <input type="text" class="form-control-photo" value="<?php echo $vars['edit']['photo_alt'] ?>"
+                               name="photo_alt"/>
+                    </div>
+                    <div class="section-photo__field">
+                        <label>Атрибут title:</label>
+                        <input type="text" class="form-control-photo" value="<?php echo $vars['edit']['photo_title'] ?>"
+                               name="photo_title"/>
+                    </div>
+                    <?php
+                    if (empty($vars['edit']['photo_link']))
+                        $vars['edit']['photo_link']=substr($vars['edit']['photo'], ($a = strrpos($vars['edit']['photo'], '/') +1));
+                    ?>
+                    <div class="section-photo__field">
+                        <label>Имя файла:</label>
+                        <input type="text" class="form-control-photo" value="<?php echo $vars['edit']['photo_link'] ?>"
+                               name="photo_link"/>
+                    </div>
+                    <div class="section-photo__field">
+                        <label>Путь к файлу:</label>
+                        <input class="path-file" value="/<?php echo $src ?>" readonly>
+                    </div>
+                </div>
+                <input type="hidden" value="<?php echo $vars['edit']['id'] ?>" name="photo_id"/>
+                <input type="hidden" value="<?php echo $this_table ?>" name="photo_table"/>
+                <input type="hidden" value="<?php echo $src ?>" name="photo_link_old"/>
+                <input type="hidden" value="<?php echo $vars['path'] ?>" name="photo_path"/>
+                <button type="submit" class="btn-photo-save save-info-lang">Сохранить</button>
+                <div class="result-photo"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="photo-edit-overflow" style="opacity: 0"></div>
+
+<script type="application/javascript">
+    var uploader = new ImageUploader(document.getElementById('image_uploader'),
+        <?php echo $vars['image_id'] ?>,
+        '<?php echo $this_table ?>',
+        '<?php echo $vars['photo_link'] ?>');
+
+    $('.save-info-lang').on('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var dataString = 'photo_id=' + $("input[name='photo_id']").val()
+            + '&photo_table=' + $("input[name='photo_table']").val()
+            + '&photo_alt=' + $("input[name='photo_alt']").val()
+            + '&photo_title=' + $("input[name='photo_title']").val()
+            + '&photo_link_old=' + $("input[name='photo_link_old']").val()
+            + '&photo_path=' + $("input[name='photo_path']").val()
+            + '&photo_link=' + $("input[name='photo_link']").val()
+            + '&photo_webp=' + $("input[name='webp_name']").val()
+            + '&photo_mobi=' + $("input[name='mobi_name']").val();
+        $.ajax({
+            type: "POST",
+            url: "/ajax/images/updatePhotoInfoConstructor/",
+            data: dataString,
+            dataType: "json",
+            cache: false,
+            success: function (data) {
+                $(".photo-edit__ed").hide().html(data.content).fadeIn('fast');
+                $(".result-photo").addClass('active').html(data.info);
+                setTimeout(function () {
+                    $(".result-photo").removeClass('active');
+                }, 2000)
+            }
+        });
+        return false;
+    });
+    $(document).on('change', '#mobi_file', function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        var file_data = $('#mobi_file').prop('files')[0];
+
+        var webp_path = $('#path_image').val();
+        var webp_name = $("input[name='mobi_name']").val()
+        var photo_table = $("input[name='photo_table']").val()
+        var photo_id = $("input[name='photo_id']").val()
+
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+        form_data.append( 'file_path', webp_path)
+        form_data.append( 'file_name', webp_name)
+        form_data.append( 'photo_table', photo_table)
+        form_data.append( 'photo_id', photo_id)
+
+        if(file_data) {
+            $.ajax({
+                type: "POST",
+                url: "/ajax/images/updatePhotoInfoMobi/",
+                data: form_data,
+                dataType: "json",
+                processData : false,
+                contentType : false,
+                cache: false,
+                success: function (data) {
+                    $('.mobi-photo').attr('src', '/' + data.image);
+                }
+            });
+        }
+    });
+    $(document).on('change', '#webp_file', function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        var file_data = $('#webp_file').prop('files')[0];
+
+        var webp_path = $('#path_image').val();
+        var webp_name = $("input[name='webp_name']").val()
+        var photo_table = $("input[name='photo_table']").val()
+        var photo_id = $("input[name='photo_id']").val()
+
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+        form_data.append( 'file_path', webp_path)
+        form_data.append( 'file_name', webp_name)
+        form_data.append( 'photo_table', photo_table)
+        form_data.append( 'photo_id', photo_id)
+
+        if(file_data) {
+            $.ajax({
+                type: "POST",
+                url: "/ajax/images/updatePhotoInfoWebp/",
+                data: form_data,
+                dataType: "json",
+                processData : false,
+                contentType : false,
+                cache: false,
+                success: function (data) {
+                    $('.webp-photo').attr('src', '/' + data.image);
+                }
+            });
+        }
+    });
+</script>
+
+
+
+

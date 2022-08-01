@@ -1,0 +1,56 @@
+<div class="height-header">
+    <div class="header-section__left-anim"></div>
+    <div class="header-section__right-anim"></div>
+    <div class="circle_one">
+        <div class="circle_one-anim"></div>
+    </div>
+    <div class="circle_two"></div>
+    <div class="circle_three"></div>
+    <div class="circle_four"></div>
+</div>
+<div class="header-section">
+    <div class="container">
+        <div class="header-section__content">
+            <div class="header-section__logo">
+                <a href="<?php echo Links::getURl('') ?>">
+                    <img src="/resource/front/img/logo.png">
+                </a>
+            </div>
+            <div class="header-section__menu">
+                <div class="header-section-xs__top">
+                    <a href="<?php echo Links::getURl('') ?>">
+                        <img src="/resource/front/img/logo.png">
+                    </a>
+                    <div class="burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <ul>
+                    <?php foreach ($vars['menu'] as $menu) { ?>
+                        <li><a class="rolling-text anchor-link"
+                               href="#<?php echo $menu['link'] ?>"><?php echo $menu['name'] ?></a></li>
+                    <?php } ?>
+                </ul>
+                <a href="<?php echo $vars['settings']['login'] ?>"
+                   class="log-in-xs"><?php echo $vars['main_translate']['login'] ?></a>
+                <a href="<?php echo $vars['settings']['sign'] ?>"
+                   class="sign-up-xs"><?php echo $vars['main_translate']['sign'] ?></a>
+            </div>
+            <div class="header-section__btn">
+                <a href="<?php echo $vars['settings']['login'] ?>"
+                   class="rolling-text log-in"><?php echo $vars['main_translate']['login'] ?></a>
+                <a href="<?php echo $vars['settings']['sign'] ?>"
+                   class="sign-up"><?php echo $vars['main_translate']['sign'] ?></a>
+            </div>
+            <div class="header-section__menu-xs">
+                <div class="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

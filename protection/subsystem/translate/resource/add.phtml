@@ -1,0 +1,43 @@
+<?php echo $vars['message'] ?>
+
+<div class="main__top d-flex justify-content-space-between align-items-center">
+    <div class="main__title">Добавление нового раздела</div>
+</div>
+<div class="section">
+    <form method="POST" name="update-form">
+        <div class="section__content section__content-w-50">
+            <div class="section__title">Общая информация</div>
+            <div class="section__field">
+                <label class="required">Ключ:<span>*</span></label>
+                <input type="text" class="form-control" value="" name="key"/>
+            </div>
+            <div class="section__field">
+                <label>Значение:</label>
+                <input type="text" class="form-control" value="" name="value"/>
+            </div>
+            <div class="section__field">
+                <label>Комментарий:</label>
+                <input type="text" class="form-control" value="" name="comment"/>
+            </div>
+            <div class="section__field">
+                <label>Модуль:</label>
+                <select class="custom-select" name="modules_id">
+                    <option value=''>Не выбрано</option>
+                    <?php foreach ($vars['list']['modules'] as $modules) { ?>
+                        <option value='<?php echo $modules['id'] ?>' <?php echo ($vars['this_modules'] == $modules['id']?'selected':'')?>><?php echo $modules['name'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+        </div>
+
+        <div class="button-list-in">
+            <div class="btn-save">
+                <input type="submit" value="Сохранить" name="add">
+            </div>
+            <div class="btn-save-close">
+                <input type="submit" value="Сохранить и закрыть" name="add_close">
+            </div>
+        </div>
+        <input type="hidden" value="<?php echo $vars['action'] ?>" id="action"/>
+    </form>
+</div>

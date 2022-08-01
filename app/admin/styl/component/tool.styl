@@ -1,0 +1,26 @@
+.tool
+  width: 100%
+  text-align: right
+  margin-bottom: 16px
+  position absolute
+  right: 25px
+  top: 110px
+  &__link
+    font-size: 14px
+    color: #4b4b5a
+    text-decoration: none
+    padding-left: 8px
+    position relative
+    transition color 0.2s ease-in-out
+    &:hover
+      color #5369f8
+    &:before
+      content: ""
+      position: absolute
+      left: 2px
+      width: 1px
+      bottom: 1px
+      height: 16px
+      background: #4b4b5a
+    &:first-child:before
+      display none

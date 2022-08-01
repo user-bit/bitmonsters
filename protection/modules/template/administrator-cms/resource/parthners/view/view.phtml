@@ -1,0 +1,74 @@
+<div class="partners-top">
+    <div class="container">
+        <div class="partners-top__title" data-aos="type1"
+             data-aos-duration="1400"><?php echo $vars['constructor']['content_page_res'][$content['id']]['title']['value'] ?></div>
+        <div class="partners-top__content">
+            <?php
+            $k = 0;
+            for ($i = 0; $i < 5; $i++) { ?>
+                <div data-aos="type1" data-aos-duration="1400" data-aos-delay="<?php echo $k ?>">
+                    <?php echo Links::getPhoto($vars['constructor']['content_page_res'][$content['id']]['photo_' . $i]) ?>
+                </div>
+                <?php
+                $k = $k + 200;
+            } ?>
+        </div>
+    </div>
+</div>
+
+<div class="events">
+    <div class="events__texture">
+        <picture>
+            <source srcset="/resource/front/img/s-texture.webp" type="image/webp" >
+            <source srcset="/resource/front/img/s-texture.png">
+            <img src="">
+        </picture>
+    </div>
+    <div class="events__left-gradient"></div>
+    <div class="events__line-one"></div>
+    <div class="events__line-two"></div>
+    <div class="events__line-three"></div>
+    <div class="events__line"></div>
+    <div class="container">
+        <div class="events__title" data-aos="type1"
+             data-aos-duration="1400"><?php echo $vars['constructor']['content_page_res'][$content['id']]['title_two']['value'] ?></div>
+        <div class="events__slide" data-aos="type1" data-aos-duration="1400" data-aos-delay="200">
+            <div class="swiper-wrapper event__wrapper">
+                <div class="events__line-active"></div>
+                <?php foreach ($vars['constructor']['content_event'] as $key => $content_event) {
+                    $state = '';
+                    if ($content_event['state'] == 0)
+                        $state = 'no-active';
+                    elseif ($content_event['state'] == 2)
+                        $state = 'active';
+                    elseif ($content_event['state'] == 1)
+                        $state = 'expected';
+                    ?>
+                    <div class="swiper-slide <?php echo $state ?>">
+                        <div class="events__item">
+                            <div class="events__date"><?php echo $content_event['info_date'] ?></div>
+                            <div class="events__photo">
+                                <?php if (!empty($content_event['photo'])) { ?>
+                                    <img class="lazy"
+                                         data-src="/<?php echo $content_event['photo'] ?>">
+                                <?php } ?>
+
+                                <div class="events__name"><?php echo $content_event['name'] ?></div>
+                            </div>
+                        </div>
+
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const widthSlide = document.querySelector('.events__slide .swiper-slide').offsetWidth;
+        const marginSlide = parseInt(window.getComputedStyle(document.querySelector('.events__slide .swiper-slide')).marginRight);
+        const widthAllElement = widthSlide + marginSlide;
+        const widthActive = widthAllElement * <?php echo $vars['constructor']['content_page_res'][$content['id']]['event_active']['value'] ?>;
+        document.querySelector('.events__line-active').style.width = widthActive + 'px';
+    });
+</script>

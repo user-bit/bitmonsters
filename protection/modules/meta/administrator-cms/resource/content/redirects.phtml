@@ -1,0 +1,93 @@
+<?php echo $vars['message'] ?>
+
+<div class="main__top d-flex justify-content-space-between align-items-center">
+    <div class="main__title"><?php echo $vars['name'] ?></div>
+    <div class="main__tools tools">
+        <div class="tools__item action-add">
+            <svg>
+                <use xlink:href="/resource/<?php echo PathToTemplateAdmin ?>/images/svg/svg-sprite.svg#plus"></use>
+            </svg>
+            <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . $vars['path'] . '/addredirect') ?>">Создать</a>
+        </div>
+    </div>
+</div>
+
+<div class="main__content">
+    <div class="main__left">
+        <div class="main-section">
+            <form name="user-list" method="post"
+                  action="/<?php echo PathToTemplateAdmin ?>/<?php echo $vars['action'] . $vars['path']  ?>">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th width="30">
+                            <input type="checkbox"
+                                   id="customCheckAll"
+                                   title="Отметить/снять все"
+                                   value="Y"
+                                   name="id[]" class="custom-control-label-all">
+                            <label for="customCheckAll"></label>
+                        </th>
+                        <th width="50">ID</th>
+                        <th>Перенаправление</th>
+                        <th>Перенаправление к</th>
+                        <th>Тип</th>
+                        <th width="110">Состояние</th>
+                        <th width="140">Действие</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($vars['list'] as $row) { ?>
+                        <tr id="sort<?php echo $row['id'] ?>">
+                            <td>
+                                <input type="checkbox" value="<?php echo $row['id'] ?>"
+                                       id="customCheck<?php echo $row['id'] ?>"
+                                       name="id[]" class="custom-control-label">
+                                <label for="customCheck<?php echo $row['id'] ?>"></label>
+                            </td>
+                            <td><?php echo $row['id'] ?></td>
+                            <td>
+                                https://<?php echo $_SERVER['SERVER_NAME'] ?>
+                                <input type="text" value="<?php echo $row['from'] ?>" name="from[]"
+                                       class="form-control">
+                            </td>
+                            <td>
+                                https://<?php echo $_SERVER['SERVER_NAME'] ?>
+                                <input type="text" value="<?php echo $row['to'] ?>" name="to[]"
+                                       class="form-control">
+                            </td>
+                            <td>
+                                <select class="custom-select" name="type[]">
+                                    <option value="301"<?php if ($row['type'] == '301') echo ' selected';?>>Постоянно (301)</option>
+                                    <option value="302"<?php if ($row['type'] == '302') echo ' selected';?>>Временно (302)</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="hidden" value="<?php echo $row['id'] ?>" name="save_id[]"/>
+                                <?php
+                                if ($row['active'] == 1) $active = '<div class="selected-status status-on">Вкл</div>';
+                                else $active = '<div class="selected-status status-off">Выкл</div>';
+                                ?>
+                                <div class="active-status"
+                                     id="active<?php echo $row['id'] ?>"><?php echo $active ?></div>
+                            </td>
+                            <td>
+                                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin. '/' . $vars['action'] . '/delete/' . $row['id'] . $vars['path']) ?>"
+                                   class="tool-del">Удалить</a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+                <input type="hidden" value="redirects" id="action"/>
+                <div class="button-list">
+                    <div class="btn-save">
+                        <input type="submit" value="Сохранить" name="update">
+                    </div>
+                    <div class="btn-del">
+                        <input type="submit" value="Удалить выбранные" name="delete">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

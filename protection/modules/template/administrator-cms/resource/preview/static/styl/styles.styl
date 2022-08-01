@@ -1,0 +1,275 @@
+.preview
+  position relative
+
+.preview-top
+  & .container
+    position relative
+  &__anim-left
+    position absolute
+    left: -155px
+    top: 610px
+    z-index: -1
+    @media (max-width: 1000px)
+      display none
+  &__anim-right
+    position absolute
+    right: -260px
+    top: 480px
+    z-index: -1
+    @media (max-width: 1000px)
+      right: -140px
+      img
+        width 400px
+  &__small-texture
+    position absolute
+    right: 90px
+    top: -100px
+    z-index: -1
+    transition-delay 0.4s
+    animation: 12s ease-in 1s infinite reverse both running wakeUpSm
+  &__middle-texture
+    @media (min-width: 756px)
+      position absolute
+      right: 445px
+      top: 255px
+      z-index: -1
+      animation: 8s ease-in 1s infinite reverse both running wakeUpSm
+  &__title
+    font-family: 'Monument Extended', sans-serif
+    font-style: normal
+    font-weight: normal
+    font-size: 86px
+    text-transform: uppercase
+    color: #e7e7e7
+    text-align: center
+    width: 1100px
+    margin: 96px auto 0
+    line-height: 1.1
+    letter-spacing: -1px
+    @media (max-width: 1440px)
+      width 100%
+    @media (max-width: 1165px)
+      font-size 74px
+    @media (max-width: 1000px)
+      margin: 45px auto 0
+    @media (max-width: 765px)
+      margin-top: 87px
+      font-size: 48px
+      line-height: 1.2
+    & span:nth-child(3)
+      background: linear-gradient(225deg, #3B1AA7 0%, #4E31B3 30.49%, #9636EF 64.35%, #F682BD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent
+    & span:nth-child(4)
+      background: linear-gradient(225deg, #3B1AA7 0%, #4E31B3 30.49%, #9636EF 64.35%, #F682BD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent
+  &__desc
+    font-style: normal
+    font-weight: 400
+    font-size: 24px
+    text-align: center
+    margin-top: 18px
+    @media (max-width: 1165px)
+      font-size 16px
+    @media (max-width: 756px)
+      font-size 18px
+  &__btn
+    display flex
+    justify-content center
+    margin-top 35px
+    @media (max-width: 765px)
+      margin-top 25px
+    a
+      background: #181A25;
+      border: 1px solid rgba(50, 37, 66, 0.5);
+      border-radius: 10px
+      font-style: normal
+      font-weight: 600
+      letter-spacing 1px
+      font-size: 18px
+      text-transform: uppercase
+      color: #E2E8F0
+      display inline-block
+      text-decoration none
+      padding: 14px 32px
+      transition all 0.3s ease-in-out
+      &:hover
+        background: linear-gradient(225deg, #3B1AA7 0%, #4E31B3 30.49%, #9636EF 64.35%, #F682BD 100%)
+      @media (max-width: 765px)
+        font-size 16px
+
+.preview-bottom
+  margin-top: 280px
+  @media (max-width: 1440px)
+    margin-top 210px
+  @media (max-width: 1440px)
+    margin-top 130px
+  &__bg
+    position absolute
+    right: -140px
+    top: -50px
+    z-index: -1
+    background: rgba(78 49 179 0.4)
+    opacity: 0.8;
+    filter: blur(200px);
+    border-radius: 20px;
+    width: 50%;
+    height: 100%;
+    @media (max-width: 1440px)
+      right: -56px;
+      top: -147px
+    @media (max-width: 756px)
+      top unset
+      bottom 0
+      width 100%
+      height 50%
+      right 0
+      filter: blur(80px)
+      opacity 0.5
+  &__content
+    position relative
+    width 1300px
+    background: linear-gradient(225deg, rgba(91, 12, 161, 0.05) 0%, rgba(39, 30, 249, 0.05) 30.49%, rgba(121, 57, 253, 0.05) 64.35%, rgba(166, 71, 255, 0.05) 100%), rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    box-shadow: 0 15px 13px rgba(0, 0, 0, 0.11)
+    backdrop-filter: blur(28px)
+    border-radius: 20px
+    display: flex
+    align-items: center
+    margin: auto
+    padding: 65px
+    @media (max-width: 1440px)
+      width 100%
+    @media (max-width: 1165px)
+      padding 40px
+    @media (max-width: 756px)
+      flex-wrap wrap
+    @media (max-width: 756px)
+      padding 32px
+  &__left
+    width 60%
+    @media (max-width: 756px)
+      width 100%
+  &__right
+    width 40%
+    position relative
+    height 400px
+    @media (max-width: 756px)
+      width 100%
+      margin-top 40px
+    @media (max-width: 525px)
+      height 210px
+  &__title
+    font-family: 'Monument Extended', sans-serif
+    font-style: normal
+    font-weight: 400
+    font-size: 48px
+    line-height: 1.3
+    text-transform: uppercase
+    color: #E7E7E7
+    letter-spacing 2px
+    @media (max-width: 1440px)
+      font-size 42px
+    @media (max-width: 1165px)
+      font-size 36px
+    @media (max-width: 1440px)
+      font-size 28px
+    @media (max-width: 756px)
+      font-size 24px
+  &__desc
+    font-style: normal
+    font-weight: 400
+    font-size: 24px
+    color: rgba(231, 231, 231, 0.5)
+    padding-right: 110px
+    margin-top: 20px
+    line-height 1.4
+    @media (max-width: 1440px)
+      font-size 20px
+    @media (max-width: 1165px)
+      font 18px
+      padding-right 70px
+    @media (max-width: 1440px)
+      font-size 16px
+    @media (max-width: 756px)
+      padding-right 0
+      margin-top 5px
+      line-height: 1.2
+
+.icon
+  &_one
+    position absolute
+    width: 108px
+    height: 83px
+    top: -20px
+    left: -10px
+    animation-delay: 1.4s;
+    animation 12s ease-in 1s infinite reverse both running wakeUpSm2
+    @media (max-width: 765px)
+      width 55px
+      left unset
+      right 30px
+  &_two
+    position absolute
+    top: 310px
+    left: 45px
+    animation 8s ease-in 1s infinite reverse both running wakeUpSm1
+    @media (max-width: 765px)
+      width: 90px
+      top: 436px
+      left 0
+      height unset
+  &_three
+    position absolute
+    right: -80px
+    top: 200px
+    animation-delay: 0.9s;
+    animation 9s ease-in 1s infinite reverse both running wakeUpSm2
+    @media (max-width: 765px)
+      width 80px
+      right unset
+      left 60px
+
+.preview-bottom_info-left
+  position: absolute;
+  top: 0
+  animation-name: listCartOne;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-duration: 5s;
+  @media (max-width: 525px)
+    width 150px
+
+
+.preview-bottom_info-right
+  position: absolute
+  right: 0
+  bottom 0
+  transform: translateY(-25px)
+  animation-name: listCartTwo;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-duration: 6s;
+  @media (max-width: 525px)
+    width 150px
+
+
+@keyframes listCartOne{
+  0%{ transform: translateY(0px);}
+  50%{ transform: translateY(20px);}
+  100%{ transform: translateY(0px);}
+}
+@keyframes listCartTwo{
+  0%{ transform: translateY(-25px);}
+  50%{ transform: translateY(0px);}
+  100%{ transform: translateY(-25px);}
+}

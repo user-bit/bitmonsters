@@ -1,0 +1,50 @@
+<?php echo $vars['message'] ?>
+
+<div class="main__top d-flex justify-content-space-between align-items-center">
+    <div class="main__title">Добавление нового блока</div>
+</div>
+
+<div class="section">
+    <form method="POST" name="update-form">
+        <div class="section__content section__content-w-50">
+            <div class="section__title">Общая информация</div>
+
+            <div class="section__field">
+                <label class="required">Название блока:<span>*</span></label>
+                <input type="text" class="form-control" value="" name="name"/>
+            </div>
+            <div class="section__field">
+                <label class="required">Тип блока:<span>*</span></label>
+                <select class="custom-select infoblock-select" name="type">
+                    <?php foreach ($vars['type'] as $row) { ?>
+                        <option value='<?php echo $row['id'] ?>'>
+                            <?php echo $row['name'] ?>
+                        </option>
+                    <?php } ?>
+                </select>
+            </div>
+            <div class="section__field">
+                <label class="required">Шаблон:<span>*</span></label>
+                <select class="custom-select infoblock-select" name="path">
+                    <option value=''>Не выбран</option>
+                    <?php foreach ($vars['template'] as $row) { ?>
+                        <option value='<?php echo $row['name'] ?>'>
+                            <?php echo $row['name'] ?>
+                        </option>
+                    <?php } ?>
+                </select>
+            </div>
+            <div class="section-field-ajax"></div>
+        </div>
+
+        <div class="button-list-in">
+            <div class="btn-save">
+                <input type="submit" value="Сохранить" name="add">
+            </div>
+            <div class="btn-save-close">
+                <input type="submit" value="Сохранить и закрыть" name="add_close">
+            </div>
+        </div>
+        <input type="hidden" value="<?php echo $vars['action'] ?>" id="action"/>
+    </form>
+</div>

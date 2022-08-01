@@ -1,0 +1,43 @@
+<div class="question">
+    <div class="question__right-texture">
+        <source srcset="/resource/front/img/blur-texture.webp" type="image/webp">
+        <img src="/resource/front/img/blur-texture-two.png">
+    </div>
+    <div class="container">
+        <div class="question__title" data-aos="type1" data-aos-duration="1400"><?php echo $vars['constructor']['content_page_res'][$content['id']]['title']['value'] ?></div>
+        <div class="question__content">
+            <?php
+            $k = 0;
+               foreach ($vars['constructor']['content_faq'] as $content_faq) {
+                   if ($k == 600) $k=0;
+                   ?>
+            <div class="question__item" data-aos="type1" data-aos-duration="1400" data-aos-delay="<?php echo $k ?>">
+                <div class="question__top">
+                    <div class="question__icon">
+                        <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_301_716)">
+                                <path d="M14.4999 26.4933C7.99312 26.4933 2.71863 21.2188 2.71863 14.712C2.71863 8.20515 7.99312 2.93066 14.4999 2.93066C21.0067 2.93066 26.2812 8.20515 26.2812 14.712C26.2812 21.2188 21.0067 26.4933 14.4999 26.4933ZM14.4999 24.137C16.9996 24.137 19.3969 23.144 21.1644 21.3765C22.932 19.6089 23.925 17.2116 23.925 14.712C23.925 12.2123 22.932 9.81499 21.1644 8.04746C19.3969 6.27992 16.9996 5.28692 14.4999 5.28692C12.0003 5.28692 9.60296 6.27992 7.83542 8.04746C6.06788 9.81499 5.07489 12.2123 5.07489 14.712C5.07489 17.2116 6.06788 19.6089 7.83542 21.3765C9.60296 23.144 12.0003 24.137 14.4999 24.137V24.137ZM13.3218 18.2464L15.6781 18.2464L15.6781 20.6026L13.3218 20.6026L13.3218 18.2464ZM15.6781 16.3083L15.6781 17.0682L13.3218 17.0682L13.3218 15.301C13.3218 14.9886 13.4459 14.6889 13.6669 14.468C13.8878 14.247 14.1875 14.1229 14.4999 14.1229C14.8346 14.1229 15.1624 14.0278 15.4452 13.8488C15.7279 13.6697 15.9541 13.4141 16.0972 13.1116C16.2404 12.8091 16.2947 12.4721 16.2538 12.1399C16.2129 11.8077 16.0786 11.494 15.8664 11.2352C15.6542 10.9764 15.3728 10.7832 15.0551 10.678C14.7374 10.5729 14.3963 10.5601 14.0716 10.6412C13.7469 10.7223 13.4519 10.8939 13.2209 11.1361C12.9899 11.3783 12.8325 11.6811 12.7669 12.0093L10.4554 11.5463C10.5987 10.8301 10.9296 10.1648 11.4143 9.61842C11.899 9.07202 12.5201 8.66413 13.2141 8.43644C13.9081 8.20876 14.6501 8.16944 15.3643 8.32251C16.0785 8.47559 16.7392 8.81556 17.2789 9.30768C17.8186 9.79979 18.218 10.4264 18.4362 11.1235C18.6544 11.8205 18.6835 12.563 18.5207 13.275C18.3579 13.987 18.0089 14.643 17.5095 15.176C17.01 15.7089 16.378 16.0997 15.6781 16.3083V16.3083Z" fill="url(#paint0_linear_301_716)"/>
+                            </g>
+                            <defs>
+                                <linearGradient id="paint0_linear_301_716" x1="26.2812" y1="2.93066" x2="2.71863" y2="26.4933" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#3B1AA7"/>
+                                    <stop offset="0.304913" stop-color="#4E31B3"/>
+                                    <stop offset="0.643475" stop-color="#9636EF"/>
+                                    <stop offset="1" stop-color="#F682BD"/>
+                                </linearGradient>
+                                <clipPath id="clip0_301_716">
+                                    <rect width="28.2751" height="28.2751" fill="white" transform="translate(0.362427 0.574219)"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="question__name"><?php echo $content_faq['question'] ?></div>
+                </div>
+                <div class="question__desc"><?php echo htmlspecialchars_decode($content_faq['answer']) ?></div>
+            </div>
+            <?php
+                $k = $k + 200;
+            } ?>
+        </div>
+    </div>
+</div>

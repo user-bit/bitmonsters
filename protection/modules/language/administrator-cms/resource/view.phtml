@@ -1,0 +1,35 @@
+<table class="table tb_sort">
+    <thead>
+    <tr>
+        <th width="30"></th>
+        <th width="50">ID</th>
+        <th>Название</th>
+        <th>Сокращение</th>
+        <th>KEY</th>
+        <th width="110">По-умолчанию</th>
+        <th width="110">Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($vars['list'] as $row) { ?>
+        <tr id="sort<?php echo $row['id'] ?>">
+            <input type="hidden" value="<?php echo $row['id'] ?>" name="save_id[]"/>
+            <td class="move"></td>
+            <td><?php echo $row['id'] ?></td>
+            <td><input type="text" value="<?php echo $row['comment'] ?>" name="comment[]" class="form-control"></td>
+            <td><input type="text" value="<?php echo $row['comment_low'] ?>" name="comment_low[]" class="form-control"></td>
+            <td><?php echo $row['language']; ?></td>
+            <td class="centered">
+                <div class="custom-radio custom-radio__list">
+                    <input type="radio" id="default<?php echo $row['id'] ?>" name="default[]"  checked="checked" class="custom-radio__input" value="<?php echo $row['id'] ?>" <?php echo $row['default'] == 1 ? 'checked="checked"' : '' ?>>
+                    <label for="default<?php echo $row['id'] ?>" class="custom-radio__label"></label>
+                </div>
+            </td>
+            <td class="d-flex justify-content-between align-items-center h-65">
+                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . '/delete/' . $row['id']) ?>"
+                   class="tool-del">Удалить</a>
+            </td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>

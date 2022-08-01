@@ -1,0 +1,86 @@
+.order-add-product
+  width 100%
+  &__result
+    max-height: 190px
+    overflow-y: auto
+
+.total-order-sum
+  text-align: right
+  font-size: 18px
+  padding-right: 110px
+  border-top: 1px solid #efefef
+  padding-top: 20px
+  span
+    font-size: 24px
+    font-weight: 500
+
+.order-add-product-result
+  &__list
+    padding: 0
+    margin: 0
+    list-style-type: none
+  &__item
+    display: flex
+    align-items center
+    padding: 10px
+    border-bottom: 1px solid #e0e0e0
+  &__photo
+    width: 60px
+    height: 45px
+    img
+      width 100%
+      height 100%
+      object-fit contain
+  &__name
+    padding: 0 20px
+    line-height: 1.4
+    width calc(100% - 200px)
+
+.order-top
+  width 100%
+  &__content
+    display: flex
+    flex-wrap: wrap
+    margin-left: -12px
+    margin-right: -12px
+  &__info
+    display flex
+    form
+      margin-right 20px
+
+.main-order
+  &__table
+    width 100%
+    color: #4b4b5a
+    margin-bottom: 0
+    border-collapse: collapse
+    thead
+      & tr
+        & th
+          padding: .85rem .85rem
+          border-bottom 1px solid #e2e7f1
+          font-size: 14px
+          text-align: left
+    tbody
+      & tr
+        &:hover
+          background-color #f8f9fa
+        & td
+          padding: .85rem .85rem
+          border-bottom 1px solid #e2e7f1
+          font-size: 14px
+  &__status
+    font-weight: 700
+    line-height: 1
+    display: inline-flex
+    padding: 4px 10px
+    border-radius: 4px
+    font-size: 12px
+
+.order-status
+  font-weight: 700
+  line-height: 1
+  display: inline-flex
+  padding: 4px 10px
+  border-radius: 4px
+  font-size: 12px

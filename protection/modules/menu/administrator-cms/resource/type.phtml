@@ -1,0 +1,70 @@
+<?php echo $vars['message'] ?>
+<div class="main__top d-flex justify-content-space-between align-items-center">
+    <div class="main__title"><?php echo $vars['name'] ?></div>
+    <div class="main__tools tools">
+        <div class="tools__item action-add">
+            <svg>
+                <use xlink:href="/resource/<?php echo PathToTemplateAdmin ?>/images/svg/svg-sprite.svg#plus"></use>
+            </svg>
+            <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . $vars['path'] . '/addposition') ?>">Добавить</a>
+        </div>
+    </div>
+</div>
+<div class="main__content">
+    <div class="main__left">
+        <div class="main-section">
+            <form name="user-list" method="post"
+                  action="/<?php echo PathToTemplateAdmin ?>/<?php echo $vars['action'] . $vars['path'] ?>">
+                <table class="table tb_sort">
+                    <thead>
+                    <tr>
+                        <th width="30">
+                            <input type="checkbox"
+                                   id="customCheckAll"
+                                   title="Отметить/снять все"
+                                   value="Y"
+                                   name="id[]" class="custom-control-label-all">
+                            <label for="customCheckAll"></label>
+                        </th>
+                        <th width="50">ID</th>
+                        <th>Название</th>
+                        <th>Цвет</th>
+                        <th width="80">Действие</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($vars['list'] as $row) { ?>
+                        <tr>
+                            <td>
+                                <input type="checkbox" value="<?php echo $row['id'] ?>"
+                                       id="customCheck<?php echo $row['id'] ?>"
+                                       name="id[]" class="custom-control-label">
+                                <label for="customCheck<?php echo $row['id'] ?>"></label>
+                            </td>
+                            <td><?php echo $row['id'] ?>
+                                <input type="hidden" value="<?php echo $row['id'] ?>" name="type_id[]"/>
+                            </td>
+                            <td><input type="text" value="<?php echo $row['name'] ?>" name="name[]"
+                                       class="form-control"></td>
+                            <td><input type="text" value="<?php echo $row['color'] ?>" name="color[]"
+                                       class="form-control"></td>
+                            <td class="d-flex justify-content-between align-items-center h-100">
+                                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . '/delete/' . $row['id'] . $vars['path']) ?>"
+                                   class="tool-del">Удалить</a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+                <div class="button-list">
+                    <div class="btn-save">
+                        <input type="submit" value="Сохранить" name="update">
+                    </div>
+                    <div class="btn-del">
+                        <input type="submit" value="Удалить выбранные" name="delete">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+

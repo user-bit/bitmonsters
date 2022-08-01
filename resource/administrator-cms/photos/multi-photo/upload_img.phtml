@@ -1,0 +1,49 @@
+<script type="application/javascript"
+        src="/resource/<?php echo PathToTemplateAdmin ?>/photos/multi-photo/js/additional_images.js"></script>
+<link rel="stylesheet" type="text/css" href="/resource/<?php echo PathToTemplateAdmin ?>/photos/main.css"/>
+
+<div class="container-photo">
+
+    <div class="additional-images" id="multi_image_container">
+        <div class="load-image">
+            <input type="hidden" value="<?php echo $vars['path'] ?>" id="path"/>
+            <input class="main-image__img" type="file" name="extra_files" multiple="multiple" id="extra_files"
+                   accept="<?php echo "image/" . implode(",image/", explode(',', ext_image)) ?>,video/mp4"/>
+            <div class="image">
+                <div class="image__icon">
+                    <svg>
+                        <use xlink:href="/resource/administrator-cms/images/svg/svg-sprite.svg#upload"></use>
+                    </svg>
+                </div>
+                <div class="image__title">Загрузить фото</div>
+                <div class="image__desc">Форматы (<?php echo ext_image ?>)</div>
+                <input type="hidden" id="current_photo" name="current_photo"
+                       value="<?php echo $vars['edit'][$vars['photo_main']] ?>"/>
+            </div>
+        </div>
+        <div class="multi-photo" id="tb_extra_photo">
+            <?php foreach ($vars['photo'] as $row) { ?>
+                <div class="multi-photo-item">
+                    <div class="multi-photo-photo">
+                        <img src="/<?php echo $row['photo'] ?>">
+                    </div>
+                    <a href="<?php echo '/' . PathToTemplateAdmin . '/' . $vars['action'] . '/edit/' . $vars['edit']['id'] . '/dellone/' . $row['id'] ?>"
+                       class="multi-photo-del">
+                        <svg>
+                            <use xlink:href="/resource/administrator-cms/images/svg/svg-sprite.svg#delete"></use>
+                        </svg>
+                    </a>
+                </div>
+            <?php } ?>
+        </div>
+        <input type="hidden" value="<?php echo $vars['action'] ?>" id="action"/>
+        <input type="hidden" value="<?php echo $vars['action2'] ?>" id="action2"/>
+    </div>
+</div>
+
+<script type="application/javascript">
+    var muploader = new MultiImageUploader(document.getElementById('multi_image_container'),
+        ['<?= implode("','", explode(',', ext_image)) ?>'],
+        <?= $vars['edit']['id'] ?>,
+        '<?= $vars['action'] ?>');
+</script>

@@ -1,0 +1,93 @@
+<div class="preview">
+    <div class="preview-top">
+        <div class="preview-top__anim-left">
+            <picture>
+                <source srcset="/resource/front/img/m-b-texture.webp" type="image/webp" media="(min-width: 756px)">
+                <source srcset="/resource/front/img/m-b-texture.png" media="(min-width: 756px)">
+                <img src="">
+            </picture>
+        </div>
+        <div class="preview-top__anim-right">
+            <picture>
+                <source srcset="/resource/front/img/l-texture.webp" type="image/webp" media="(min-width: 756px)">
+                <source srcset="/resource/front/img/l-texture.png" media="(min-width: 756px)">
+                <img src="">
+            </picture>
+        </div>
+        <div class="container">
+            <div data-aos="type1" data-aos-duration="1400" data-aos-delay="900">
+                <div class="preview-top__small-texture">
+                    <picture>
+                        <source srcset="/resource/front/img/s-texture.webp" type="image/webp" media="(min-width: 756px)">
+                        <source srcset="/resource/front/img/s-texture.png" media="(min-width: 756px)">
+                        <img src="">
+                    </picture>
+                </div>
+            </div>
+            <div data-aos="type1" data-aos-duration="1400" data-aos-delay="1100">
+                <div class="preview-top__middle-texture">
+                    <picture>
+                        <source srcset="/resource/front/img/m-texture.webp" type="image/webp" media="(min-width: 756px)">
+                        <source srcset="/resource/front/img/m-texture.png" media="(min-width: 756px)">
+                        <img src="">
+                    </picture>
+                </div>
+            </div>
+            <div data-aos="type1" data-aos-duration="1400" data-aos-delay="800">
+                <svg class="icon_one">
+                    <use xlink:href="/resource/front/img/svg/svg-sprite.svg#bit"></use>
+                </svg>
+            </div>
+            <div data-aos="type1" data-aos-duration="1400" data-aos-delay="1800">
+                <svg class="icon_two">
+                    <use xlink:href="/resource/front/img/svg/svg-sprite.svg#coin"></use>
+                </svg>
+            </div>
+            <div data-aos="type1" data-aos-duration="1400" data-aos-delay="1500">
+                <svg class="icon_three">
+                    <use xlink:href="/resource/front/img/svg/svg-sprite.svg#bit-c"></use>
+                </svg>
+            </div>
+            <div class="preview-top__content">
+                <div class="preview-top__title" data-aos="type1" data-aos-duration="1400">
+                    <?php echo htmlspecialchars_decode($vars['constructor']['content_page_res'][$content['id']]['title']['value']) ?></div>
+                <div class="preview-top__desc" data-aos="type1" data-aos-duration="1400"
+                     data-aos-delay="200"><?php echo $vars['constructor']['content_page_res'][$content['id']]['desc']['value'] ?></div>
+                <?php if (!empty($vars['constructor']['content_page_res'][$content['id']]['name_btn']['value'])) { ?>
+                    <div class="preview-top__btn" data-aos="type1" data-aos-duration="1400" data-aos-delay="400">
+                        <a href="<?php echo $vars['constructor']['content_page_res'][$content['id']]['link_btn']['value'] ?>"
+                           target="_blank">
+                            <?php echo $vars['constructor']['content_page_res'][$content['id']]['name_btn']['value'] ?>
+                        </a>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+
+    <div class="preview-bottom">
+        <div class="container">
+            <div class="preview-bottom__content">
+                <div class="preview-bottom__left">
+                    <div class="preview-bottom__title" data-aos="type1"
+                         data-aos-duration="1400"><?php echo $vars['constructor']['content_page_res'][$content['id']]['title_two']['value'] ?></div>
+                    <div class="preview-bottom__desc" data-aos="type1" data-aos-duration="1400"
+                         data-aos-delay="200"><?php echo $vars['constructor']['content_page_res'][$content['id']]['desc_two']['value'] ?></div>
+                </div>
+                <div class="preview-bottom__right" data-aos="type1" data-aos-duration="1400" data-aos-delay="400">
+                    <picture>
+                        <source srcset='/resource/front/img/info-left.webp' type='image/webp'>
+                        <img class="preview-bottom_info-left lazy" data-src="/resource/front/img/info-left.png" src="">
+                    </picture>
+                    <picture>
+                        <source srcset='/resource/front/img/info-right.webp' type='image/webp'>
+                        <img class="preview-bottom_info-right lazy" data-src="/resource/front/img/info-right.png"
+                             src="">
+                    </picture>
+
+                </div>
+                <div class="preview-bottom__bg"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,312 @@
+.header-section-xs__top
+  display: none
+  width: 80%
+  justify-content: space-between
+  margin-top: 15px
+  @media (max-width: small)
+    display: flex
+  & .burger
+    span:nth-child(1)
+      transform rotate(45deg)
+      top: 2px
+    span:nth-child(2)
+      opacity 0
+    span:nth-child(3)
+      transform rotate(-45deg)
+      top: -4px
+
+a.log-in-xs
+  font-style: normal
+  font-weight: 400
+  font-size: 18px
+  color: #fff
+  text-decoration: none
+  display none
+  @media (max-width: small)
+    display: block
+
+
+a.sign-up-xs
+  font-style: normal
+  font-weight: 600
+  font-size: 18px
+  color: #e2e8f0
+  text-align: center
+  text-transform: uppercase
+  text-decoration: none
+  background: #181a25
+  border: 1px solid rgba(50,37,66,0.5)
+  padding: 14px 31px
+  border-radius: 10px
+  margin-top: 25px
+  display none
+  @media (max-width: small)
+    display: block
+
+.height-header
+  height 135px
+  position relative
+  @media (max-width: large)
+    height 105px
+  @media (max-width: xss)
+    height 62px
+
+.header-section
+  padding: 30px 0
+  position fixed
+  top 0
+  left 0
+  right 0
+  z-index 10
+  animation: headerOpacity 1.4s ease-in-out;
+  @media (max-width: large)
+    padding 15px 0
+  @media (max-width: xss)
+    padding 5px 0
+  &__left-anim
+    left: -200px
+    top: -200px
+    position absolute
+    width 689.51px
+    height: 630.04px
+    background: #9636EF
+    opacity: 0.2
+    filter: blur(329px)
+    transform: matrix(0.47, -0.95, 0.79, 0.53, 0, 0)
+    z-index -1
+    @media (max-width: 765px)
+      width: 377px
+      height: 372px
+      left -200px
+      top -200px
+      background #9636EF
+  &__right-anim
+    top: -200px
+    right -200px
+    position absolute
+    width 609.94px
+    height 546.29px
+    background: #FCFD4A
+    opacity: 0.15
+    filter: blur(200px)
+    transform: rotate(-78.59deg)
+    z-index -1
+    @media (max-width: 765px)
+      top: -400px
+      right  -450px
+  &__content
+    display: flex
+    align-items center
+    @media (max-width: small)
+      justify-content space-between
+  &__logo
+    width 20%
+    @media (max-width: max-large)
+      width 10%
+    @media (max-width: xss)
+      width 50%
+  &__menu
+    width 60%
+    display: flex
+    justify-content: center
+    @media (max-width: max-large)
+      width 70%
+    @media (max-width: middle)
+      justify-content flex-start
+    @media (max-width: middle)
+      width 65%
+    @media (max-width: small)
+      position fixed
+      top 0
+      right 0
+      width 100%
+      bottom 0
+      background: #11141D
+      z-index 9
+      display: flex
+      flex-direction: column
+      align-items: center
+      right -100%
+      opacity 0
+      visibility hidden
+      transition all 0.3s ease-in-out
+      &.active
+        opacity 1
+        visibility visible
+        right 0
+    ul
+      display: flex
+      list-style-type none
+      margin 0
+      padding 0
+      @media (max-width: small)
+        flex-direction column
+        align-items: center
+        margin-top: 40px
+      li
+        margin 0 32px
+        @media (max-width: large)
+          margin 0 25px
+        @media (max-width: middle)
+          margin 0 15px
+        @media (max-width: small)
+          margin-bottom 55px
+        @media (max-width: xss)
+          margin-bottom 30px
+        a
+          text-transform uppercase
+          font-style: normal
+          font-weight: 400
+          font-size: 18px
+          color: #F8FAFC
+          text-decoration none
+          @media (max-width: large)
+            font-size 16px
+  &__btn
+    width 20%
+    display flex
+    align-items center
+    justify-content flex-end
+    @media (max-width: middle)
+      width 25%
+    @media (max-width: small)
+      display none
+  &__menu-xs
+    width 50%
+    justify-content flex-end
+    display none
+    @media (max-width: small)
+      display flex
+
+.burger
+  position relative
+  background: linear-gradient(225deg, rgba(91, 12, 161, 0.05) 0%, rgba(39, 30, 249, 0.05) 30.49%, rgba(121, 57, 253, 0.05) 64.35%, rgba(166, 71, 255, 0.05) 100%), rgba(0, 0, 0, 0.3);
+  border: 1.7672px solid rgba(50, 37, 66, 0.5);
+  box-shadow: 0px 26.5079px 22.9735px rgb(0 0 0 / 11%);
+  backdrop-filter: blur(49.4815px);
+  border-radius: 17.672px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center
+  flex-direction: column
+  align-items: center
+  cursor pointer
+  @media (max-width: xss)
+    width 52px
+    height 52px
+  span:nth-child(1)
+    background: linear-gradient(225deg, #3B1AA7 0%, #4E31B3 30.49%, #9636EF 64.35%, #F682BD 100%)
+    position relative
+    width 30px
+    height 3px
+    top -8px
+    @media (max-width: xss)
+      width 24px
+  span:nth-child(2)
+    background: linear-gradient(225deg, #3B1AA7 0%, #4E31B3 30.49%, #9636EF 64.35%, #F682BD 100%)
+    position relative
+    width 20px
+    height 3px
+    left -5px
+    @media (max-width: xss)
+      width 18px
+      left: -3px
+  span:nth-child(3)
+    background: linear-gradient(225deg, #3B1AA7 0%, #4E31B3 30.49%, #9636EF 64.35%, #F682BD 100%)
+    position relative
+    width 30px
+    height 3px
+    top 8px
+    @media (max-width: xss)
+      width 24px
+
+.log-in
+  font-style: normal
+  font-weight: 400
+  font-size: 18px
+  color: #FFFFFF
+  text-decoration: none
+  margin-right: 32px
+  @media (max-width: large)
+    font-size 16px
+
+.sign-up
+  font-style: normal
+  font-weight: 600
+  font-size: 18px
+  color: #E2E8F0
+  text-align: center
+  text-transform: uppercase
+  text-decoration: none
+  background: #181A25
+  border: 1px solid rgba(50, 37, 66, 0.5)
+  padding: 14px 31px
+  border-radius: 10px
+  transition all 0.3s ease-in-out
+  &:hover
+    background: linear-gradient(225deg, #3B1AA7 0%, #4E31B3 30.49%, #9636EF 64.35%, #F682BD 100%)
+  @media (max-width: large)
+    font-size 16px
+
+.circle
+  &_one
+    width: 306px
+    height: 306px
+    border: 1px solid rgba(195 230 233 25%)
+    border-radius: 50%
+    left: 50%
+    position: absolute
+    top: -153px
+    margin-left: -153px
+    z-index: -1
+    @media (max-width: xs)
+      width 150px
+      height 150px
+      top: -75px
+      margin-left -75px
+  &_two
+    width: 700px
+    height: 700px
+    border: 1px solid rgba(195 230 233 25%)
+    border-radius: 50%
+    left: 50%
+    position: absolute
+    top: -350px
+    margin-left: -350px
+    z-index: -1
+    @media (max-width: xs)
+      width 350px
+      height 350px
+      top: -175px
+      margin-left -175px
+  &_three
+    width: 1200px
+    height: 1200px
+    border: 1px solid rgba(195 230 233 25%)
+    border-radius: 50%
+    left: 50%
+    position: absolute
+    top: -600px
+    margin-left: -600px
+    z-index: -1
+    @media (max-width: xs)
+      width 580px
+      height 580px
+      top: -290px
+      margin-left -290px
+  &_four
+    width: 1600px
+    height: 1600px
+    border: 1px solid rgba(195 230 233 25%)
+    border-radius: 50%
+    left: 50%
+    position: absolute
+    top: -800px
+    margin-left: -800px
+    z-index: -1
+    @media (max-width: xs)
+      width 800px
+      height 800px
+      top: -400px
+      margin-left -400px

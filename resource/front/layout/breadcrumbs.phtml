@@ -1,0 +1,46 @@
+<?php if (!empty($vars['links'])) { ?>
+    <div class="breadcrumbs">
+        <div class="container">
+            <ul class="breadcrumbs__list" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <?php
+                $count = count($vars['links']);
+                $i = 0;
+                foreach ($vars['links'] as $item) {
+                    $i++;
+                    ?>
+                    <?php if ($i == 1) { ?>
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
+                            class="breadcrumbs__item">
+                            <a itemprop="item" title="Parfum Aroma" href="<?php echo Links::getURl('') ?>">
+                                <span itemprop="name">Parfum Aroma</span>
+                            </a>
+                            <meta type="hidden" itemprop="position" content="<?php echo $i ?>"/>
+                            <span class="breadcrumbs__delimiter">
+                                <svg><use xlink:href="/resource/front/img/svg/svg-sprite.svg#arrow-breadcrumbs"></use></svg>
+                            </span>
+                        </li>
+                    <?php } else if ($count == $i) { ?>
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
+                            class="breadcrumbs__item">
+                            <span class="breadcrumbs__last" itemprop="name"
+                                  title="<?php echo $item['name'] ?>"><?php echo $item['name'] ?></span>
+                            <meta type="hidden" itemprop="position" content="<?php echo $i ?>"/>
+                        </li>
+                    <?php } else { ?>
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
+                            class="breadcrumbs__item">
+                            <a itemprop="item" title="<?php echo $item['name'] ?>"
+                               href="<?php echo Links::getURl($item['link']) ?>">
+                                <span itemprop="name"><?php echo $item['name'] ?></span>
+                            </a>
+                            <meta type="hidden" itemprop="position" content="<?php echo $i ?>"/>
+                            <span class="breadcrumbs__delimiter">
+                                 <svg><use xlink:href="/resource/front/img/svg/svg-sprite.svg#arrow-breadcrumbs"></use></svg>
+                            </span>
+                        </li>
+                    <?php } ?>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+<?php } ?>

@@ -1,0 +1,112 @@
+<div class="slider" id="video">
+    <div class="slider__anim-left">
+        <picture>
+            <source srcset="/resource/front/img/blur-texture.webp" type="image/webp" media="(min-width: 756px)">
+            <source srcset="/resource/front/img/blur-texture.png" media="(min-width: 756px)">
+            <img src="">
+        </picture>
+    </div>
+    <div class="slider__circle-one"></div>
+    <div class="slider__circle-two"></div>
+    <div class="slider__circle-three"></div>
+    <div class="slider__circle-four"></div>
+    <div class="slider-top">
+        <div class="container">
+            <div class="slider-top__title" data-aos="type1" data-aos-duration="1400"><?php echo $vars['constructor']['content_page_res'][$content['id']]['title_1']['value'] ?></div>
+            <div class="slider-top__photos">
+                <?php
+                $k = 0;
+                for ($i = 0; $i < 5; $i++) { ?>
+                    <div data-aos="type1" data-aos-duration="1400" data-aos-delay="<?php echo $k ?>">
+                        <?php echo Links::getPhoto($vars['constructor']['content_page_res'][$content['id']]['photo_' . $i]) ?>
+                    </div>
+                <?php
+                    $k = $k + 200;
+                } ?>
+            </div>
+            <div data-aos="type1" data-aos-duration="1400">
+                <div class="slider-top__slider" >
+                    <div class="swiper-wrapper slider-top__wrapper">
+                        <?php foreach ($vars['constructor']['content_video'] as $content_video) { ?>
+                            <div class="swiper-slide">
+                                <div class="slider-top__item">
+                                    <a data-fancybox="video" data-src="<?php echo $content_video['link_video']?>">
+                                        <div class="slider-top__photo">
+                                            <img class="lazy"
+                                                 data-src="/<?php echo $content_video['photo']?>">
+                                        </div>
+                                        <div class="slider-top__info">
+                                            <svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M37.7393 75.861C17.028 75.861 0.239258 58.8857 0.239258 37.9444C0.239258 17.003 17.028 0.02771 37.7393 0.02771C58.4505 0.02771 75.2393 17.003 75.2393 37.9444C75.2393 58.8857 58.4505 75.861 37.7393 75.861ZM37.7393 68.2777C45.6958 68.2777 53.3264 65.0819 58.9525 59.3933C64.5786 53.7047 67.7393 45.9893 67.7393 37.9444C67.7393 29.8995 64.5786 22.1841 58.9525 16.4955C53.3264 10.8069 45.6958 7.61104 37.7393 7.61104C29.7828 7.61104 22.1521 10.8069 16.5261 16.4955C10.9 22.1841 7.73926 29.8995 7.73926 37.9444C7.73926 45.9893 10.9 53.7047 16.5261 59.3933C22.1521 65.0819 29.7828 68.2777 37.7393 68.2777V68.2777ZM32.5718 24.3513L50.868 36.6817C51.0738 36.8202 51.2425 37.0079 51.3592 37.2282C51.4759 37.4485 51.537 37.6945 51.537 37.9444C51.537 38.1943 51.4759 38.4403 51.3592 38.6606C51.2425 38.8808 51.0738 39.0686 50.868 39.207L32.568 51.5375C32.3424 51.6887 32.0804 51.7754 31.81 51.7883C31.5396 51.8012 31.2708 51.7399 31.032 51.6109C30.7933 51.4818 30.5936 51.2898 30.454 51.0553C30.3144 50.8208 30.2402 50.5524 30.2393 50.2787V25.6101C30.2398 25.3358 30.3138 25.0667 30.4536 24.8316C30.5934 24.5965 30.7936 24.4041 31.0329 24.2749C31.2723 24.1457 31.5418 24.0846 31.8128 24.098C32.0838 24.1115 32.3461 24.199 32.5718 24.3513V24.3513Z" fill="url(#paint0_linear_301_88)"/>
+                                                <defs>
+                                                    <linearGradient id="paint0_linear_301_88" x1="75.2392" y1="0.02771" x2="-0.589441" y2="75.0231" gradientUnits="userSpaceOnUse">
+                                                        <stop stop-color="#3B1AA7"/>
+                                                        <stop offset="0.304913" stop-color="#4E31B3"/>
+                                                        <stop offset="0.643475" stop-color="#9636EF"/>
+                                                        <stop offset="1" stop-color="#F682BD"/>
+                                                    </linearGradient>
+                                                </defs>
+                                            </svg>
+                                            <span><?php echo $content_video['name']?></span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    <div class="slider-top__container">
+                        <div class="slider-top__prev">
+                            <svg width="18" height="29" viewBox="0 0 18 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.46068 14.4443L17.1857 25.1693L14.122 28.233L0.333344 14.4443L14.122 0.65564L17.1857 3.71931L6.46068 14.4443Z" fill="#8c35e7"/>
+                            </svg>
+                        </div>
+                        <div class="slider-top__next">
+                            <svg width="18" height="29" viewBox="0 0 18 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.5393 14.4443L0.814331 3.71931L3.878 0.65564L17.6667 14.4443L3.878 28.233L0.814331 25.1693L11.5393 14.4443Z" fill="#8c35e7"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slider-bottom" id="ecosystem" data-aos="type1" data-aos-duration="1400">
+    <div class="slider-bottom__left-gradient"></div>
+    <div class="container">
+        <div class="slider-bottom__title" ><?php echo $vars['constructor']['content_page_res'][$content['id']]['title_2']['value'] ?></div>
+        <div class="slider-bottom__slider" >
+            <div class="swiper-wrapper slider-bottom__wrapper">
+                <?php foreach ($vars['constructor']['content_eco'] as $content_eco) { ?>
+                    <div class="swiper-slide">
+                        <div class="slider-bottom__item">
+                            <div class="slider-bottom__left">
+                                <div class="slider-bottom__name">
+                                    <?php echo $content_eco['name']?>
+                                </div>
+                                <div class="slider-bottom__desc"><?php echo $content_eco['text']?></div>
+                            </div>
+                            <div class="slider-bottom__right">
+                                <img class="lazy"
+                                     data-src="/<?php echo $content_eco['photo']?>">
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+            <div class="slider-bottom__container">
+                <div class="slider-bottom__prev">
+                    <svg width="18" height="29" viewBox="0 0 18 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.46068 14.4443L17.1857 25.1693L14.122 28.233L0.333344 14.4443L14.122 0.65564L17.1857 3.71931L6.46068 14.4443Z" fill="#8c35e7"/>
+                    </svg>
+                </div>
+                <div class="slider-bottom__next">
+                    <svg width="18" height="29" viewBox="0 0 18 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.5393 14.4443L0.814331 3.71931L3.878 0.65564L17.6667 14.4443L3.878 28.233L0.814331 25.1693L11.5393 14.4443Z" fill="#8c35e7"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

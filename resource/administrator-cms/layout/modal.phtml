@@ -1,0 +1,28 @@
+<div class="overflow"></div>
+<div class="modal-add-field">
+    <div class="modal-add-field__top">
+        <div class="modal-add-field__close">
+            <svg>
+                <use xlink:href="/resource/<?php echo PathToTemplateAdmin ?>/images/svg/svg-sprite.svg#delete"></use>
+            </svg>
+        </div>
+    </div>
+    <div class="modal-add-field__content">
+        <form method="POST" class="add-field-form">
+            <span>Чтоб поле появилось на сайте, обратитесь к разработчику сайта, и он добавить нужное поле</span>
+            <input type="hidden" name="id" value="">
+            <input type="hidden" name="table" value="">
+            <div class="section__field">
+                <label>Название поля (админ-панель):</label>
+                <input type="text" class="form-control" value="" name="name_admin" required>
+            </div>
+            <div class="section__field">
+                <label>Ключ поля:</label>
+                <input type="text" class="form-control" value="" name="key_field" required>
+            </div>
+            <button type="submit" class="btn-save-in">Добавить</button>
+        </form>
+    </div>
+</div>
+<div class="modal-add-field-overflow"></div>
+

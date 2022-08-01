@@ -1,0 +1,228 @@
+.partners-top
+  margin-top: 157px
+  @media (max-width: 1440px)
+    margin-top 130px
+  @media (max-width: 1000px)
+    margin-top 85px
+  @media (max-width: 756px)
+    margin-top 125px
+  &__title
+    font-family: 'Monument Extended', sans-serif
+    font-style: normal
+    font-weight: 400
+    font-size: 48px
+    text-transform: uppercase
+    text-align: center
+    @media (max-width: 1440px)
+      font-size 42px
+    @media (max-width: 1000px)
+      font-size 32px
+    @media (max-width: 756px)
+      font-size 24px
+  &__content
+    display: flex
+    justify-content: center
+    margin-top: 21px
+    @media (max-width: 756px)
+      picture
+        text-align center
+    img
+      margin 0 32px
+      transition transform 0.3s ease-in-out
+      &:hover
+        transform scale(1.1)
+      @media (max-width: 1000px)
+        width 70%
+      @media (max-width: 756px)
+        margin 0
+
+
+.events
+  margin-top: 175px
+  position relative
+  @media (max-width: 1000px)
+    margin-top 100px
+  @media (max-width: 756px)
+    margin-top 115px
+  &__texture
+    display none
+    @media (max-width: 756px)
+      display block
+      position absolute
+      right: -24px
+      top: -71px
+  &__left-gradient
+    @media (min-width: 756px)
+      position: absolute
+      background: rgba(252,253,74,0.25)
+      opacity: 0.5
+      filter: blur(200px)
+      width: 565px
+      height: 610px
+      left: -331px
+      top: 0
+  &__line-one
+    @media (min-width: 756px)
+      background: #322542
+      position: absolute
+      top: 130px
+      height: 1px
+      left: 0
+      right: 0
+      &:before
+        content: ""
+        z-index 1
+        display: block
+        position: absolute
+        width: 20vh
+        height: 100%
+        top: 0
+        will-change: right
+        right: -20%
+        animation: run 15s 0s infinite
+        animation-fill-mode: forwards
+        animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97)
+        background: linear-gradient(225deg, #3b1aa7 0%, #4e31b3 30.49%, #9636ef 64.35%, #f682bd 100%)
+  &__line-two
+    @media (min-width: 756px)
+      background: #322542
+      position: absolute
+      top: 320px
+      height: 1px
+      left: 0
+      right: 0
+      &:before
+        content: ""
+        z-index 1
+        display: block
+        position: absolute
+        width: 20vh
+        height: 100%
+        top: 0
+        will-change: right
+        right: -20%
+        animation: run 18s 0s infinite
+        animation-fill-mode: forwards
+        animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97)
+        background: linear-gradient(225deg, #3b1aa7 0%, #4e31b3 30.49%, #9636ef 64.35%, #f682bd 100%)
+  &__line-three
+    @media (min-width: 756px)
+      background: #322542
+      position: absolute
+      top: 485px
+      height: 1px
+      left: 0
+      right: 0
+      &:before
+        content: ""
+        z-index 1
+        display: block
+        position: absolute
+        width: 20vh
+        height: 100%
+        will-change: right
+        top: 0
+        right: -20%
+        animation: run 12s 0s infinite
+        animation-fill-mode: forwards
+        animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97)
+        background: linear-gradient(225deg, #3b1aa7 0%, #4e31b3 30.49%, #9636ef 64.35%, #f682bd 100%)
+  &__title
+    font-family: 'Monument Extended', sans-serif
+    font-style: normal
+    font-weight: 400
+    font-size: 48px
+    text-transform: uppercase
+    text-align: center
+    @media (max-width: 1000px)
+      font-size: 32px
+    @media (max-width: 756px)
+      font-size 24px
+      text-align left
+  &__slide
+    margin-top: 25px
+  & .swiper-slide
+    @media (max-width: 440px)
+      height 260px
+    &.no-active
+      filter: grayscale(1)
+    &.active
+      @media (min-width: 440px)
+        width: 400px !important
+      .events__photo
+        height 210px !important
+  &__line
+    position absolute
+    left 0
+    background #322542
+    height 1px
+    top 109px
+    right 0
+    @media (max-width: 1000px)
+      top: 89px
+    @media (max-width: 756px)
+      top: 81px
+  &__line-active
+    position: absolute
+    top: 28px
+    left: 100px
+    height: 2px
+    background: linear-gradient(270deg, rgba(121,255,199,0) 0.85%, #79ffc7 8.55%, #a6ff4d 20.74%, #30ff8f 84.05%, rgba(48,255,143,0) 102.55%)
+  &__item
+    position relative
+    &:before
+      content ""
+      position: absolute
+      left: 50%
+      margin-left: -4px
+      top: 25px
+      width: 8px
+      height: 8px
+      background: #e7e7e7
+      border-radius: 50%
+  &__date
+    font-family: 'Inter'
+    font-style: normal
+    font-weight: 400
+    color: rgba(231, 231, 231, 0.8)
+    font-size: 16px
+    text-align center
+  &__photo
+    border: 1px solid rgba(50, 37, 66, 0.5)
+    border-radius: 20px
+    margin-top: 60px
+    height 120px
+    overflow: hidden
+    position: relative
+    @media (max-width: 756px)
+      margin-top 35px
+    &:before
+      content ""
+      background: linear-gradient(180deg, #11141D 0%, rgba(17, 20, 29, 0.35) 100%)
+      position absolute
+      left 0
+      top 0
+      right 0
+      bottom 0
+    img
+      width 100%
+      height 100%
+      object-fit cover
+  &__name
+    font-size: 14px
+    font-family: 'Monument Extended', sans-serif
+    font-style: normal
+    font-weight: 400
+    text-transform: uppercase
+    text-align: center
+    position absolute
+    top 15px
+    left 0
+    right 0
+    padding 0 10px
+    letter-spacing 2px
+    @media (max-width: 1165px)
+      font-size 12px
+    @media (max-width: 756px)
+      font-size 18px
+

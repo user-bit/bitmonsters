@@ -1,0 +1,47 @@
+.lang
+  position: relative
+  display flex
+  align-items flex-end
+  &__main
+    display flex
+    align-items center
+  &__flag
+    width: 20px
+    height: 17px
+  span
+    line-height 1
+    margin-left 2px
+  svg
+    width 18px
+    height 18px
+  &__content
+    position: absolute
+    right: 0
+    padding: 8px 0
+    top: 30px
+    background: white
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15)
+    opacity 0
+    visibility hidden
+    transform translateY(-16px)
+    transition 0.35s ease-in-out
+    &.active
+      opacity 1
+      visibility visible
+      transform translateY(0)
+  &__list
+    list-style-type none
+    padding 0
+    margin 0
+    li
+      padding: 6px 30px
+      &:hover
+        background #f8f9fa
+      a
+        background-repeat no-repeat
+        padding-left: 28px
+        background-position: 1px
+        font-weight: 400
+        color: color-black
+        text-decoration none
+        font-size 14px

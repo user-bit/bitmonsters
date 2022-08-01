@@ -1,0 +1,226 @@
+.left-menu
+  width: 275px
+  background: white
+  bottom: 0
+  padding: 0 0 30px 0
+  position: fixed
+  top: 72px
+  transition-duration: 0.2s
+  box-shadow: 1px 0.05rem 0.01rem rgba(75,75,90,.075)
+  z-index: 99
+  height: calc(100vh - 72px)
+  padding-bottom: 60px
+  overflow-x: auto
+  &__user
+    padding: 25px 30px 30px 22px
+    display: flex
+    align-items center
+  &__title
+    padding: 15px 30px 10px 22px
+    letter-spacing: 0.2px
+    pointer-events: none
+    font-size: 12px
+    text-transform: uppercase
+    color: color-main
+
+.menu-item
+  &__item
+    display: none
+  &__title
+    display: flex
+    align-items center
+    padding: 15px 30px
+    position relative
+    cursor pointer
+    border-left: 3px solid white
+    &.none-childs
+      opacity 0.2
+      pointer-events none
+    a
+      color: #4b4b5a;
+      text-decoration: none
+      font-size: 15px
+      transition: color 0.3s ease-in-out
+      padding-left: 7px
+      margin-top: 4px
+    &.active
+      background color-blue-opacity
+      border-left: 3px solid #5369f8
+      span
+        color: color-blue
+      a
+        color: color-blue
+      svg
+        color: color-blue
+        fill: rgba(83,105,248,.1)
+      & .menu-item__right svg
+        transform rotate(90deg)
+    &:hover
+      background color-blue-opacity
+      span
+        color: color-blue
+      a
+        color: color-blue
+      svg
+        color: color-blue
+        fill: rgba(83,105,248,.1)
+    svg
+      width 16px
+      height 16px
+      color: color-main
+      fill: rgba(75,75,90,.12)
+      transition transform 0.35s ease-in-out
+    span
+      color: color-main
+      font-size: 15px
+      font-weight: 400
+      line-height: 1
+      padding-left: 12px
+      padding-top: 3px
+  &__right
+    position: absolute
+    right: 20px
+    top: 18px
+  &__list
+    margin: 0
+    list-style-type: none
+    padding: 0
+    li
+      padding: 10px 20px 10px 58px
+      display: block
+      position: relative
+      a
+        color: color-main
+        text-decoration: none
+        font-size: 14px
+        transition color 0.3s ease-in-out
+        &:hover
+          color: color-blue
+  &__link.active
+    a
+      color color-blue
+
+.user-main
+  position relative
+  &__photo
+    height: 40px
+    width: 40px
+    background color-gray
+    border-radius: 50%
+  &__right
+    padding-left: 12px
+  &__title
+    color color-main
+    font-weight: 600
+    font-size: 14px
+  &__desc
+    font-size: 9px
+    text-transform: uppercase
+    letter-spacing: 1px
+    margin-top: 2px
+    font-weight: 400
+  &__down
+    position absolute
+    right 20px
+    background-color: rgba(75,75,90,.1)
+    width: 18px
+    height: 18px
+    border-radius: 3px
+    cursor: pointer
+    svg
+      width: 18px
+      height: 18px
+  &__list
+    list-style-type none
+    margin: 0
+    padding: 0
+    svg
+      color: #6c757d
+      fill: rgba(108,117,125,.12)
+      height: 16px
+      width: 16px
+      margin-right 10px
+    li
+      padding 7px 30px
+      &:hover
+        background-color: #f8f9fa
+      a
+        color color-black
+        text-decoration none
+        letter-spacing: 0.2px
+        display: flex
+        font-size 15px
+  &__dropdown
+    position: absolute
+    right: 20px
+    top: 60px
+    background: #fff
+    padding: 8px 0
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15)
+    z-index: 9
+    transform translateY(-16px)
+    opacity 0
+    visibility hidden
+    transition all 0.35s ease-in-out
+    &.active
+      opacity: 1
+      visibility: visible
+      transform: translateY(0)
+  &__hr
+    margin: 6px 0
+    overflow: hidden
+    border-top: 1px solid #f6f6f7
+
+.right-menu-main
+  position: fixed
+  width: 300px
+  background: #fff
+  z-index: 999
+  bottom: 0
+  top: 0
+  opacity 0
+  visibility hidden
+  right -300px
+  box-shadow: -1px 0.05rem 0.01rem rgba(75, 75, 90, 0.08)
+  transition opacity 0.3s ease-in-out, right 0.3s ease-in-out, visibility 0.3s ease-in-out
+  &.active
+    opacity 1
+    visibility visible
+    right 0
+  &__close
+    position: absolute
+    height: 48px
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content flex-end
+    &:hover svg
+      stroke: #0a29f5
+    svg
+      width 22px
+      height 22px
+      stroke: #5369f8
+      margin-right 20px
+      cursor pointer
+      transition  stroke 0.3s ease-in-out
+  &__menu
+    margin-top: 70px
+  &__title
+    padding-left: 25px
+    margin-bottom: 20px
+    font-size: 19px
+  &__list
+    list-style-type none
+    margin 0
+    padding 0
+  &__item
+    a
+      text-decoration none
+      color: #4b4b5a
+      font-size: 15px
+      font-weight: 400
+      line-height: 1
+      display: block
+      padding 9px 0 9px 25px
+      &:hover
+        background: #f7f7ff

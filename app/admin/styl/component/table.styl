@@ -1,0 +1,62 @@
+.table
+  width 100%
+  color: color-main
+  margin-bottom: 0
+  border-collapse: collapse
+  th, td
+    border-top: 1px solid #f6f6f7
+    padding: 0.75rem
+    line-height: 1.4
+    a
+      font-size: 16px
+      color: color-main
+      text-decoration none
+      font-weight: 400
+      line-height: 1.2
+      transition color 0.3s ease-in-out
+      &:hover
+        color color-blue
+  thead
+    th
+      color: #4b4b5a
+      background-color: #f8f9fa
+      border-color: #f6f6f7
+      text-align: left
+      font-size: 16px
+      font-weight: 500
+      a
+        font-size: 16px
+        color: color-main
+        text-decoration none
+        font-weight: 500
+        line-height: 1.2
+        transition color 0.3s ease-in-out
+        &:hover
+          color color-blue
+  tbody
+    tr:hover
+      td
+        background-color: #ddf3fa
+        border-bottom-color: #9fdaed
+
+
+.move
+  cursor: pointer
+  background-image: url(/resource/administrator-cms/images/svg/sort.svg)
+  padding: 0 15px
+  background-repeat: no-repeat
+  background-position: center
+  background-size: 22px
+
+.table-sub
+  padding-left: 75px !important
+  &__content
+    display: flex
+  &__name
+    padding-right 50px
+    width 150px
+  &__text
+    padding-right 40px
+    width calc(100% - 270px)
+  &__link
+    width 120px

@@ -1,0 +1,28 @@
+<?php echo $vars['message'] ?>
+
+<div class="main__top d-flex justify-content-space-between align-items-center">
+    <div class="main__title"><?php echo $vars['name'] ?></div>
+    <div class="main__tools tools main__tools-no-save-del-choice">
+        <div class="tools__item action-add">
+            <svg>
+                <use xlink:href="/resource/<?php echo PathToTemplateAdmin ?>/images/svg/svg-sprite.svg#plus"></use>
+            </svg>
+            <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . '/add') ?>">Создать</a>
+        </div>
+    </div>
+</div>
+
+<div class="main__content">
+    <div class="main__left">
+        <div class="main-section">
+            <form name="user-list" method="post" action="/<?php echo PathToTemplateAdmin ?>/<?php echo $vars['action'] ?>/update">
+                <?php echo $vars['list'] ?>
+                <input type="hidden" value="<?php echo $vars['action'] ?>" id="action"/>
+                <div class="button-list">
+                    <div class="btn-save">
+                        <input type="submit" value="Сохранить" name="update">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

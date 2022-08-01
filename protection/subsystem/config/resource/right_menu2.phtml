@@ -1,0 +1,26 @@
+<div class="list-group">
+    <div class="list-group__title">
+        <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action']) ?>">
+            <svg>
+                <use xlink:href="/resource/administrator-cms/images/svg/svg-sprite.svg#home"></use>
+            </svg>
+            <span>Корневой раздел</span>
+        </a>
+    </div>
+    <div class="list-group__list">
+        <ul class="treeview">
+            <li <?php echo (isset($vars['sub']) && $vars['sub'] == 'all') ? ' class="cm-active"' : '' ?>>
+                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . '/all') ?>">Все
+                    интерфейсы</a>
+            </li>
+            <?php foreach ($vars['menu'] as $i => $row) { ?>
+                <li>
+                    <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/config/modules/' . $row['id'])?>">
+                        <?php echo $row['name'] ?>
+                        (<?php echo $row['cnt'] ?>)
+                    </a>
+                </li>
+            <?php } ?>
+        </ul>
+    </div>
+</div>

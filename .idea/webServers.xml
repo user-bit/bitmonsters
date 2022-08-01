@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4ad614d6-d16b-4bcb-846c-727f3f503930" name="bit" url="http://141.94.109.23">
+        <fileTransfer rootFolder="/domains/premium-dent.com.ua/public_html/bitmonsters" host="141.94.109.23" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,9 @@
+<?php foreach ($vars['photo'] as $row) { ?>
+    <div class="multi-photo-item">
+        <div class="multi-photo-photo"><img src="/<?php echo $row['photo'] ?>"></div>
+        <a href="<?php echo '/' . PathToTemplateAdmin . '/' . $vars['action'] . '/edit/' . $vars['sub_id'] . '/dellone/' . $row['id'] ?>"
+           class="multi-photo-del">
+            <svg><use xlink:href="/resource/administrator-cms/images/svg/svg-sprite.svg#delete"></use></svg>
+        </a>
+    </div>
+<?php } ?>

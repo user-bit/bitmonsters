@@ -1,0 +1,58 @@
+<?php echo $vars['message'] ?>
+
+<div class="main__top d-flex justify-content-space-between align-items-center">
+    <div class="main__title">Добавление новой вопроса</div>
+</div>
+
+<div class="section">
+    <form method="POST" name="update-form" >
+        <div class="section__content section__content-w-100">
+            <div class="section__title">Общая информация</div>
+            <div class="section__field">
+                <label class="required">Сорт:<span>*</span></label>
+                <input type="text" class="form-control" value="0" name="sort"/>
+            </div>
+            <?php
+            $vars['photo_field'] = 'photo';
+            $vars['increment'] = 1;
+            $vars['path'] = "storage/tmp/";
+            $vars['image_id'] = mktime();
+            include $_SERVER['DOCUMENT_ROOT'] . "/resource/" . PathToTemplateAdmin . "/photos/photo/upload_img.phtml";
+            ?>
+            <input type="hidden" name="tmp_image" value="<?php echo $vars['image_id'] ?>"/>
+            <div class="section__field">
+                <label class="required">Заголовок:<span>*</span></label>
+                <input type="text" class="form-control" value="" name="name"/>
+            </div>
+            <div class="section__field">
+                <label class="required">Ссылка видео:<span>*</span></label>
+                <input type="text" class="form-control" value="" name="link_video"/>
+            </div>
+
+            <div class="section__field">
+                <label class="required">Состояние:<span>*</span></label>
+                <div class="select-field">
+                    <div class="select-field__item">
+                        <input type="radio" class="select-field__radio" value="1" id="page_data_0_d"
+                               name="active" checked="checked">
+                        <label for="page_data_0_d">Вкл.</label>
+                    </div>
+                    <div class="select-field__item">
+                        <input type="radio" class="select-field__radio" value="0" id="page_data_0_a"
+                               name="active">
+                        <label for="page_data_0_a">Выкл.</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button-list-in">
+            <div class="btn-save">
+                <input type="submit" value="Сохранить" name="add">
+            </div>
+            <div class="btn-save-close">
+                <input type="submit" value="Сохранить и закрыть" name="add_close">
+            </div>
+        </div>
+        <input type="hidden" value="<?php echo $vars['action'] ?>" id="action"/>
+    </form>
+</div>

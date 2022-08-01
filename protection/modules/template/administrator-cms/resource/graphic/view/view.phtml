@@ -1,0 +1,51 @@
+<div class="graphic">
+    <div class="graphic-top">
+        <div class="container">
+            <div class="graphic-top__content">
+                <div class="graphic-top__left" data-aos="type1" data-aos-duration="1400">
+                    <?php echo Links::getPhoto($vars['constructor']['content_page_res'][$content['id']]['photo_bg']) ?>
+                </div>
+                <div class="graphic-top__right">
+                    <div class="graphic-top__name" data-aos="type1" data-aos-duration="1400" data-aos-delay="200"><?php echo $vars['constructor']['content_page_res'][$content['id']]['title']['value'] ?></div>
+                    <div class="graphic-top__desc" data-aos="type1" data-aos-duration="1400" data-aos-delay="400"><?php echo $vars['constructor']['content_page_res'][$content['id']]['desc']['value'] ?></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="graphic-bottom">
+        <div class="graphic-bottom__left-texture">
+            <picture>
+                <source srcset="/resource/front/img/m-b-texture.webp" type="image/webp">
+                <source srcset="/resource/front/img/m-b-texture.png">
+                <img src="">
+            </picture>
+        </div>
+        <div class="graphic-bottom__left-gradient"></div>
+        <div class="graphic-bottom__right-texture">
+            <picture>
+                <source srcset="/resource/front/img/m-texture.webp" type="image/webp" media="(min-width: 756px)">
+                <source srcset="/resource/front/img/m-texture.png" media="(min-width: 756px)">
+                <img src="">
+            </picture>
+        </div>
+        <div class="graphic-bottom__line-one"></div>
+        <div class="graphic-bottom__line-two"></div>
+        <div class="graphic-bottom__line-three"></div>
+        <div class="container">
+            <div class="graphic-bottom__content">
+                <div class="graphic-bottom__left">
+                    <div class="graphic-bottom__name" data-aos="type1" data-aos-duration="1400"><?php echo $vars['constructor']['content_page_res'][$content['id']]['title_one']['value'] ?></div>
+                    <div class="graphic-bottom__desc" data-aos="type1" data-aos-duration="1400" data-aos-delay="200"><?php echo $vars['constructor']['content_page_res'][$content['id']]['desc_one']['value'] ?></div>
+                    <div class="graphic-bottom__btn" data-aos="type1" data-aos-duration="1400" data-aos-delay="400">
+                        <a href="<?php echo $vars['constructor']['content_page_res'][$content['id']]['link_btn_one']['value'] ?>">
+                            <?php echo $vars['constructor']['content_page_res'][$content['id']]['name_btn_one']['value'] ?>
+                        </a>
+                    </div>
+                </div>
+                <div class="graphic-bottom__right" data-aos="type1" data-aos-duration="1400" data-aos-delay="600">
+                    <?php echo Links::getPhoto($vars['constructor']['content_page_res'][$content['id']]['photo_one'])?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

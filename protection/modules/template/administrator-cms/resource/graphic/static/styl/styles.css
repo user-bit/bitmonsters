@@ -1,0 +1,417 @@
+.graphic-top {
+  margin-top: 130px;
+}
+@media (max-width: 1000px) {
+  .graphic-top {
+    margin-top: 55px;
+  }
+}
+@media (max-width: 756px) {
+  .graphic-top {
+    margin-top: 95px;
+  }
+}
+.graphic-top__bg {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(225deg, rgba(91,12,161,0.05) 0%, rgba(39,30,249,0.05) 30.49%, rgba(121,57,253,0.05) 64.35%, rgba(166,71,255,0.05) 100%), rgba(0,0,0,0.4);
+  border-radius: 20px;
+}
+.graphic-top__bg > svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.graphic-top__content {
+  display: flex;
+  align-items: center;
+  width: 84%;
+  margin: auto;
+}
+@media (max-width: 1440px) {
+  .graphic-top__content {
+    width: 100%;
+  }
+}
+@media (max-width: 756px) {
+  .graphic-top__content {
+    flex-wrap: wrap-reverse;
+  }
+}
+.graphic-top__left {
+  width: 60%;
+  position: relative;
+}
+@media (max-width: 756px) {
+  .graphic-top__left {
+    width: 100%;
+  }
+}
+@media (max-width: 756px) {
+  .graphic-top__left {
+    margin-top: 15px;
+  }
+}
+.graphic-top__graphic {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 42px;
+}
+.graphic-top__graphic svg {
+  width: 100%;
+  height: 100%;
+}
+.graphic-top__right {
+  width: 40%;
+  padding-left: 150px;
+}
+@media (max-width: 1165px) {
+  .graphic-top__right {
+    padding-left: 80px;
+  }
+}
+@media (max-width: 1000px) {
+  .graphic-top__right {
+    padding-left: 50px;
+  }
+}
+@media (max-width: 756px) {
+  .graphic-top__right {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+.graphic-top__name {
+  font-family: 'Monument Extended', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+@media (max-width: 1440px) {
+  .graphic-top__name {
+    font-size: 38px;
+  }
+}
+@media (max-width: 1000px) {
+  .graphic-top__name {
+    font-size: 30px;
+  }
+}
+@media (max-width: 756px) {
+  .graphic-top__name {
+    font-size: 24px;
+  }
+}
+.graphic-top__desc {
+  margin-top: 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.3;
+  color: rgba(231,231,231,0.8);
+}
+@media (max-width: 1440px) {
+  .graphic-top__desc {
+    font-size: 22px;
+  }
+}
+@media (max-width: 1000px) {
+  .graphic-top__desc {
+    font-size: 16px;
+  }
+}
+@media (max-width: 756px) {
+  .graphic-top__desc {
+    margin-top: 12px;
+  }
+}
+.graphic-bottom {
+  margin-top: 135px;
+  position: relative;
+}
+@media (max-width: 756px) {
+  .graphic-bottom {
+    margin-top: 135px;
+  }
+}
+@media (max-width: 756px) {
+  .graphic-bottom__line-one {
+    height: 1px;
+    background: #322542;
+    position: absolute;
+    top: 303px;
+    left: -500px;
+    right: -500px;
+    z-index: -3;
+    transform: rotate(329deg);
+  }
+  .graphic-bottom__line-one:before {
+    content: "";
+    z-index: 1;
+    display: block;
+    position: absolute;
+    width: 20vh;
+    background: #9636ef;
+    will-change: right;
+    height: 100%;
+    top: 0;
+    right: -20%;
+    animation: run 18s 0s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+  }
+}
+@media (max-width: 756px) {
+  .graphic-bottom__line-two {
+    height: 1px;
+    background: #322542;
+    position: absolute;
+    top: 365px;
+    left: -500px;
+    right: -500px;
+    z-index: -3;
+    transform: rotate(329deg);
+  }
+  .graphic-bottom__line-two:before {
+    content: "";
+    z-index: 1;
+    display: block;
+    position: absolute;
+    width: 20vh;
+    height: 100%;
+    background: #9636ef;
+    will-change: right;
+    top: 0;
+    right: -20%;
+    animation: run 12s 0s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+  }
+}
+@media (max-width: 756px) {
+  .graphic-bottom__line-three {
+    height: 1px;
+    background: #322542;
+    position: absolute;
+    top: 420px;
+    left: -500px;
+    right: -500px;
+    z-index: -3;
+    transform: rotate(329deg);
+  }
+  .graphic-bottom__line-three:before {
+    content: "";
+    z-index: 1;
+    display: block;
+    position: absolute;
+    width: 20vh;
+    height: 100%;
+    background: #9636ef;
+    will-change: right;
+    top: 0;
+    right: -20%;
+    animation: run 10s 0s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+  }
+}
+.graphic-bottom__left-texture {
+  position: absolute;
+  left: -170px;
+  top: 220px;
+  z-index: -1;
+  animation: 8s ease-in 1s infinite reverse both running wakeUpSm1;
+}
+@media (max-width: 1000px) {
+  .graphic-bottom__left-texture {
+    width: 300px;
+    left: -100px;
+  }
+}
+@media (max-width: 756px) {
+  .graphic-bottom__left-texture {
+    left: -167px;
+    top: -160px;
+  }
+}
+@media (min-width: 756px) {
+  .graphic-bottom__left-gradient {
+    position: absolute;
+    background: rgba(193,41,205,0.25);
+    opacity: 0.5;
+    filter: blur(200px);
+    width: 565px;
+    height: 610px;
+    left: -231px;
+    top: 100px;
+    z-index: -1;
+  }
+}
+.graphic-bottom__right-texture {
+  display: none;
+}
+@media (min-width: 756px) {
+  .graphic-bottom__right-texture {
+    position: absolute;
+    right: -20px;
+    top: 540px;
+    z-index: -1;
+    animation-delay: 1.4s;
+    animation: 13s ease-in 1s infinite reverse both running wakeUpSm2;
+  }
+}
+.graphic-bottom__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 84%;
+  margin: auto;
+}
+@media (max-width: 1440px) {
+  .graphic-bottom__content {
+    width: 100%;
+  }
+}
+@media (max-width: 756px) {
+  .graphic-bottom__content {
+    flex-wrap: wrap-reverse;
+  }
+}
+.graphic-bottom__left {
+  width: 55%;
+}
+@media (max-width: 756px) {
+  .graphic-bottom__left {
+    width: 100%;
+  }
+}
+.graphic-bottom__right {
+  width: 45%;
+  text-align: center;
+  position: relative;
+}
+@media (max-width: 756px) {
+  .graphic-bottom__right {
+    width: 100%;
+  }
+}
+@media (max-width: 756px) {
+  .graphic-bottom__right img {
+    width: 200px;
+  }
+}
+.graphic-bottom__right:before {
+  content: "";
+  position: absolute;
+  background: #4e31b3;
+  opacity: 0.4;
+  filter: blur(255px);
+  transform: rotate(-60deg);
+  width: 440px;
+  height: 400px;
+  top: 80px;
+  left: 80px;
+}
+@media (max-width: 756px) {
+  .graphic-bottom__right:before {
+    width: 160px;
+    height: 140px;
+    top: 0;
+    opacity: 1;
+    filter: blur(159px);
+  }
+}
+@media (min-width: 756px) {
+  .graphic-bottom__right:before {
+    background: linear-gradient(225deg, #3b1aa7 0%, #4e31b3 30.49%, #9636ef 64.35%, #f682bd 100%);
+  }
+}
+.graphic-bottom__name {
+  font-family: 'Monument Extended', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+@media (max-width: 1440px) {
+  .graphic-bottom__name {
+    font-size: 34px;
+  }
+}
+@media (max-width: 1000px) {
+  .graphic-bottom__name {
+    font-size: 30px;
+  }
+}
+@media (max-width: 756px) {
+  .graphic-bottom__name {
+    font-size: 24px;
+    margin-top: 21px;
+  }
+}
+.graphic-bottom__desc {
+  margin-top: 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.3;
+  color: rgba(231,231,231,0.8);
+}
+@media (max-width: 1440px) {
+  .graphic-bottom__desc {
+    font-size: 18px;
+  }
+}
+@media (max-width: 1000px) {
+  .graphic-bottom__desc {
+    font-size: 16px;
+  }
+}
+@media (max-width: 756px) {
+  .graphic-bottom__desc {
+    margin-top: 15px;
+    line-height: 1.2;
+  }
+}
+.graphic-bottom__btn {
+  margin-top: 40px;
+}
+@media (max-width: 756px) {
+  .graphic-bottom__btn {
+    margin-top: 30px;
+  }
+}
+.graphic-bottom__btn a {
+  background: #181a25;
+  border: 1px solid rgba(50,37,66,0.5);
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #e2e8f0;
+  display: inline-block;
+  text-decoration: none;
+  padding: 14px 32px;
+  transition: all 0.3s ease-in-out;
+}
+.graphic-bottom__btn a:hover {
+  background: linear-gradient(225deg, #3b1aa7 0%, #4e31b3 30.49%, #9636ef 64.35%, #f682bd 100%);
+}
+@media (max-width: 1000px) {
+  .graphic-bottom__btn a {
+    font-size: 16px;
+    padding: 10px 28px;
+  }
+}
+@media (max-width: 765px) {
+  .graphic-bottom__btn a {
+    font-size: 18px;
+  }
+}

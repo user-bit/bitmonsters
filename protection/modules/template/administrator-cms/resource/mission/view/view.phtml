@@ -1,0 +1,67 @@
+<div class="mission">
+    <div class="mission-top">
+        <div class="mission-top__line-one"></div>
+        <div class="mission-top__line-two"></div>
+        <div class="mission-top__line-three"></div>
+        <div class="mission-top__circle-left">
+            <picture>
+                <source class="lazy" data-srcset="/resource/front/img/m-texture.webp" type="image/webp" media="(min-width: 756px)">
+                <source class="lazy" data-srcset="/resource/front/img/m-texture.png" media="(min-width: 756px)">
+                <img src="">
+            </picture>
+        </div>
+        <div class="mission-top__circle-right">
+            <picture>
+                <source class="lazy" data-srcset="/resource/front/img/blur-texture.webp" type="image/webp" media="(min-width: 756px)">
+                <source class="lazy" data-srcset="/resource/front/img/blur-texture.png" media="(min-width: 756px)">
+                <img src="">
+            </picture>
+        </div>
+        <div class="container">
+            <div class="mission-top__content">
+                <?php
+                $k = 0;
+                for ($i = 0; $i < 3; $i++) { ?>
+                    <div class="mission-top__item" data-aos="type1" data-aos-duration="1400" data-aos-delay="<?php echo $k ?>">
+                        <div class="mission-top__icon">
+                            <?php echo Links::getPhoto($vars['constructor']['content_page_res'][$content['id']]['photo_' . $i]) ?>
+                        </div>
+                        <div class="mission-top__name"><?php echo $vars['constructor']['content_page_res'][$content['id']]['title_' . $i]['value'] ?></div>
+                        <div class="mission-top__desc"><?php echo $vars['constructor']['content_page_res'][$content['id']]['desc_' . $i]['value'] ?></div>
+                    </div>
+                <?php
+                $k = $k + 200;
+                } ?>
+            </div>
+        </div>
+    </div>
+
+    <div class="mission-bottom">
+        <div class="container">
+            <div class="mission-bottom__content">
+                <?php
+                $k = 0;
+                for ($i = 0; $i < 3; $i++) { ?>
+                    <div class="mission-bottom__item" data-aos="type1" data-aos-duration="1400" data-aos-delay="<?php echo $k ?>">
+                        <div class="mission-bottom__num"><?php echo $vars['constructor']['content_page_res'][$content['id']]['num_' . $i]['value'] ?></div>
+                        <div class="mission-bottom__info"><?php echo $vars['constructor']['content_page_res'][$content['id']]['info_' . $i]['value'] ?></div>
+                    </div>
+                <?php
+                    $k = $k + 200;
+                } ?>
+            </div>
+        </div>
+        <div class="mission-bottom__word">
+            <picture>
+                <source srcset='/resource/front/img/world.webp' type='image/webp'>
+                <img src="/resource/front/img/world.png">
+            </picture>
+        </div>
+        <div class="mission-bottom__texture">
+            <picture>
+                <source class="lazy" data-srcset="/resource/front/img/blur-texture.webp" type="image/webp">
+                <img class="lazy" data-src="/resource/front/img/blur-texture.png">
+            </picture>
+        </div>
+    </div>
+</div>

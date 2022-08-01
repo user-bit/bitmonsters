@@ -1,0 +1,30 @@
+<tr>
+    <td>
+        <div class="select-field">
+            <div class="select-field__item">
+                <input type="radio" class="select-field__radio" value="1" id="page_data_0_d"
+                       name="active">
+                <label for="page_data_0_d">Вкл.</label>
+            </div>
+            <div class="select-field__item">
+                <input type="radio" class="select-field__radio" value="0" id="page_data_0_a"
+                       name="active">
+                <label for="page_data_0_a">Выкл.</label>
+            </div>
+        </div>
+    </td>
+    <td><input type="text" value="" name="module[]" class="form-control"></td>
+    <td><input type="text" value="" name="name_file[]" class="form-control"></td>
+    <td><input type="text" value="" name="name_link[]" class="form-control"></td>
+    <td>
+        <input type="hidden" value="<?php echo $vars['id'] ?>" name="save_id[]"/>
+        <select class="custom-select" name="priority[]">
+            <?php foreach ($vars['priority'] as $priority) { ?>
+                <option value='<?php echo $priority ?>'><?php echo $priority ?></option>
+            <?php } ?>
+        </select>
+    </td>
+    <td>
+          <textarea class="form-textarea form-textarea__h-120 no-size" name="exclude[]"></textarea>
+    </td>
+</tr>

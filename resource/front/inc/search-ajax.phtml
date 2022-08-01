@@ -1,0 +1,19 @@
+<ul class="search-result scroll-custom">
+    <?php foreach ($vars['product'] as $product) { ?>
+        <li class="search-result__item">
+            <a href="<?php echo Links::getURl('product/' . $product['link']) ?>">
+                <div class="search-result__photo">
+                    <?php echo Links::getPhoto($product, '', 'small') ?>
+                </div>
+                <div class="search-result__right">
+                    <div class="search-result__name"><?php echo $product['name'] ?></div>
+                    <div class="search-result__price"><?php echo Numeric::getPrice($product) ?></div>
+                </div>
+            </a>
+        </li>
+    <?php } ?>
+</ul>
+<div class="search-result__info">
+    Найденно <span><?php echo $vars['count'] ?></span> товаров
+    <a href="<?php echo Links::getURl('/catalog/search/?word='.$vars['val'], 'get')?>">Показать все</a>
+</div>

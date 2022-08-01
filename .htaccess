@@ -1,0 +1,44 @@
+AddType text/x-component .htc
+Options +SymLinksIfOwnerMatch
+Options -Indexes
+DirectoryIndex index.php
+
+RewriteEngine on
+RewriteBase /
+
+#убираем слеш вконце
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(administrator-cms)
+RewriteCond %{REQUEST_URI} !(.html)
+RewriteCond %{REQUEST_URI} !(.ico)
+RewriteCond %{REQUEST_URI} !(.jpg)
+RewriteCond %{REQUEST_URI} !(.png)
+RewriteCond %{REQUEST_URI} !(.pdf)
+RewriteCond %{REQUEST_URI} !(.xml)
+RewriteCond %{REQUEST_URI} !(.webp)
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ https://bitmonsters.xyz/$1/ [L,R=301]
+
+RewriteCond %{THE_REQUEST} ([^\s]*)\/{2,}(\?[^\s]*)?
+RewriteRule (.*) https://bitmonsters.xyz/ [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
+RewriteRule ^index\.php$ https://bitmonsters.xyz/ [R=301,L]
+
+#Перенаправление sitemap на обработку а не на прямое скачивание
+RewriteRule ^(sitemap.xml)$ index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
+RewriteRule .*.(txt|csv)$ index.php [R,NC] 
+RewriteRule ^((.(woff|woff2|ttf|js|jpeg|ico|gif|jpg|png|css|less|htc|swf|cur|flv|pdf|htm|xml|JS|ICO|GIF|JPG|JPEG|PNG|CSS|SWF|CUR|FLV|PDF|htm|HTM|html|HTML|XML|XLXS|xlsx|xls|XLS|doc|DOC|docx|DOCX|TXT|txt|ZIP|zip|rar|RAR|tar|TAR))|connector.php)$ index.php
+
+AddType application/force-download .doc 
+AddType application/force-download .docx 
+AddType application/force-download .zip 
+AddType application/force-download .rar 
+AddType application/force-download .xlsx 
+AddType application/force-download .xls 
+AddType application/force-download .pdf
+AddType application/force-download .flv

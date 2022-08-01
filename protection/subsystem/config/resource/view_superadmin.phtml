@@ -1,0 +1,72 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th width="30">
+            <input type="checkbox"
+                   id="customCheckAll"
+                   title="Отметить/снять все"
+                   value="Y"
+                   name="id[]" class="custom-control-label-all">
+            <label for="customCheckAll"></label>
+        </th>
+        <th width="50">ID</th>
+        <th>Ключ</th>
+        <th>Значение</th>
+        <th>Комментарий</th>
+        <th>Модуль</th>
+        <th>Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($vars['list'] as $row) {
+        include $_SERVER['DOCUMENT_ROOT'].'/resource/'.PathToTemplateAdmin.'/inc/type-form.phtml';
+        ?>
+        <tr>
+            <td>
+                <input type="checkbox" value="<?php echo $row['id'] ?>"
+                       id="customCheck<?php echo $row['id'] ?>"
+                       name="id[]" class="custom-control-label">
+                <label for="customCheck<?php echo $row['id'] ?>"></label>
+            </td>
+            <td>
+                <input type="hidden" value="<?php echo $row['id'] ?>" name="save_id[]" />
+                <?php echo $row['id'] ?></td>
+            <td>
+                <input type="text" value="<?php echo $row['name'] ?>" name="name[]" class="form-control">
+            </td>
+            <td><?php echo $input ?></td>
+            <td>
+                <textarea name="comment[]" class="form-textarea no-size"><?php echo $row['comment'] ?></textarea>
+            </td>
+            <td>
+                <select name="modules_id[]" class="custom-select m-b-6">
+                    <option value="0">...</option>
+                    <? foreach ($vars['modules'] as $row2) {
+                        echo '<option value="' . $row2['id'] . '"';
+                        if ($row2['id'] == $row['modules_id']) echo ' selected';
+                        echo '>' . $row2['name'] . '</option>';
+                    }
+                    ?>
+                </select>
+                <select name="type_id[]" class="custom-select">
+                    <option value="text">text</option>
+                    <option value="textarea"
+                        <?php if ($row['type'] == 'textarea') echo ' selected'; ?>
+                    >textarea
+                    </option>
+                    <option value="checkbox"
+                        <?php if ($row['type'] == 'checkbox') echo ' selected'; ?>
+                    >checkbox
+                    </option>
+                </select>
+            </td>
+            <td class="w-120">
+                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . '/delete/' . $row['id'] . $vars['path']) ?>"
+                   class="tool-del">Удалить</a>
+            </td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
+
+

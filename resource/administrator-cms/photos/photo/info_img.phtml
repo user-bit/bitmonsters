@@ -1,0 +1,9 @@
+<div class="section-photo__field">
+    <label>Имя файла:</label>
+    <input type="text" class="form-control-photo" value="<?php echo substr($vars['edit'][$vars['photo_field']], ($a = strrpos($vars['edit'][$vars['photo_field']], '/') +1)) ?>"
+           name="photo_link"/>
+</div>
+<div class="section-photo__field">
+    <label>Путь к файлу:</label>
+    <input class="path-file" value="/<?php echo $vars['edit']['photo'] ?>" readonly>
+</div>

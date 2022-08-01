@@ -1,0 +1,9 @@
+<?php
+if (!empty($vars['constructor']['content_page'])) {
+    foreach ($vars['constructor']['content_page'] as $content)
+        if (!empty($content['template_path']))
+            include $_SERVER['DOCUMENT_ROOT'].'/protection/modules/template/'.PathToTemplateAdmin.'/resource/'.$content['template_path'].'/view/view.phtml';
+        else
+            include $_SERVER['DOCUMENT_ROOT'].'/protection/modules/infoblocks/'.PathToTemplateAdmin.'/resource/'.$content['info_path'].'/view/view.phtml';
+}
+

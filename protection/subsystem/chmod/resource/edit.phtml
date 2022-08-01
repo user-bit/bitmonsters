@@ -1,0 +1,97 @@
+<?php echo $vars['message'] ?>
+
+<div class="main__top d-flex justify-content-space-between align-items-center">
+    <div class="main__title">Редактирование:&nbsp;<b><?php echo $vars['edit']['name'] ?></b></div>
+</div>
+
+<div class="section">
+    <form method="POST" name="update-form">
+        <input type="hidden" value="<?php echo $vars['edit']['id'] ?>" name="id"/>
+        <div class="section__nav nav">
+            <div class="nav__list">
+                <div class="nav__item active" data-open="default">Общее</div>
+                <div class="nav__item" data-open="module">Модули</div>
+                <div class="nav__item" data-open="system">Система</div>
+            </div>
+        </div>
+        <div class="tabs tabs-section-default">
+            <div class="section__content section__content-w-50">
+                <div class="section__title">Общая информация</div>
+                <div class="section__field">
+                    <label class="required">Название:<span>*</span></label>
+                    <input type="text" class="form-control" value="<?php echo $vars['edit']['comment'] ?>"
+                           name="name"/>
+                </div>
+            </div>
+        </div>
+        <div class="tabs tabs-section-module hidden">
+            <div class="section__content section__content-w-100">
+                <div class="section__text">
+                    <p>Проставить все галочки, для работы типа пользователя с модулями сайта</p>
+                    <p><b>чтение</b> - возможность только читать</p>
+                    <p><b>изменение</b> - возможность редактировать контент</p>
+                    <p><b>удаление</b> - возможность удалять поля</p>
+                    <p><b>добавление</b> - возможность добавлять поля</p>
+                </div>
+                <table>
+                    <tr>
+                        <th width="40%">Название модуля</th>
+                        <th width="15%">Чтение</th>
+                        <th width="15%">Изменение</th>
+                        <th width="15%">Удаление</th>
+                        <th width="15%">Добавление</th>
+                    </tr>
+                    <? $a=0;$e=0;$d=0;$r=0;$cnt=count($vars['modules']);
+                    foreach($vars['modules'] as $row) {
+                        $read='';$edit='';$del='';$add='';
+                        if($row['permission']==700||$row['permission']==600||$row['permission']==400||$row['permission']==800){$add=' checked="checked"';$a++;}
+                        if($row['permission']==200||$row['permission']==500||$row['permission']==600||$row['permission']==800){$edit=' checked="checked"';$e++;}
+                        if($row['permission']==300||$row['permission']==500||$row['permission']==700||$row['permission']==800){$del=' checked="checked"';$d++;}
+                        if($row['permission']!=000){$read=' checked="checked"';$r++;}
+                        echo'<tr><td>'.$row['name'].'<input type="hidden" value="'.$row['id'].'" name="module_id[]" /></td><td style="text-align:center;"><input type="checkbox" name="read['.$row['id'].']" '.$read.' id="read'.$row['id'].'" class="read_chmod" /></td><td style="text-align:center;"><input type="checkbox" name="edit['.$row['id'].']" '.$edit.' id="edit'.$row['id'].'" class="edit_chmod" /></td><td style="text-align:center;"><input type="checkbox" name="del['.$row['id'].']" '.$del.' id="del'.$row['id'].'" class="del_chmod" /></td><td style="text-align:center;"><input type="checkbox" name="add['.$row['id'].']" '.$add.' id="add'.$row['id'].'" class="add_chmod" /></td></tr>';
+                    }
+                    echo'<tr><td style="font-style:italic;">Выделить все</td><td style="text-align:center;"><input type="checkbox" value="" id="read_all"';
+                    if($cnt==$a)echo' checked="checked"';
+                    echo' /></td><td style="text-align:center;"><input type="checkbox" value="" id="edit_all"';
+                    if($cnt==$e)echo' checked="checked"';
+                    echo' /></td><td style="text-align:center;"><input type="checkbox" value="" id="del_all"';
+                    if($cnt==$d)echo' checked="checked"';
+                    echo' /></td><td style="text-align:center;"><input type="checkbox" value="" id="add_all"';
+                    if($cnt==$r)echo' checked="checked"';
+                    echo' /></td></tr>'; ?>
+                </table>
+            </div>
+        </div>
+        <div class="tabs tabs-section-system hidden">
+            <div class="section__content section__content-w-100">
+                <div class="section__title">Система</div>
+                <div class="section__text">
+                    Показывать типу пользователя системные настройки (переводы, настройки)
+                </div>
+                <table width="60%" cellspacing="0" cellpadding="0" border="0" class="table table-fixed hidden-inputs tb_sort table_550px" id="photos" style="margin-top: 0;">
+                    <?echo'<tr><th width="30%">Модули</th>';
+                    foreach($vars['subsystem2'] as $row)echo'<th width="23.33%" style="text-align:center;">'.$row['title'].'</th>';
+                    echo'</tr>';
+                    foreach($vars['modules'] as $row){
+                        echo'<tr><td>'.$row['name'].'<input type="hidden" value="'.$row['id'].'" name="module_subsystem_id[]" /></td>';
+                        foreach($vars['subsystem2'] as $row2){
+                            $checked='';
+                            foreach($vars['permission'] as $row3)if($row3['permission']!=000&&$row3['permission']!=''&&$row3['module_id']==$row['id']&&$row3['subsystem_id']==$row2['id'])$checked=' checked="checked"';
+                            echo'<td style="text-align:center;"><input type="checkbox" value="'.$row['id'].'-'.$row2['id'].'" name="subsystem_id[]" '.$checked.' id="subsystem'.$row2['id'].'" class="'.$row2['name'].'_all" /></td>';
+                        }
+                    }
+                    echo'<tr><td style="font-style:italic;">Выделить все</td><td style="text-align:center;"><input type="checkbox" value="" id="config_all" /></td><td style="text-align:center;"><input type="checkbox" value="" id="help_all" /></td><td style="text-align:center;"><input type="checkbox" value="" id="translate_all" /></td><td style="text-align:center;"><input type="checkbox" value="" id="chmod_all" /></td></tr>';?>
+                </table>
+            </div>
+        </div>
+        <div class="button-list-in">
+            <div class="btn-save">
+                <input type="submit" value="Сохранить" name="update">
+            </div>
+            <div class="btn-save-close">
+                <input type="submit" value="Сохранить и закрыть" name="update_close">
+            </div>
+        </div>
+        <input type="hidden" value="<?php echo $vars['action'] ?>" id="action"/>
+    </form>
+</div>

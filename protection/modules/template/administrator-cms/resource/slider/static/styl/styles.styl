@@ -1,0 +1,346 @@
+.slider
+  position relative
+  &__anim-left
+    position absolute
+    left: -122px
+    top: 0
+  &__circle-one
+    width: 306px
+    height: 306px
+    border: 1px solid rgba(195,230,233,0.25)
+    border-radius: 50%
+    left: -30px
+    position: absolute
+    top: 409px
+    margin-left: -153px
+    z-index: -1
+    @media (max-width: 756px)
+      width 130px
+      height: 130px
+      margin-left -65px
+      left -10px
+      top: 120px
+  &__circle-two
+    width: 700px;
+    height: 700px;
+    border: 1px solid rgba(195,230,233,0.25);
+    border-radius: 50%;
+    left: -25px;
+    position: absolute;
+    top: 210px;
+    margin-left: -350px;
+    z-index: -1;
+    @media (max-width: 756px)
+      width 300px
+      height: 300px
+      margin-left -150px
+      left: -7px
+      top: 29px
+  &__circle-three
+    width: 1200px
+    height: 1200px
+    border: 1px solid rgba(195,230,233,0.25)
+    border-radius: 50%
+    left: -47px
+    position: absolute
+    top: -40px
+    margin-left: -600px
+    z-index: -1
+    @media (max-width: 756px)
+      width 500px
+      height: 500px
+      margin-left -225px
+      left: -27px
+      top: -68px
+  &__circle-four
+    width: 1600px
+    height: 1600px
+    border: 1px solid rgba(195,230,233,0.25)
+    border-radius: 50%
+    left: -27px
+    position: absolute
+    top: -251px
+    margin-left: -800px
+    z-index: -1
+    @media (max-width: 756px)
+      width 700px
+      height: 700px
+      margin-left -350px
+      left: -9px
+      top: -158px
+
+
+
+.slider-top
+  & .container
+    position relative
+  &__title
+    font-family: 'Monument Extended', sans-serif
+    font-style: normal
+    font-weight: 400
+    font-size: 48px
+    text-transform: uppercase
+    text-align: center
+    @media (max-width: 1440px)
+      font-size 42px
+    @media (max-width: 1165px)
+      font-size 38px
+    @media (max-width: 1000px)
+      font-size 32px
+      text-align left
+    @media (max-width: 756px)
+      font-size 24px
+  &__photos
+    display: flex
+    justify-content: space-around
+    margin: 21px 65px 0
+    img
+      transition transform 0.3s ease-in-out
+      &:hover
+        transform scale(1.05)
+    @media (max-width: 1440px)
+      margin 21px 0 0
+      @media (max-width: 1165px)
+        picture
+          text-align center
+          img
+            width 70%
+            @media (max-width: 756px)
+              width 65%
+  &__slider
+    margin-top: 40px
+    @media (max-width: 756px)
+      margin-top 20px
+    @media (max-width: 440px)
+      & .swiper-slide
+        height 175px
+  &__item
+    position relative
+    height 495px
+    border-radius: 20px
+    overflow hidden
+    border: 1px solid rgba(50, 37, 66, 0.5)
+    cursor pointer
+    &:hover
+      img
+        transform scale(1.1)
+    @media (max-width: 1440px)
+      height 360px
+    @media (max-width: 440px)
+      height 175px
+    a
+      &:before
+        content ""
+        position absolute
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+        z-index 1
+        background: linear-gradient(180deg, rgba(17, 17, 27, 0) 0%, rgba(17, 17, 27, 0.94) 89.63%)
+  &__photo
+    width 100%
+    height 100%
+    img
+      width 100%
+      height 100%
+      object-fit cover
+      transition transform 0.3s ease-in-out
+  &__info
+    position absolute
+    bottom 0
+    z-index 3
+    left 0
+    right 0
+    padding 26px 25px
+    display flex
+    align-items center
+    @media (max-width: 756px)
+      padding 15px 6px
+    svg
+      @media (max-width: 1165px)
+        width 45px
+        height 45px
+      @media (max-width: 756px)
+        width 28px
+        height 28px
+    span
+      font-family: 'Monument Extended', sans-serif;
+      font-style: normal
+      font-weight: 400
+      font-size: 20px
+      color: #E7E7E7
+      line-height: 1.2
+      text-transform: uppercase
+      width: calc(100% - 100px)
+      padding-right: 200px
+      padding-left: 25px
+      letter-spacing: 2px
+      @media (max-width: 1440px)
+        padding-right 20px
+        font-size 18px
+      @media (max-width: 1165px)
+        font-size 16px
+        width: calc(100% - 60px)
+      @media (max-width: 440px)
+        font-size: 10px
+        padding-right: 0
+        padding-left: 8px
+  &__container
+    position: absolute
+    top: -170px
+    right: 17px
+    display: flex
+    width: 87px
+    justify-content: space-between
+    @media (max-width: 1165px)
+      top: -148px
+    @media (max-width: 1000px)
+      width 50px
+    @media (max-width: 756px)
+      top: 0
+    @media (max-width: 440px)
+      top: 0
+      svg
+        width 13px
+        @media (max-width: 756px)
+          width 9px
+
+.slider-bottom
+  margin-top: 170px
+  position relative
+  @media (max-width: 756px)
+    margin-top 122px
+  &__left-gradient
+    position: absolute
+    background: rgba(252 253 74 0.35)
+    opacity: 0.5
+    filter: blur(200px)
+    width: 565px
+    height: 610px
+    left: -231px
+    top: 100px
+    @media (max-width: 756px)
+      display none
+  & .container
+    position relative
+  &__title
+    font-family: 'Monument Extended', sans-serif
+    font-style: normal
+    font-weight: 400
+    font-size: 48px
+    text-transform: uppercase
+    text-align: center
+    @media (max-width: 1440px)
+      font-size 42px
+    @media (max-width: 1165px)
+      font-size 38px
+    @media (max-width: 1000px)
+      font-size 32px
+      text-align left
+    @media (max-width: 756px)
+      font-size 24px
+  &__slider
+    margin-top 44px
+    @media (max-width: 1000px)
+      margin-top 28px
+    & .swiper-slide
+      height unset
+      @media (max-width: 440px)
+        height 490px
+  &__item
+    background: rgba(0, 0, 0, 0.1)
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    box-shadow: 0 15px 13px rgba(0, 0, 0, 0.11)
+    backdrop-filter: blur(28px)
+    border-radius: 20px
+    display flex
+    align-items center
+    padding: 19px 24px
+    height: 100%
+    @media (max-width: 1000px)
+      flex-direction: column-reverse
+      justify-content: flex-end
+    @media (max-width: 756px)
+      padding: 32px
+    @media (min-width: 756px)
+      background: linear-gradient(225deg, rgba(91, 12, 161, 0.05) 0%, rgba(39, 30, 249, 0.05) 30.49%, rgba(121, 57, 253, 0.05) 64.35%, rgba(166, 71, 255, 0.05) 100%), rgba(0, 0, 0, 0.3)
+  &__left
+    width: 65%
+    @media (max-width: 1000px)
+      width 100%
+  &__right
+    width 35%
+    text-align right
+    position relative
+    @media (max-width: 1000px)
+      width 100%
+      text-align left
+      height 140px
+      display flex
+      justify-content flex-start
+    @media (max-width: 756px)
+      height 127px
+    &:before
+      content ""
+      position absolute
+      filter: blur(20px)
+      opacity 0.2
+      border-radius: 112px
+      width: 132px
+      height: 133px
+      background #9636EF
+      @media (min-width: 680px)
+        opacity: 0.3
+        filter: blur(70px)
+        background: linear-gradient(225deg, #3B1AA7 0%, #4E31B3 30.49%, #9636EF 64.35%, #F682BD 100%)
+    img
+      max-width 85%
+      @media (max-width: 1000px)
+        width 100%
+        height 100%
+        object-fit contain
+        max-width unset
+      @media (max-width: 756px)
+        width unset
+  &__name
+    font-family: 'Monument Extended', sans-serif
+    font-style: normal
+    font-weight: 400
+    font-size: 24px
+    text-transform: uppercase
+    color: #E7E7E7
+    line-height: 1.3
+    @media (max-width: 1440px)
+      font-size 18px
+    @media (max-width: 756px)
+      font-size: 16px
+      margin-top: 23px
+      letter-spacing: 1px
+  &__desc
+    color: rgba(231, 231, 231, 0.8)
+    font-size: 18px
+    margin-top: 11px
+    line-height: 1.2
+    @media (max-width: 1440px)
+      font-size 16px
+  &__container
+    position: absolute
+    top: 13px
+    right: 17px
+    display: flex
+    width: 87px
+    justify-content: space-between
+    @media (max-width: 1440px)
+      top: 7px
+    @media (max-width: 1165px)
+      top 6px
+    @media (max-width: 1000px)
+      width 50px
+    @media (max-width: 756px)
+      top 15px
+      svg
+        width 13px
+        @media (max-width: 756px)
+          width 9px
+

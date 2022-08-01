@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="<?php echo $_SESSION['key_lang'] ?>">
+<?php echo $vars['head'] ?>
+<body>
+<div class="body-section smooth-scroll tt-magic-cursor">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWKDK42"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="magic-cursor">
+        <div id="ball"></div>
+    </div>
+    <?php echo $vars['header'] ?>
+    <main class="main <?php echo ($_SERVER['REQUEST_URI'] == '/') ? 'main-page' : '' ?> ">
+        <?php echo (isset($vars['breadcrumbs'])) ? htmlspecialchars_decode($vars['breadcrumbs']) : '' ?>
+        <?php echo $vars['content']; ?>
+        <?php echo $vars['seo'] ?>
+    </main>
+    <?php echo $vars['footer'] ?>
+    <?php echo $vars['modals'] ?>
+    <script src="/resource/front/js/libs.min.js?v7.0" defer></script>
+    <script src="/resource/front/js/bundle.js?v7.0" defer></script>
+</div>
+</body>
+</html>

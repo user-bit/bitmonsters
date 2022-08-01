@@ -1,0 +1,60 @@
+<div class="roadmap" id="roadmap">
+    <div class="roadmap-top">
+        <div class="roadmap-top__right-gradient"></div>
+        <div class="container">
+            <div class="roadmap-top__title" data-aos="type1" data-aos-duration="1400"><?php echo $vars['constructor']['content_page_res'][$content['id']]['name_one']['value'] ?></div>
+            <div class="roadmap__slide" data-aos="type1" data-aos-duration="1400" data-aos-delay="200">
+                <div class="swiper-wrapper roadmap__wrapper">
+                    <div class="roadmap-top__line">
+                        <div class="roadmap-top__line-active"></div>
+                    </div>
+                    <?php foreach ($vars['constructor']['content_roadmap'] as $key => $content_roadmap) { ?>
+                        <div class="swiper-slide">
+                            <div class="roadmap-top__item">
+                                <div class="roadmap-top__num"><?php echo $key + 1 ?></div>
+                                <div class="roadmap-top__name"><?php echo $content_roadmap['name'] ?></div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="roadmap-start" id="earning">
+    <div class="roadmap-start__line-one"></div>
+    <div class="roadmap-start__line-two"></div>
+    <div class="roadmap-start__line-three"></div>
+    <div class="container">
+        <div class="roadmap-start__title" data-aos="type1" data-aos-duration="1400"><?php echo $vars['constructor']['content_page_res'][$content['id']]['name_two']['value'] ?></div>
+        <div class="roadmap-start__desc" data-aos="type1" data-aos-duration="1400" data-aos-delay="200"><?php echo $vars['constructor']['content_page_res'][$content['id']]['desc_two']['value'] ?></div>
+
+        <div class="roadmap-start__content">
+            <?php
+            $k = 0;
+            for ($i = 0; $i < 5; $i++) { ?>
+                <div class="roadmap-start__item" data-aos="type1" data-aos-duration="1400" data-aos-delay="<?php echo $k ?>">
+                    <div class="roadmap-start__num"><?php echo $i + 1 ?></div>
+                    <div class="roadmap-start__abs">
+                        <div class="roadmap-start__icon"><?php echo Links::getPhoto($vars['constructor']['content_page_res'][$content['id']]['photo_' . $i]) ?></div>
+                        <div class="roadmap-start__name"><?php echo $vars['constructor']['content_page_res'][$content['id']]['title_' . $i]['value'] ?></div>
+                    </div>
+                </div>
+                <?php
+                $k = $k + 200;
+            } ?>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+       const widthSlide = document.querySelector('.roadmap__slide .swiper-slide').offsetWidth;
+       const marginSlide = parseInt(window.getComputedStyle(document.querySelector('.roadmap__slide .swiper-slide')).marginRight);
+       const widthAllElement = widthSlide + marginSlide;
+        const widthActive = widthAllElement * <?php echo $vars['constructor']['content_page_res'][$content['id']]['roadmap_active']['value'] ?>;
+        document.querySelector('.roadmap-top__line-active').style.width = widthActive + 'px';
+    });
+
+</script>

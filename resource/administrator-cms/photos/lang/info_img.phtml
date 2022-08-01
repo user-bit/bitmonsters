@@ -1,0 +1,19 @@
+<div class="section-photo__field">
+    <label>Атрибут alt:</label>
+    <input type="text" class="form-control-photo" value="<?php echo $vars['edit']['photo_alt'] ?>"
+           name="photo_alt"/>
+</div>
+<div class="section-photo__field">
+    <label>Атрибут title:</label>
+    <input type="text" class="form-control-photo" value="<?php echo $vars['edit']['photo_title'] ?>"
+           name="photo_title"/>
+</div>
+<div class="section-photo__field">
+    <label>Имя файла:</label>
+    <input type="text" class="form-control-photo" value="<?php echo substr($vars['edit']['photo'], ($a = strrpos($vars['edit']['photo'], '/') +1)) ?>"
+           name="photo_link"/>
+</div>
+<div class="section-photo__field">
+    <label>Путь к файлу:</label>
+        <input class="path-file" value="/<?php echo $vars['edit']['photo'] ?>" readonly>
+</div>

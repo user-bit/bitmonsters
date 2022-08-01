@@ -1,0 +1,44 @@
+<div class="paging-ajax">
+    <ul class="paging-ajax__list">
+        <?php
+        $page_size = $vars['page_size'];
+        $link_padding = $vars['link_padding'];
+        $cur_page = $vars['page'];
+        $page_var = $vars['page_var'];
+        $total_pages = $vars['count'];
+
+        $page_link_list = array();
+        $start = $cur_page - $link_padding;
+        if ($start < 1) $start = 1;
+        $end = $cur_page + $link_padding - 1;
+        if ($end > $total_pages)
+            $end = $total_pages;
+        if ($cur_page > 1)
+            $prev_page = $cur_page - 1;
+        else
+            $prev_page = 1;
+        if ($cur_page < $total_pages)
+            $next_page = $cur_page + 1;
+        else
+            $next_page = $total_pages;
+        if ($start > 1) {
+            $page_link_list[] = StringClass::get_page_link(1, $cur_page, $page_var);
+        }
+        if ($start > 1) {
+            $page_link_list[] = StringClass::get_page_link($start - 1, $cur_page, $page_var, $start - 2 > 0 ? '...' : '');
+        }
+        for ($i = $start; $i <= $end; $i++) {
+            if ((abs($i - $cur_page) > 1) && ($i > 2) && ($i < $total_pages - 2))
+                continue;
+            $active = '';
+            if ($cur_page == $i)
+                $active = 'active';
+            $page_link_list[] = '<li class="paging-ajax__item '.$active.'"><span class="paging-ajax-click" data-link="'.$i.'">' . $i . '</span></li>';
+        }
+        echo implode('', $page_link_list);
+
+
+       ?>
+
+    </ul>
+</div>

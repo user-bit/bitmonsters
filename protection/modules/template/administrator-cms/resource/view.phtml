@@ -1,0 +1,30 @@
+<table class="table tb_sort">
+    <thead>
+    <tr>
+        <th width="50">ID</th>
+        <th width="500">Фото</th>
+        <th>Название</th>
+        <th width="220">Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($vars['list']['list'] as $row) {
+        $photo = "protection/modules/". $vars['action']."/". PathToTemplateAdmin."/resource/".$row['path']."/static/img/preview.jpg";
+        ?>
+        <tr id="sort<?php echo $row['id'] ?>">
+            <td><?php echo $row['id'] ?></td>
+            <td>
+                <img class="constructor-list-photo" src="<?php echo file_exists($photo)?'/'.$photo:'/resource/'. PathToTemplateAdmin.'/images/default.jpg'?>">
+            </td>
+            <td><?php echo $row['name']?></td>
+            <td>
+                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . '/edit/' . $row['id']) ?>"
+                   class="tool-edit">Редакт.</a>
+                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . '/delete/' . $row['id']) ?>"
+                   class="tool-del">Удалить</a>
+            </td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
+<?php echo $vars['list']['paging'] ?>

@@ -1,0 +1,34 @@
+<div class="main__title">Статистика</div>
+
+<div class="section">
+    <div class="section__row">
+        <div class="section__content section__content-w-40">
+            <div class="section__title">Заявки</div>
+            <div class="feedback"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var options = {
+        series: [<?php echo $vars['count_new']?>, <?php echo $vars['count_processed']?>],
+        chart: {
+            type: 'donut',
+        },
+        labels: [<?php echo $vars['feedback_status']?>],
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                chart: {
+                    width: 200
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }]
+    };
+
+    var chart = new ApexCharts(document.querySelectorAll(".feedback")[0], options);
+    chart.render();
+</script>

@@ -1,0 +1,107 @@
+<?php
+$contact_phone = explode(',', $vars['contact']['phone']);
+$contact_mail = explode(',', $vars['contact']['mail']);
+?>
+<?php if ($vars['current_page']['topic'] == 'index') { ?>
+    <script type="application/ld+json">{
+            "@context": "https://schema.org/",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": "1",
+                    "item": {
+                        "@id": "<?php echo PROTOCOL . $_SERVER['HTTP_HOST'] ?>",
+                        "name": "<?php echo $vars['settings']['sitename'] ?>"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": "2",
+                    "item": {
+                        "@id": "<?php echo PROTOCOL . $_SERVER['HTTP_HOST'] ?>/#seo_div",
+                        "name": "<?php echo $vars['main_translate']['breadcrumbs_main'] ?>"
+                    }
+                }
+            ]
+        }
+    </script>
+<?php } ?>
+<script type='application/ld+json'>
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "name": "<?php echo $vars['settings']['sitename'] ?>",
+    "url": "<?php echo PROTOCOL . $_SERVER['HTTP_HOST'] ?>",
+    "logo": "<?php echo PROTOCOL . $_SERVER['HTTP_HOST'] ?>/resource/front/img/logo.jpg",
+    "image": "<?php echo PROTOCOL . $_SERVER['HTTP_HOST'] ?>/resource/front/img/og.jpg",
+    "description": "<?php echo $vars['meta']['desc'] ?> ",
+    "email": "<?php echo $contact_mail[0] ?>",
+    "sameAs": [
+        <?php if (!empty($vars['social']['youtube'])) { ?>
+            "<?php echo $vars['social']['youtube'] ?>",
+        <?php } ?>
+        <?php if (!empty($vars['social']['facebook'])) { ?>
+            "<?php echo $vars['social']['facebook'] ?>",
+        <?php } ?>
+        <?php if (!empty($vars['social']['pinterest'])) { ?>
+            "<?php echo $vars['social']['pinterest'] ?>",
+        <?php } ?>
+        <?php if (!empty($vars['social']['telegram'])) { ?>
+            "<?php echo $vars['social']['telegram'] ?>",
+        <?php } ?>
+        <?php if (!empty($vars['social']['viber'])) { ?>
+            "<?php echo $vars['social']['viber'] ?>",
+        <?php } ?>
+        <?php if (!empty($vars['social']['instagram'])) { ?>
+            "<?php echo $vars['social']['instagram'] ?>"
+        <?php } ?>
+    ],
+    "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "UA",
+        "streetAddress": "<?php echo $vars['contact']['address'] ?>",
+        "addressLocality": "Одесса",
+        "addressCountry": "Украина"
+    },
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "<?php echo $contact_phone[0] ?>",
+        "areaServed": "UA",
+        "availableLanguage": ["uk","ru"]
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "worstRating": "0",
+        "ratingCount": "315"
+    }
+}
+</script>
+<?php if ($vars['current_page']['topic'] == 'catalog') { ?>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "<?php echo (!empty($vars['meta']['name_title'])) ? $vars['meta']['name_title'] : $vars['translate']['all_production'] . ' - ' . $vars['meta']['name_title'] ?>",
+        "description": "<?php echo $vars['meta']['description'] ?>",
+        "image": "<?php echo $vars['meta']['photo'] ?>",
+        "brand": "<?php echo $vars['settings']['sitename'] ?>",
+        "sku": "<?php echo $vars['meta']['catalog_id'] ?>",
+        "mpn": "<?php echo $vars['meta']['catalog_id'] ?>",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "bestRating": "5",
+            "ratingValue": "<?php echo (!empty($vars['meta']['mark'])) ? $vars['meta']['mark'] : 4.9 ?>",
+            "reviewCount": "<?php echo (!empty($vars['meta']['count_mark'])) ? $vars['meta']['count_mark'] : 349 ?>"
+        },
+        "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "<?php echo (!empty($_SESSION['min-price'])) ? $_SESSION['min-price'] : 75 ?>",
+            "highPrice": "<?php echo (!empty($_SESSION['max-price'])) ? $_SESSION['max-price'] : 900 ?>",
+            "priceCurrency": "UAH"
+        }
+    }
+    </script>
+<?php } ?>

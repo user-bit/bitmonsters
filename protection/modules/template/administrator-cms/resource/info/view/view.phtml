@@ -1,0 +1,118 @@
+<div class="info">
+    <div class="info__bg-left"></div>
+    <div class="info__bg-right"></div>
+    <div class="info__texture">
+        <picture>
+            <source srcset="/resource/front/img/m-texture.webp" type="image/webp">
+            <source srcset="/resource/front/img/m-texture.png">
+            <img src="">
+        </picture>
+    </div>
+    <div class="info-top">
+        <div class="info__line-one"></div>
+        <div class="info__line-two"></div>
+        <div class="info__line-three"></div>
+        <div class="container">
+            <div class="info-top__content">
+                <div class="info-top__left">
+                    <div class="info-top__photo" data-aos="type1" data-aos-duration="1400">
+                        <picture>
+                            <source srcset='/resource/front/img/arrow-up.webp' type='image/webp'>
+                            <img data-src="/resource/front/img/arrow-up.png" src="" class="lazy arrow-up__one">
+                        </picture>
+                        <picture>
+                            <source srcset='/resource/front/img/arrow-up.webp' type='image/webp'>
+                            <img data-src="/resource/front/img/arrow-up.png" src="" class="lazy arrow-up__two">
+                        </picture>
+                        <picture>
+                            <source srcset='/resource/front/img/arrow-up.webp' type='image/webp'>
+                            <img data-src="/resource/front/img/arrow-up.png" src="" class="lazy arrow-up__three">
+                        </picture>
+                        <div class="info-top__bg-anim">
+                            <picture>
+                                <source srcset='/resource/front/img/bg-info.webp' type='image/webp'>
+                                <img class="lazy info-top__bg" data-src="/resource/front/img/bg-info.png">
+                            </picture>
+                        </div>
+                        <div class="main-photo">
+                            <?php echo Links::getPhoto($vars['constructor']['content_page_res'][$content['id']]['photo']) ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-top__right">
+                    <div class="info-top__title" data-aos="type1" data-aos-duration="1400"
+                         data-aos-delay="200"><?php echo $vars['constructor']['content_page_res'][$content['id']]['title']['value'] ?></div>
+                    <div class="info-top__desc" data-aos="type1" data-aos-duration="1400"
+                         data-aos-delay="400"><?php echo $vars['constructor']['content_page_res'][$content['id']]['desc']['value'] ?></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="about" id="about">
+    <div class="container">
+        <div class="about__circle">
+            <picture>
+                <source srcset='/resource/front/img/m-texture.webp' type='image/webp'>
+                <img src="/resource/front/img/m-texture.png">
+            </picture>
+        </div>
+        <div class="about__title" data-aos="type1"
+             data-aos-duration="1400"><?php echo $vars['constructor']['content_page_res'][$content['id']]['about_title']['value'] ?></div>
+        <div class="about__content">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="about__item" data-aos="type1" data-aos-duration="1400" data-aos-delay="200">
+                        <div class="about__photo">
+                            <img class="lazy"
+                                 data-src="/<?php echo $vars['constructor']['content_page_res'][$content['id']]['about_photo_one']['value'] ?>">
+                        </div>
+                        <div class="about__info">
+                            <div class="about__position"><?php echo $vars['constructor']['content_page_res'][$content['id']]['about_position_one']['value'] ?></div>
+                            <div class="about__name"><?php echo $vars['constructor']['content_page_res'][$content['id']]['about_name_one']['value'] ?></div>
+                            <div class="about__desc"><?php echo $vars['constructor']['content_page_res'][$content['id']]['about_desc_one']['value'] ?></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="about__item" data-aos="type1" data-aos-duration="1400" data-aos-delay="400">
+                        <div class="about__photo">
+                            <img class="lazy"
+                                 data-src="/<?php echo $vars['constructor']['content_page_res'][$content['id']]['about_photo_two']['value'] ?>">
+                        </div>
+                        <div class="about__info">
+                            <div class="about__position"><?php echo $vars['constructor']['content_page_res'][$content['id']]['about_position_two']['value'] ?></div>
+                            <div class="about__name"><?php echo $vars['constructor']['content_page_res'][$content['id']]['about_name_two']['value'] ?></div>
+                            <div class="about__desc"><?php echo $vars['constructor']['content_page_res'][$content['id']]['about_desc_two']['value'] ?></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="about__item" data-aos="type1" data-aos-duration="1400" data-aos-delay="600">
+                        <div class="about__photo">
+                            <img class="lazy"
+                                 data-src="/<?php echo $vars['constructor']['content_page_res'][$content['id']]['about_photo_three']['value'] ?>">
+                        </div>
+                        <div class="about__info">
+                            <div class="about__position"><?php echo $vars['constructor']['content_page_res'][$content['id']]['about_position_three']['value'] ?></div>
+                            <div class="about__name"><?php echo $vars['constructor']['content_page_res'][$content['id']]['about_name_three']['value'] ?></div>
+                            <div class="about__desc"><?php echo $vars['constructor']['content_page_res'][$content['id']]['about_desc_three']['value'] ?></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about__container">
+                <div class="about__prev">
+                    <svg width="18" height="29" viewBox="0 0 18 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.46068 14.4443L17.1857 25.1693L14.122 28.233L0.333344 14.4443L14.122 0.65564L17.1857 3.71931L6.46068 14.4443Z" fill="#8c35e7"></path>
+                    </svg>
+                </div>
+                <div class="about__next">
+                    <svg width="18" height="29" viewBox="0 0 18 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.5393 14.4443L0.814331 3.71931L3.878 0.65564L17.6667 14.4443L3.878 28.233L0.814331 25.1693L11.5393 14.4443Z" fill="#8c35e7"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

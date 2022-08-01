@@ -1,0 +1,218 @@
+.footer
+  background: #11111B
+  margin-top: 140px
+  padding-top: 70px
+  @media (max-width: 1440px)
+    margin-top 30px
+    padding-top 50px
+  &__content
+    display flex
+    @media (max-width: 1440px)
+      flex-wrap wrap
+  &__logo
+    width: 20%
+    @media (max-width: 1440px)
+      width 100%
+      text-align center
+    @media (max-width: 756px)
+      text-align left
+  &__menu
+    width 25%
+    padding-left 115px
+    border-left: 1px solid #322542
+    @media (max-width: 1440px)
+      margin-top 30px
+      width 50%
+      border unset
+      padding-left unset
+      display flex
+      flex-direction column
+      align-items center
+      justify-content center
+    @media (max-width: xss)
+      width 100%
+    ul
+      padding 0
+      margin 15px 0 0 0
+      list-style-type none
+      @media (max-width: 756px)
+        width 100%
+      li
+        margin-bottom 12px
+        @media (max-width: 1440px)
+          text-align center
+        @media (max-width: 756px)
+          text-align left
+        a
+          text-decoration none
+          font-family: 'Inter'
+          font-style: normal
+          font-weight: 400
+          font-size: 16px;text-transform: uppercase
+          color: rgba(231, 231, 231, 0.8)
+          transition color 0.3s ease-in-out
+          &:hover
+            color #6d33cd
+  &__info
+    width 30%
+    border-left: 1px solid #322542
+    @media (max-width: 1440px)
+      width 100%
+      border unset
+  &__title
+    font-family: 'Monument Extended', sans-serif;
+    font-style: normal
+    font-weight: 400
+    font-size: 20px
+    text-transform: uppercase
+    @media (max-width: 756px)
+      width 100%
+  &__bottom
+    display: flex
+    align-items center
+    width: 100%
+    justify-content: space-between
+    margin-top: 70px
+    border-top: 1px solid #322542
+    padding-top 20px
+    padding-bottom 25px
+    @media (max-width: 1000px)
+      flex-wrap wrap
+  &__form-title
+    margin-top: 12px
+    font-family: 'Inter'
+    font-style: normal
+    font-weight: 400
+    font-size: 18px
+    line-height: 22px
+    color: rgba(231, 231, 231, 0.8)
+
+.footer-info
+  width 35%
+  text-align center
+  font-style: normal
+  font-weight: 400
+  font-size: 16px
+  line-height: 19px
+  letter-spacing: -0.035em
+  color: rgba(231, 231, 231, 0.8)
+  @media (max-width: 1000px)
+    width 100%
+    text-align left
+    margin 14px 0
+
+.cooping
+  display flex
+  font-style: normal
+  font-weight: 400
+  font-size: 16px
+  line-height: 19px
+  letter-spacing: -0.035em
+  color: rgba(231, 231, 231, 0.8)
+  width 30%
+  @media (max-width: 1000px)
+    width 100%
+    justify-content center
+  @media (max-width: xss)
+    flex-direction column
+    align-items flex-start
+  ul
+    display flex
+    margin 0 0 0 30px
+    padding 0
+    @media (max-width: xss)
+      flex-direction column
+      align-items flex-start
+      margin 10px 0 0 0
+      list-style-type none
+    li
+      margin-right 33px
+      @media (max-width: xss)
+        margin-right unset
+        margin-bottom 6px
+      a
+        font-style: normal
+        font-weight: 400
+        font-size: 16px
+        line-height: 19px
+        letter-spacing: -0.035em
+        color: rgba(231, 231, 231, 0.8)
+        text-decoration none
+        transition color 0.3s ease-in-out
+        &:hover
+          color #6d33cd
+
+.footer-social
+  width 30%
+  @media (max-width: 1000px)
+    width 100%
+  ul
+    display: flex
+    list-style-type: none
+    justify-content: flex-end
+    @media (max-width: 1000px)
+      justify-content center
+    margin 0
+    padding 0
+    li
+      background: linear-gradient(225deg, rgba(91, 12, 161, 0.05) 0%, rgba(39, 30, 249, 0.05) 30.49%, rgba(121, 57, 253, 0.05) 64.35%, rgba(166, 71, 255, 0.05) 100%), rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(50, 37, 66, 0.5)
+      box-shadow: 0 26.5079px 22.9735px rgba(0, 0, 0, 0.11)
+      backdrop-filter: blur(49.4815px)
+      border-radius: 10px
+      width 48px
+      height 48px
+      display flex
+      justify-content center
+      align-items center
+      margin-left 18px
+      transition transform 0.3s ease-in-out
+      &:hover
+        transform scale(1.1)
+
+.footer-feedback
+  &__form
+    display: flex
+    justify-content: flex-end
+    flex-direction: column
+    align-items: flex-end
+    @media (max-width: 1440px)
+      margin-top 40px
+      align-items center
+
+.form-feedback
+  width 365px
+  position relative
+  label
+    font-family: 'Inter'
+    font-style: normal
+    font-weight: 400
+    font-size: 18px
+    line-height: 22px
+    color: rgba(231, 231, 231, 0.8)
+    display block
+    margin-bottom: 6px
+  input
+    background: #181A25
+    border: 1px solid rgba(50, 37, 66, 0.5)
+    border-radius: 10px
+    height: 48px
+    width 100%
+    outline none
+    padding: 0 10px
+    color #fff
+  button
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(50, 37, 66, 0.5)
+    border-radius: 10px
+    width 32px
+    height 32px
+    position: absolute
+    right: 6px
+    bottom: 9px
+    cursor pointer
+    z-index 8
+    background-image: url('/resource/front/img/arrow-right.svg')
+    background-repeat: no-repeat
+    background-position: center
+

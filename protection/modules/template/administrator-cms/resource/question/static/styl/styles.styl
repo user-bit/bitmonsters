@@ -1,0 +1,100 @@
+.question
+  margin-top: 175px
+  position relative
+  @media (max-width: 1000px)
+    margin-top 100px
+  @media (max-width: 756px)
+    margin-top 132px
+  &__right-texture
+    position: absolute
+    right: -120px
+    animation 13s ease-in 1s infinite reverse both running wakeUpSm2
+    @media (max-width: 756px)
+      right: unset
+      top: -177px
+      width: 200px
+      left: -82px
+  &__title
+    font-family: 'Monument Extended', sans-serif
+    font-style: normal
+    font-weight: 400
+    font-size: 48px
+    text-transform: uppercase
+    text-align: center
+    @media (max-width: 1440px)
+      font-size 42px
+    @media (max-width: 1000px)
+      font-size 32px
+    @media (max-width: 756px)
+      font-size 24px
+  &__content
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    margin-top: 40px
+    @media (max-width: 756px)
+      margin-top 28px
+  &__item
+    background: linear-gradient(225deg, rgba(91, 12, 161, 0.05) 0%, rgba(39, 30, 249, 0.05) 30.49%, rgba(121, 57, 253, 0.05) 64.35%, rgba(166, 71, 255, 0.05) 100%), rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 13px rgba(0, 0, 0, 0.11);
+    backdrop-filter: blur(28px);
+    border-radius: 20px;
+    width calc(33.3% - 15px)
+    padding: 40px
+    margin-bottom: 30px
+    @media (max-width: 1440px)
+      padding 28px
+    @media (max-width: 1000px)
+      width calc(50% - 15px)
+    @media (max-width: 756px)
+      width 100%
+      margin-bottom 15px
+      padding 15px
+  &__top
+    display flex
+    align-items center
+  &__icon
+    width 60px
+    text-align: center
+    @media (max-width: 756px)
+      width 35px
+      svg
+        width 20px
+  &__name
+    font-family: 'Monument Extended', sans-serif
+    font-style: normal
+    font-weight: 400
+    font-size: 20px
+    text-transform: uppercase
+    width calc(100% - 60px)
+    @media (max-width: 1440px)
+      font-size 17px
+    @media (max-width: 756px)
+      font-size 15px
+      width: calc(100% - 30px)
+      padding-left: 10px
+    a
+      color #9636ef
+  &__desc
+    font-family: 'Inter'
+    font-style: normal
+    font-weight: 400
+    font-size: 18px
+    line-height: 22px
+    color: #CECECE
+    width: 90%
+    margin-top: 15px
+    @media (max-width: 756px)
+      width: 100%
+      margin-top: 10px
+      line-height: 1.2
+    p
+      margin-bottom unset
+    a
+      word-break break-all
+      color #6d33cd
+      text-decoration none
+    @media (max-width: 1440px)
+      font-size 16px
+

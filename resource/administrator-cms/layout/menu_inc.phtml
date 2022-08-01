@@ -1,0 +1,162 @@
+<div class="header">
+    <div class="header__top">
+        <div class="container-fluid d-flex justify-content-space-between">
+            <div class="header__logo logo">
+                <div class="logo__left">
+                    <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin) ?>">
+                        <svg>
+                            <use xlink:href="/resource/<?php echo PathToTemplateAdmin ?>/images/svg/svg-sprite.svg#admin-logo"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="logo__right">
+                    <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin) ?>">admin panel</a>
+                </div>
+            </div>
+            <div class="header__right">
+                <div class="header__site">
+                    <a href="/" class="header__site-link" target="_blank">Перейти на сайт</a>
+                </div>
+                <div class="header__icon lang">
+                    <div class="lang__main">
+                        <div class="lang__flag">
+                            <img src="/resource/<?php echo PathToTemplateAdmin ?>/images/flags/<?php echo $vars['current_lang']['language'] ?>.png">
+                        </div>
+                        <div class="lang__title"><?php echo $vars['current_lang']['comment'] ?></div>
+                    </div>
+                    <svg>
+                        <use xlink:href="/resource/<?php echo PathToTemplateAdmin ?>/images/svg/svg-sprite.svg#arrow-down"></use>
+                    </svg>
+                    <div class="lang__content">
+                        <ul class="lang__list">
+                            <?php if (isset($vars['languages']) && count($vars['languages']) > 1) {
+                                $lang = '';
+                                $cur_lang = 'Russian';
+                                foreach ($vars['languages'] as $row) {
+                                    if ($_SESSION['key_lang_admin'] == $row['language']) $cur_lang = $row['comment']; ?>
+                                    <li>
+                                        <a style="background-image: url('/resource/<?php echo PathToTemplateAdmin ?>/images/flags/<?php echo $row['language'] ?>.png');"
+                                           href="/<?php echo $row['language'] . '' . StringClass::getUrl3('/' . $row['language']) ?>"><?php echo $row['comment'] ?></a>
+                                    </li>
+                                <?php }
+                            } ?>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="header__icon settings">
+                    <svg>
+                        <use xlink:href="/resource/<?php echo PathToTemplateAdmin ?>/images/svg/svg-sprite.svg#settings"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="left-menu scroll-custom">
+    <div class="left-menu__user user-main">
+        <div class="user-main__left">
+            <div class="user-main__photo"></div>
+        </div>
+        <div class="user-main__right">
+            <div class="user-main__title"><?php echo $vars['moderators']['login'] ?></div>
+            <div class="user-main__desc"><?php echo $vars['moderators']['comment'] ?></div>
+        </div>
+        <div class="user-main__down">
+            <svg>
+                <use xlink:href="/resource/<?php echo PathToTemplateAdmin ?>/images/svg/svg-sprite.svg#arrow-down"></use>
+            </svg>
+        </div>
+        <div class="user-main__dropdown">
+            <ul class="user-main__list">
+                <li>
+                    <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/moderators/edit/' . $vars['moderators']['id']) ?>">
+                        <svg>
+                            <use xlink:href="/resource/<?php echo PathToTemplateAdmin ?>/images/svg/svg-sprite.svg#user"></use>
+                        </svg>
+                        Аккаунт</a></li>
+                <li class="disable"><a href="">
+                        <svg>
+                            <use xlink:href="/resource/<?php echo PathToTemplateAdmin ?>/images/svg/svg-sprite.svg#support"></use>
+                        </svg>
+                        Помощь</a></li>
+                <div class="user-main__hr"></div>
+                <li><a href="/<?php echo PathToTemplateAdmin ?>/logout">
+                        <svg>
+                            <use xlink:href="/resource/<?php echo PathToTemplateAdmin ?>/images/svg/svg-sprite.svg#out"></use>
+                        </svg>
+                        Выйти</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="left-menu__item">
+        <div class="left-menu__title">Конверсии</div>
+        <div class="menu-item">
+            <div class="menu-item__title">
+                <svg>
+                    <use xlink:href="/resource/<?php echo PathToTemplateAdmin ?>/images/svg/svg-sprite.svg#appl"></use>
+                </svg>
+                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin) ?>">Общая информация</a>
+            </div>
+        </div>
+    </div>
+    <div class="left-menu__item">
+        <div class="left-menu__title">Сайт</div>
+        <?php foreach ($vars['top_menu'] as $top_menu) {
+            $active_class = '';
+            $active_style = '';
+            $none_class = '';
+            foreach ($vars['menu'][$top_menu['id']]['childs'] as $active) {
+                if ($vars['position'] == $active['controller']) {
+                    $active_class = 'active';
+                    $active_style = 'style="display: block;"';
+                }
+            }
+            if (empty($vars['menu'][$top_menu['id']]['childs']))
+                $none_class = 'none-childs';
+            ?>
+            <div class="menu-item">
+                <div class="menu-item__title <?php echo $active_class ?> <?php echo $none_class?>">
+                    <svg>
+                        <use xlink:href="/resource/<?php echo PathToTemplateAdmin ?>/images/svg/svg-sprite.svg#<?php echo $top_menu['icon'] ?>"></use>
+                    </svg>
+                    <span><?php echo $top_menu['name'] ?></span>
+                    <div class="menu-item__right">
+                        <svg>
+                            <use xlink:href="/resource/<?php echo PathToTemplateAdmin ?>/images/svg/svg-sprite.svg#arrow-right"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="menu-item__item" <?php echo $active_style ?>>
+                    <ul class="menu-item__list">
+                        <?php foreach ($vars['menu'][$top_menu['id']]['childs'] as $menu) { ?>
+                            <li class="menu-item__link <?php echo ($vars['position'] == $menu['controller']) ? 'active' : ''; ?>">
+                                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $menu['controller']) ?>"> <?php echo $menu['name'] ?></a>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+</div>
+<div class="right-menu-main">
+    <div class="right-menu-main__close">
+        <svg>
+            <use xlink:href="/resource/administrator-cms/images/svg/svg-sprite.svg#close"></use>
+        </svg>
+    </div>
+    <div class="right-menu-main__menu">
+        <div class="right-menu-main__title">Основные настройки</div>
+        <ul class="right-menu-main__list">
+            <?php foreach ($vars['menu-right'] as $right_menu) { ?>
+                <li class="right-menu-main__item">
+                    <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $right_menu['controller']) ?>"><?php echo $right_menu['name'] ?></a>
+                </li>
+            <?php } ?>
+        </ul>
+    </div>
+</div>
+
+
+

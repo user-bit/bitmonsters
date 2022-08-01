@@ -1,0 +1,78 @@
+<section class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <div class="footer__logo">
+                <a href="<?php echo Links::getURl('')?>">
+                    <img src="/resource/front/img/logo-footer.png">
+                </a>
+            </div>
+            <div class="footer__menu">
+                <div class="footer__title">Documents</div>
+                <ul>
+                    <?php foreach ($vars['menu__footer'] as $menu__footer) { ?>
+                        <li><a href="<?php echo Links::getURl($menu__footer['link'])?>"><?php echo $menu__footer['name']?></a> </li>
+                    <?php } ?>
+                </ul>
+            </div>
+            <div class="footer__menu">
+                <div class="footer__title">Sitemap</div>
+                <ul>
+                    <?php foreach ($vars['menu__footer_2'] as $menu__footer_2) { ?>
+                        <li>
+                            <?php if ($menu__footer_2['blank'] == 1) { ?>
+                                <a href="<?php echo $menu__footer_2['link'] ?>"
+                                   target="_blank"><?php echo $menu__footer_2['name'] ?></a>
+                            <?php }else { ?>
+                                <a href="<?php echo Links::getURl($menu__footer_2['link']) ?>"><?php echo $menu__footer_2['name'] ?></a>
+                            <?php } ?>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
+            <div class="footer__info">
+                <div class="footer__feedback">
+                    <div class="footer-feedback__title"></div>
+                    <div class="footer-feedback__form">
+                        <form class="form-feedback">
+                            <div class="form-label form-required">
+                                <label><?php echo $vars['main_translate']['title_mail'] ?></label>
+                                <input class="form-input" type="text" name="mail"
+                                       placeholder="<?php echo $vars['main_translate']['placeholder_mail'] ?>"
+                                       autocomplete="no" required>
+                            </div>
+                            <button type="submit" class="btn-submit"></button>
+                        </form>
+                        <div class="footer__form-title"><?php echo $vars['main_translate']['form_title'] ?></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="cooping">
+                <?php echo $vars['main_translate']['cooping'] ?>
+                <ul>
+                    <?php foreach ($vars['menu__footer_3'] as $menu__footer) { ?>
+                        <li>
+                            <a href="/<?php echo $menu__footer['link'] ?>"><?php echo $menu__footer['name'] ?></a>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <span><?php echo $vars['main_translate']['address'] ?></span>
+                </div>
+            <div class="footer-social">
+                <ul>
+                    <?php foreach ($vars['social'] as $social) { ?>
+                        <li>
+                            <a href="<?php echo $social['link'] ?>" target="_blank">
+                                <?php echo htmlspecialchars_decode($social['icon']) ?>
+                            </a>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,115 @@
+@font-face
+  font-family: 'Inter'
+  src: url('/resource/front/fonts/Inter-SemiBold.woff2') format('woff2'),
+          url('/resource/front/fonts/Inter-SemiBold.woff') format('woff'),
+          url('/resource/front/fonts/Inter-SemiBold.ttf') format('truetype')
+  font-weight: 600
+  font-style: normal
+  font-display: swap
+
+@font-face
+  font-family: 'Inter'
+  src: url('/resource/front/fonts/Inter-Regular.woff2') format('woff2'),
+          url('/resource/front/fonts/Inter-Regular.woff') format('woff'),
+          url('/resource/front/fonts/Inter-Regular.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+  font-display: swap
+
+@font-face
+  font-family: 'Monument Extended'
+  src: url('/resource/front/fonts/MonumentExtended-Regular.woff2') format('woff2'),
+          url('/resource/front/fonts/MonumentExtended-Regular.woff') format('woff'),
+          url('/resource/front/fonts/MonumentExtended-Regular.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+  font-display: swap
+
+@font-face
+  font-family: 'Monument Extended'
+  src: url('/resource/front/fonts/MonumentExtended-Ultrabold.woff2') format('woff2'),
+          url('/resource/front/fonts/MonumentExtended-Ultrabold.woff') format('woff'),
+          url('/resource/front/fonts/MonumentExtended-Ultrabold.ttf') format('truetype')
+  font-weight: bold
+  font-style: normal
+  font-display: swap
+
+pre.alert.alert-info
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  background: #fff
+  height: 700px
+  overflow-x: auto
+  z-index: 999
+  color #000
+
+*
+  box-sizing border-box
+
+html
+body
+  height 100%
+
+body
+  position: relative
+  height: 100%
+  margin 0
+  min-width: 375px
+  font-size 16px
+  font-family 'Inter', sans-serif
+  color: #E7E7E7
+  overflow-x: hidden
+  font-weight: 400
+  overflow-y auto
+  scroll-behavior smooth
+  background: #11141D
+  transition opacity 0.4s ease-in-out
+  &.body-black
+    background: #1B143D
+    color #fff
+  &.hidden
+    overflow-y: hidden
+  p
+    margin-bottom: 19px
+    margin-top: 0
+
+img
+  max-width 100%
+  height: auto
+
+.scroll-custom::-webkit-scrollbar-track
+  -webkit-box-shadow: inset 0 0 4px rgba(181, 181, 181, 0.6)
+  background-color: #c5c5c5
+
+.scroll-custom::-webkit-scrollbar
+  width: 3px
+  background-color: #c5c5c5
+
+.scroll-custom::-webkit-scrollbar-thumb
+  background-color: #B667FF
+
+.container
+  width: 1560px
+  margin: auto
+  @media (max-width: max-large)
+    width 1380px
+  @media (max-width: large)
+    width 1100px
+  @media (max-width: middle)
+    width 980px
+  @media (max-width: small)
+    width 740px
+  @media (max-width: xs)
+    width 90%
+
+.body-section
+  overflow hidden
+  opacity 0
+  transition opacity 1s ease-in-out
+  &.active
+    opacity 1
+
+.swiper-wrapper
+  will-change transform

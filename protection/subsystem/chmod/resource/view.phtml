@@ -1,0 +1,38 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th width="30">
+            <input type="checkbox"
+                   id="customCheckAll"
+                   title="Отметить/снять все"
+                   value="Y"
+                   name="id[]" class="custom-control-label-all">
+            <label for="customCheckAll"></label>
+        </th>
+        <th width="60">ID</th>
+        <th>Название</th>
+        <th width="110">Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($vars['list'] as $row) { ?>
+        <tr id="sort<?php echo $row['id'] ?>">
+            <input type="hidden" value="<?php echo $row['id'] ?>" name="save_id[]"/>
+            <td>
+                <input type="checkbox" value="<?php echo $row['id'] ?>"
+                       id="customCheck<?php echo $row['id'] ?>"
+                       name="id[]" class="custom-control-label">
+                <label for="customCheck<?php echo $row['id'] ?>"></label>
+            </td>
+            <td><?php echo $row['id'] ?></td>
+            <td><input type="text" value="<?php echo $row['comment'] ?>" name="comment[]" class="form-control"></td>
+            <td class="d-flex justify-content-between align-items-center h-65">
+                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . '/edit/' . $row['id']) ?>"
+                   class="tool-edit">Редакт.</a>
+                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . '/delete/' . $row['id']) ?>"
+                   class="tool-del">Удалить</a>
+            </td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>

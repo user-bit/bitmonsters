@@ -1,0 +1,48 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th width="30">
+            <input type="checkbox"
+                   id="customCheckAll"
+                   title="Отметить/снять все"
+                   value="Y"
+                   name="id[]" class="custom-control-label-all">
+            <label for="customCheckAll"></label>
+        </th>
+        <th width="50">ID</th>
+        <th>Ссылка</th>
+        <th width="110">Состояние</th>
+        <th width="160">Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($vars['list'] as $row) { ?>
+        <tr id="sort<?php echo $row['id'] ?>">
+            <td>
+                <input type="checkbox" value="<?php echo $row['id'] ?>"
+                       id="customCheck<?php echo $row['id'] ?>"
+                       name="id[]" class="custom-control-label">
+                <label for="customCheck<?php echo $row['id'] ?>"></label>
+            </td>
+            <td><?php echo $row['id'] ?></td>
+            <td><input type="text" value="<?php echo $row['link'] ?>" name="link[]" class="form-control"></td>
+            <td>
+                <input type="hidden" value="<?php echo $row['id'] ?>" name="save_id[]"/>
+                <?php
+                if ($row['active'] == 1) $active = '<div class="selected-status status-on">Вкл</div>';
+                else $active = '<div class="selected-status status-off">Выкл</div>';
+                ?>
+                <div class="active-status" id="active<?php echo $row['id'] ?>"><?php echo $active ?></div>
+            </td>
+            <td class="d-flex justify-content-between align-items-center h-65">
+                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . '/edit/' . $row['id']) ?>"
+                   class="tool-edit">Редакт.</a>
+                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . '/delete/' . $row['id']) ?>"
+                   class="tool-del">Удалить</a>
+            </td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
+
+<?php echo $vars['paging'] ?>

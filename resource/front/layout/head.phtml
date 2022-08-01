@@ -1,0 +1,53 @@
+<head itemscope itemtype="http://schema.org/WPHeader">
+    <title itemprop="headline"><?php echo $vars['meta']['title'] ?></title>
+    <meta itemprop="description" name="keywords" content="<?php echo $vars['meta']['keywords'] ?>"/>
+    <meta name="description" content="<?php echo $vars['meta']['description'] ?>"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow"/>
+    <link rel="canonical" href="<?php echo $vars['page_canonical'] ?>">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/resource/front/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/resource/front/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/resource/front/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/front/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/resource/front/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/resource/front/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-config" content="/resource/front/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:locale" content="<?php echo $vars['lang'] ?>">
+    <meta property="og:type" content="<?php echo $vars['current_page']['topic'] ?>">
+    <meta property="og:title" content="<?php echo $vars['meta']['title'] ?>">
+    <meta property="og:description" content="<?php echo $vars['meta']['description'] ?>">
+    <meta property="og:url" content="<?php echo $vars['page_canonical'] ?>">
+    <meta property="og:image" content="https://<?php echo $_SERVER['HTTP_HOST'] ?>/resource/front/img/og.jpg">
+    <meta property="og:site_name" content="<?php echo $vars['settings']['sitename'] ?>">
+
+    <meta name="twitter:card" content="<?php echo $vars['page_canonical'] ?>">
+    <meta name="twitter:site" content="<?php echo $vars['settings']['sitename'] ?>">
+    <meta name="twitter:title" content="<?php echo $vars['meta']['title'] ?>">
+    <meta name="twitter:description" content="<?php echo $vars['meta']['description'] ?>">
+    <meta name="twitter:image:src" content="https://<?php echo $_SERVER['HTTP_HOST'] ?>/resource/front/img/og.jpg">
+
+    <link rel="stylesheet" href='/resource/front/css/libs.css?v7.0'>
+    <link rel="stylesheet" href='/resource/front/css/section.css?v7.0'>
+    <link rel="stylesheet" href='/resource/front/css/bundle.css?v7.0'>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6XG6NVGSM9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6XG6NVGSM9');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PWKDK42');</script>
+    <!-- End Google Tag Manager -->
+</head>
+

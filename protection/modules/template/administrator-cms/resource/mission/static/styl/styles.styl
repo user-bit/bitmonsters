@@ -1,0 +1,320 @@
+.mission
+  overflow hidden
+
+.mission-top
+  padding: 185px 0 0
+  position relative
+  @media (max-width: 756px)
+    padding 92px 0 0
+  &__line-one
+    @media (min-width: 756px)
+      height 1px
+      background  #322542
+      position: absolute
+      top: 418px
+      left: -500px
+      right: -500px
+      z-index: -3
+      transform: rotate(203deg)
+    &:before
+      @media (min-width: 756px)
+        content: ""
+        z-index 1
+        display: block
+        position: absolute
+        width: 20vh
+        height: 100%
+        top: 0
+        right: -20%
+        background: #9636ef
+        will-change: right
+        animation-delay 4s
+        animation: run 17s 0s infinite
+        animation-fill-mode: forwards
+        animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97)
+        background: linear-gradient(225deg, #3b1aa7 0%, #4e31b3 30.49%, #9636ef 64.35%, #f682bd 100%)
+  &__line-two
+    @media (min-width: 756px)
+      height 1px
+      background  #322542
+      position: absolute
+      top: 618px
+      left: -500px
+      right: -500px
+      z-index: -3
+      transform: rotate(203deg)
+    &:before
+      @media (min-width: 756px)
+        content: ""
+        z-index 1
+        display: block
+        position: absolute
+        width: 20vh
+        height: 100%
+        background: #4e31b3
+        will-change: right
+        top: 0
+        right: -20%
+        animation: run 12s 0s infinite
+        animation-fill-mode: forwards
+        animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97)
+        background: linear-gradient(225deg, #3b1aa7 0%, #4e31b3 30.49%, #9636ef 64.35%, #f682bd 100%)
+  &__line-three
+    @media (min-width: 756px)
+      height 1px
+      background  #322542
+      position: absolute
+      top: 818px
+      left: -500px
+      right: -500px
+      z-index: -3
+      transform: rotate(203deg)
+    &:before
+      @media (min-width: 756px)
+        content: ""
+        z-index 1
+        display: block
+        position: absolute
+        width: 20vh
+        height: 100%
+        background: #f682bd
+        will-change: right
+        top: 0
+        right: -20%
+        animation: run 18s 0s infinite
+        animation-fill-mode: forwards
+        animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97)
+        background: linear-gradient(225deg, #3b1aa7 0%, #4e31b3 30.49%, #9636ef 64.35%, #f682bd 100%)
+  &__circle-left
+    position absolute
+    left: -20px
+    top: 535px
+    @media (min-width: 756px)
+      animation 9s ease-in 1s infinite reverse both running wakeUpSm2
+  &__circle-right
+    position absolute
+    right: -120px
+    top: 465px
+    @media (min-width: 756px)
+      animation 13s ease-in 1s infinite reverse both running wakeUpSm1
+  &__content
+    display: flex
+    justify-content: space-between
+    @media (max-width: 1000px)
+      flex-wrap wrap
+  &__item
+    background: linear-gradient(225deg, rgba(91, 12, 161, 0.05) 0%, rgba(39, 30, 249, 0.05) 30.49%, rgba(121, 57, 253, 0.05) 64.35%, rgba(166, 71, 255, 0.05) 100%), rgba(0, 0, 0, 0.3);
+    mix-blend-mode: normal
+    border: 1px solid rgba(50, 37, 66, 0.5)
+    box-shadow: 0 15px 13px rgb(0 0 0 / 11%)
+    backdrop-filter: blur(28px)
+    border-radius: 20px
+    width calc(33.3% - 15px)
+    padding: 32px
+    position relative
+    @media (max-width: 1000px)
+      width 100%
+      margin-bottom 85px
+    @media (max-width: 756px)
+      margin-bottom 105px
+    &:nth-child(1)
+      &:before
+        content ""
+        position absolute
+        width 245px
+        height: 90px
+        background: rgba(251, 102, 183, 0.5);
+        opacity: 1;
+        filter: blur(93px)
+        border-radius: 33.5px
+        left: 30%
+        top: 15px
+        z-index: -1
+        @media (max-width: 756px)
+          width: 187px
+          filter: blur(65px)
+          left: 25%
+          top: 0
+    &:nth-child(2)
+      &:before
+        content ""
+        position absolute
+        width 245px
+        height: 90px
+        background: rgba(130, 13, 233, 0.5)
+        opacity: 1;
+        filter: blur(93px)
+        border-radius: 33.5px
+        left: 30%
+        top: 15px
+        z-index: -1
+        @media (max-width: 756px)
+          width: 187px
+          filter: blur(65px)
+          left: 25%
+          top: 0
+    &:nth-child(3)
+      &:before
+        content ""
+        position absolute
+        width 245px
+        height: 90px
+        background: rgba(246, 130, 189, 0.5)
+        opacity: 1;
+        filter: blur(93px)
+        border-radius: 33.5px
+        left: 30%
+        top: 15px
+        z-index: -1
+        @media (max-width: 756px)
+          width: 187px
+          filter: blur(65px)
+          left: 25%
+          top: 0
+  &__icon
+    text-align: center
+    margin-top -85px
+  &__name
+    font-family: 'Monument Extended', sans-serif
+    font-style: normal
+    font-weight: 400
+    font-size: 26px
+    text-transform uppercase
+    color: #E7E7E7
+    margin-top: 36px
+    line-height 1.4
+    @media (max-width: 1440px)
+      font-size 18px
+      margin-top 20px
+    @media (max-width: 756px)
+      font-size 26px
+      margin-top 40px
+  &__desc
+    font-style: normal
+    font-weight: 400
+    font-size: 18px
+    color: rgba(231, 231, 231, 0.8)
+    margin-top: 18px
+    line-height 1.4
+    @media (max-width: 1440px)
+      font-size 16px
+      margin-top 10px
+    @media (max-width: 756px)
+      font-size: 18px
+      margin-top: 6px
+      line-height: 1.2
+
+.mission-bottom
+  position relative
+  margin: 250px 0
+  @media (max-width: 1000px)
+    margin 50px 0 200px
+  @media (max-width: 756px)
+    margin 35px 0 305px
+  &__texture
+    display none
+    @media (max-width: 756px)
+      display block
+      position absolute
+      right 40px
+      top 270px
+      img
+        width: 165px
+        height: 165px
+  &__word
+    position absolute
+    top: -230px
+    right: -200px
+    @media (max-width: 1000px)
+      top: -70px
+    @media (max-width: 756px)
+      top: 45px
+      right: -254px
+    img
+      mix-blend-mode: screen
+      position relative
+      z-index -1
+      @media (max-width: 1440px)
+        width 810px
+      @media (max-width: 1000px)
+        width 525px
+      @media (max-width: 756px)
+        width 420px
+  &__content
+    width 75%
+    display flex
+    justify-content space-between
+    flex-wrap wrap
+    @media (max-width: 756px)
+      width 100%
+  &__item
+    background: rgba(0,0,0,.3)
+    border: 1px solid rgba(50, 37, 66, 0.5)
+    box-shadow: 0 15px 13px rgb(0 0 0 / 11%)
+    backdrop-filter: blur(28px)
+    border-radius: 20px
+    padding: 35px 0
+    margin-bottom: 18px
+    position relative
+    overflow hidden
+    @media (min-width: 756px)
+      background: linear-gradient(225deg, rgba(91, 12, 161, 0.05) 0%, rgba(39, 30, 249, 0.05) 30.49%, rgba(121, 57, 253, 0.05) 64.35%, rgba(166, 71, 255, 0.05) 100%), rgba(0, 0, 0, 0.3);
+    @media (max-width: 1000px)
+      padding 20px 0
+    &:before
+      content ""
+      position absolute
+      background: #4E31B3
+      opacity: 0.6
+      filter: blur(93px)
+      border-radius: 33.5px
+      height: 91px
+      width: 318px
+      left: 50%
+      transform: translate(-50%, 0)
+      top: 10px
+      @media (max-width: 756px)
+        width 100%
+    &:nth-child(1)
+      width 48%
+    &:nth-child(2)
+      width 48%
+    &:nth-child(3)
+      width 100%
+  &__num
+    text-align center
+    font-family: 'Monument Extended', sans-serif
+    font-size: 86px
+    font-style: normal
+    font-weight: 400
+    text-transform uppercase
+    color #3B1AA7
+    @media (min-width: 756px)
+      background: linear-gradient(225deg, #3B1AA7 0%, #4E31B3 30.49%, #9636EF 64.35%, #F682BD 100%)
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
+      background-clip: text
+      text-fill-color: transparent
+      opacity: 0.8
+    @media (max-width: 1440px)
+      font-size 64px
+    @media (max-width: 1000px)
+      font-size 34px
+  &__info
+    text-align center
+    font-family: 'Monument Extended', sans-serif
+    font-size: 20px
+    text-transform: uppercase
+    color: #E7E7E7
+    font-weight 400
+    margin-top: 8px
+    letter-spacing 1px
+    @media (max-width: 1440px)
+      font-size 18px
+    @media (max-width: 1000px)
+      font-size 14px
+    @media (max-width: 756px)
+      font-size 15px
+      margin-top 1px
+
+

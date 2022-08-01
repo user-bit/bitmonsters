@@ -1,0 +1,62 @@
+<div class="section-info__item section-info-item">
+    <div class="section-info-item__info">
+        <div class="section-info-item__name">
+            Название блока: <span>Заголовок - описание</span>
+        </div>
+        <div class="section-info-item__type">
+            Тип блока: <span>конструктор</span>
+        </div>
+        <div class="section-info-item__sort">
+            Позиция блока:
+            <input type="text" class="section-info-item__sort-input" value="<?php echo $content_page['sort']?>" name="constructor[<?php echo $content_page['id'] ?>][sort]">
+        </div>
+        <div class="section-info-item__btn">
+            <div class="section-info-item__del">
+                <button class="btn-del-in del-block-constructor"
+                        data-page="<?php echo $vars['edit']['id'] ?>"
+                        data-id="<?php echo $content_page['id'] ?>">Удалить
+                </button>
+            </div>
+            <div class="section-info-item__add">
+                <button class="btn-add-in add-block-constructor"
+                        data-page="<?php echo $vars['edit']['id'] ?>"
+                        data-id="<?php echo $content_page['id'] ?>"
+                        data-table="constructor_resource">Добавить поле
+                </button>
+            </div>
+        </div>
+        <div class="section-info-item__detail show-detail">
+            <svg><use xlink:href="/resource/administrator-cms/images/svg/svg-sprite.svg#arrow-down"></use></svg>
+        </div>
+    </div>
+    <div class="section-info-item__preview">
+        <img src="/protection/modules/template/administrator-cms/resource/<?php echo $content_page['template_path']?>/static/img/preview.jpg">
+    </div>
+
+    <div class="section-info-item__content">
+        <div class="section-info-item__content-w100">
+            <div class="section__field">
+                <label>Заголовок:</label>
+                <input type="text" class="form-control"
+                       value="<?php echo $vars['constructor']['content_page_res'][$content_page['id']]['title']['value']?>"
+                       name="constructor[<?php echo $content_page['id'] ?>][title]"/>
+            </div>
+            <div class="section__field">
+                <label>Текст:</label>
+                <?php echo showEditor("constructor[".$content_page['id']."][text]", $vars['constructor']['content_page_res_text'][$content_page['id']]['text']['value'])?>
+            </div>
+        </div>
+        <div class="section-info-item__content-w100">
+            <?php foreach ($vars['constructor']['content_page_res'][$content_page['id']] as $key => $item) {
+                if(!empty($item['name_admin'])) { ?>
+                    <div class="section__field">
+                        <label><?php echo $item['name_admin']?>:</label>
+                        <input type="text" class="form-control"
+                               value="<?php echo $item['value'] ?>"
+                               name="constructor[<?php echo $content_page['id'] ?>][<?php echo $key ?>]"/>
+                    </div>
+                <?php } } ?>
+        </div>
+    </div>
+</div>
+

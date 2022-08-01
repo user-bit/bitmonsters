@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Language" content="ru"/>
+    <meta name="keywords" content="Админ панель"/>
+    <meta name="description" content="Админ панель"/>
+    <title>Админ панель</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/resource/administrator-cms/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/resource/administrator-cms/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/resource/administrator-cms/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/administrator-cms/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/resource/administrator-cms/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <?php echo $vars['styles']; ?>
+    <?php echo $vars['scripts']; ?>
+</head>
+<body>
+<?php if (!isset($vars['moderators'])) { ?>
+    <?php echo $vars['content'] ?>
+<?php } else { ?>
+    <?php echo $vars['menu_inc']; ?>
+    <main class="main">
+        <div class="breadcrumbs">
+            <?php if (isset($vars['breadcrumb'])) echo $vars['breadcrumb']; ?>
+        </div>
+        <div class="main__content">
+            <?php echo $vars['content'] ?>
+            <?php if (isset($vars['right_menu'])) { ?>
+                <div class="main__right right-menu">
+                    <?php echo $vars['right_menu'] ?>
+                </div>
+            <?php } ?>
+        </div>
+    </main>
+<?php } ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/resource/'.PathToTemplateAdmin.'/layout/modal.phtml'?>
+</body>
+</html>

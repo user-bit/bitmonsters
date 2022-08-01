@@ -1,0 +1,43 @@
+.treeview
+  list-style-type none
+  padding: 0 0 0 17px
+  margin: 16px 0 0
+  li
+    margin-bottom: 6px
+    padding-bottom: 6px
+    border-bottom: 1px solid #f6f6f7
+    a
+      color color-main
+      text-decoration none
+      font-size 14px
+      transition color 0.2s ease-in-out
+      &:hover
+        color color-blue
+
+.expandable, .collapsable
+  position relative
+
+.hitarea
+  position: absolute
+  background-image: url(/resource/administrator-cms/images/svg/down.svg)
+  width: 18px
+  height: 18px
+  background-size: 18px
+  left: -18px
+  cursor pointer
+  transition: transform 0.3s ease-in-out
+
+.collapsable-hitarea
+  transform: rotate(-180deg)
+
+.collapsable,
+.expandable
+  ul
+    list-style-type: none
+    padding: 0
+    margin: 10px 0 -13px 16px
+    width 100%
+    li
+      a
+        font-size 15px
+        line-height 1.2

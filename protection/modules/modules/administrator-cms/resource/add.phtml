@@ -1,0 +1,55 @@
+<?php echo $vars['message'] ?>
+
+<div class="main__top d-flex justify-content-space-between align-items-center">
+    <div class="main__title">Добавление нового модуля</div>
+</div>
+
+<div class="section">
+    <form method="POST" name="update-form">
+        <div class="section__content section__content-w-70">
+            <div class="section__title">Общая информация</div>
+
+            <div class="section__field">
+                <label class="required">Позиция:<span>*</span></label>
+                <select class="custom-select" name="module">
+                    <?php foreach ($vars['dir'] as $row) {
+                        $active = 0;
+                        foreach ($vars['list'] as $row2) {
+                            if ($row == $row2['controller']) $active = 1;
+                        }
+                        if ($active == 0) {
+                            ?>
+                            <option value='<?php echo $row ?>'><?php echo $row ?></option>
+                        <?php }
+                    } ?>
+                </select>
+            </div>
+
+            <div class="section__field">
+                <input type="hidden" value="0" name="sort"/>
+                <label class="required">Раздел:<span>*</span></label>
+                <select class="custom-select" name="sub">
+                    <option value="">Выбор раздела...</option>
+                    <?php
+                    foreach ($vars['menu'] as $row) {
+                        echo '<option value="' . $row['id'] . '">' . $row['name'] . '</option>';
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+        <div class="button-list-in">
+            <div class="btn-save">
+                <input type="submit" value="Сохранить" name="add">
+            </div>
+            <div class="btn-save-close">
+                <input type="submit" value="Сохранить и закрыть" name="add_close">
+            </div>
+        </div>
+        <input type="hidden" value="<?php echo $vars['action'] ?>" id="action"/>
+    </form>
+</div>
+
+
+
+

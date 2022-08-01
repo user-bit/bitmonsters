@@ -1,0 +1,51 @@
+<div class="cm-notification-container"><div id="message"><?=$vars['message']?></div></div>
+<div>
+	<div class="clear mainbox-title-container">
+		<h1 class="mainbox-title float-left"><?=$vars['name']?></h1>
+		<div class="tools-container">
+			<span class="action-add">
+				<a href="/<?php echo PathToTemplateAdmin?>/<?=$vars['action']?>/add/tt<?=$vars['path']?>">Добавить</a>
+			</span>
+		</div>
+		<input type="text" id="search_text" class="input-text-large" placeholder="Поиск" value="">&nbsp;&nbsp;&nbsp;
+	</div>
+
+	<div class="mainbox-body">
+		<div id="ds_15014" class="clear"></div>
+		<div id="content_manage_users">
+			<form name="userlist_form" method="post" action="/<?php echo PathToTemplateAdmin?>/<?=$vars['action']?><?=$vars['path']?>/update">
+				<div id="pagination_contents"><?=$vars['list']?></div>
+				<div class="buttons-container buttons-bg">
+					<div class="cm-buttons-floating">
+						<div class="cm-buttons-placeholder">
+							<div class="float-left">
+								<span class="submit-button cm-button-main">
+									<input type="submit" value="Сохранить" name="update" class="">
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<input type="hidden" value="<?=$vars['action']?>" id="action" />
+			</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	document.getElementById("search_text").addEventListener("keyup", function () {
+		var message = this.value;
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", '/<?php echo PathToTemplateAdmin?>/ajax/config/search');
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4) {
+				if (this.status == 200) {
+					var json = JSON.parse(this.responseText);
+					if (json.status == true) $("#pagination_contents").html(json.content);
+				}
+			}
+		};
+		xhr.send("message=" + message);
+	});
+</script>

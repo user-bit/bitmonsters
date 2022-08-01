@@ -1,0 +1,57 @@
+<table class="table tb_sort">
+    <thead>
+    <tr>
+        <th width="30"></th>
+        <th width="30">
+            <input type="checkbox"
+                   id="customCheckAll"
+                   title="Отметить/снять все"
+                   value="Y"
+                   name="id[]" class="custom-control-label-all">
+            <label for="customCheckAll"></label>
+        </th>
+        <th width="50">ID</th>
+        <th>Название</th>
+        <th>Раздел</th>
+        <th>Состояние</th>
+        <th>Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($vars['list'] as $row) {
+        $style = '';
+        if ($row['cat'] == 'Товары') $style = ' style="background-color:#f4f4f4;"';
+        elseif ($row['cat'] == 'Пользователи') $style = ' style="background-color:#fff1de;"';
+        elseif ($row['cat'] == 'Настройки') $style = ' style="background-color:#dce8ff;"';
+        elseif ($row['cat'] == 'Администрирование') $style = ' style="background-color:#ecfaff;"';
+        ?>
+        <tr id="sort<?php echo $row['id'] ?>">
+            <td class="move"></td>
+            <td>
+                <input type="checkbox" value="<?php echo $row['id'] ?>"
+                       id="customCheck<?php echo $row['id'] ?>"
+                       name="id[]" class="custom-control-label">
+                <label for="customCheck<?php echo $row['id'] ?>"></label>
+            </td>
+            <td><?php echo $row['id'] ?></td>
+            <td><input type="text" value="<?php echo $row['name'] ?>" name="name[]" class="form-control"></td>
+
+            <td <?php echo $style ?>><?php echo $row['cat'] ?></td>
+            <td>
+                <input type="hidden" value="<?php echo $row['id'] ?>" name="save_id[]"/>
+                <?php
+                if ($row['hidden'] == 0) $active = '<div class="selected-status status-on">Вкл</div>';
+                else $active = '<div class="selected-status status-off">Выкл</div>';
+                ?>
+                <div class="active-status" id="active<?php echo $row['id'] ?>"><?php echo $active ?></div>
+            </td>
+            <td class="d-flex justify-content-between align-items-center h-65">
+                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . '/edit/' . $row['id']) ?>"
+                   class="tool-edit">Редакт.</a>
+                <a href="<?php echo Links::getAdminURl(PathToTemplateAdmin . '/' . $vars['action'] . '/delete/' . $row['id']) ?>"
+                   class="tool-del">Удалить</a>
+            </td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>

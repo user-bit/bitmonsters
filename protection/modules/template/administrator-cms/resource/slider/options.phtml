@@ -1,0 +1,23 @@
+<div class="section-info-item-prev">
+    <div class="section-info-item-prev__info">
+        <div class="section-info-item-prev__name">
+            Название: <span><?php echo $template['name']?></span>
+        </div>
+        <div class="section-info-item-prev__add">
+            <button class="btn-save-in save-block-constructor">Добавить</button>
+        </div>
+    </div>
+    <div class="section-info-item-prev__preview">
+        <img src="/protection/modules/template/<?php echo PathToTemplateAdmin ?>/resource/<?php echo $template['path'] ?>/static/img/preview.jpg">
+    </div>
+    <input type="hidden" name="info[page_id]" value="<?php echo $vars['edit']['id']?>"/>
+    <input type="hidden" name="info[template_id]" value="<?php echo $template['id']?>"/>
+
+    <input type="hidden" name="constructor[title_1]"/>
+    <input type="hidden" name="constructor[title_2]"/>
+    <?php for($i=0;$i<5;$i++) { ?>
+        <input type="hidden" name="constructor[photo_<?php echo $i ?>]"/>
+    <?php } ?>
+
+</div>
+
