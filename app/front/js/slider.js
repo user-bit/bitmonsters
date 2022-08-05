@@ -34,37 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
             1440: {slidesPerView: 3},
         }
     });
-    new Swiper(".roadmap__slide", {
-        loop: false,
-        slidesPerView: 2.4,
-        watchOverflow: true,
-        spaceBetween: 35,
-        // preloadImages: false,
-        // momentumRatio: 1,
-        // freeMode: true,
-        // lazy: true,
-        breakpoints: {
-            756: {slidesPerView: 4},
-            1000: {slidesPerView: 8},
-        }
-    });
-    new Swiper(".events__slide", {
-        loop: false,
-        slidesPerView: 1,
-        initialSlide: 3,
-        watchOverflow: true,
-        spaceBetween: 10,
-        // preloadImages: false,
-        // momentumRatio: 1,
-        // freeMode: true,
-        // lazy: true,
-        breakpoints: {
-            575: {slidesPerView: 2.5, initialSlide: 2},
-            1000: {slidesPerView: 4.5, initialSlide: 0},
-            1165: {slidesPerView: 6.5, initialSlide: 0},
 
-        }
-    });
+
     new Swiper(".about__content", {
         loop: false,
         slidesPerView: 1.1,

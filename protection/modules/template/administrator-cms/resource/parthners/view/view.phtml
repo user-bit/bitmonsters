@@ -65,10 +65,34 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const widthSlide = document.querySelector('.events__slide .swiper-slide').offsetWidth;
-        const marginSlide = parseInt(window.getComputedStyle(document.querySelector('.events__slide .swiper-slide')).marginRight);
-        const widthAllElement = widthSlide + marginSlide;
-        const widthActive = widthAllElement * <?php echo $vars['constructor']['content_page_res'][$content['id']]['event_active']['value'] ?>;
-        document.querySelector('.events__line-active').style.width = widthActive + 'px';
+        new Swiper(".events__slide", {
+            loop: false,
+            slidesPerView: 1,
+            initialSlide: 3,
+            watchOverflow: true,
+            spaceBetween: 10,
+            // preloadImages: false,
+            // momentumRatio: 1,
+            // freeMode: true,
+            // lazy: true,
+            breakpoints: {
+                575: {slidesPerView: 2.5, initialSlide: 2},
+                1000: {slidesPerView: 4.5, initialSlide: 0},
+                1165: {slidesPerView: 6.5, initialSlide: 0},
+
+            },
+            on: {
+                init: function () {
+                    startSliderEvent();
+                },
+            },
+        });
+        function startSliderEvent() {
+            const widthSlide = document.querySelector('.events__slide .swiper-slide').offsetWidth;
+            const marginSlide = parseInt(window.getComputedStyle(document.querySelector('.events__slide .swiper-slide')).marginRight);
+            const widthAllElement = widthSlide + marginSlide;
+            const widthActive = widthAllElement * <?php echo $vars['constructor']['content_page_res'][$content['id']]['event_active']['value'] ?>;
+            document.querySelector('.events__line-active').style.width = widthActive + 'px';
+        }
     });
 </script>
