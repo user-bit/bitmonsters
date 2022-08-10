@@ -149,7 +149,10 @@
                            $this->db->rows("SELECT * FROM eco tb
                                 LEFT JOIN " . $this->registry['key_lang'] . "_eco lang_tb ON lang_tb.eco_id = tb.id 
                                 WHERE tb.active='1' ORDER BY tb.sort ASC");
-                   }elseif ($content_page['module_table'] == 'roadmap' || $content_page['module_table'] == 'event' || $content_page['module_table'] == 'faq') {
+                   }elseif ($content_page['module_table'] == 'roadmap'
+                       || $content_page['module_table'] == 'event'
+                       || $content_page['module_table'] == 'faq'
+                       || $content_page['module_table'] == 'team') {
                        $vars['modules'] = $this->db->row("SELECT id FROM modules WHERE modules.controller='" . $content_page['module_table'] . "'");
                        $vars['translate_' . $content_page['module_table']] = $this->get_lang("tb.modules_id='" . $vars['modules']['id'] . "'");
                        $vars['content_' . $content_page['module_table']] = $this->db->rows("SELECT " . $content_page['module_select'] . " FROM 
