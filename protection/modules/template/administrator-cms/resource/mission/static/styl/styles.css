@@ -135,7 +135,6 @@
   mix-blend-mode: normal;
   border: 1px solid rgba(50,37,66,0.5);
   box-shadow: 0 15px 13px #000;
-  backdrop-filter: blur(28px);
   border-radius: 20px;
   width: calc(33.3% - 15px);
   padding: 32px;
@@ -150,69 +149,6 @@
 @media (max-width: 756px) {
   .mission-top__item {
     margin-bottom: 105px;
-  }
-}
-.mission-top__item:nth-child(1):before {
-  content: "";
-  position: absolute;
-  width: 245px;
-  height: 90px;
-  background: rgba(251,102,183,0.5);
-  opacity: 1;
-  filter: blur(93px);
-  border-radius: 33.5px;
-  left: 30%;
-  top: 15px;
-  z-index: -1;
-}
-@media (max-width: 756px) {
-  .mission-top__item:nth-child(1):before {
-    width: 187px;
-    filter: blur(65px);
-    left: 25%;
-    top: 0;
-  }
-}
-.mission-top__item:nth-child(2):before {
-  content: "";
-  position: absolute;
-  width: 245px;
-  height: 90px;
-  background: rgba(130,13,233,0.5);
-  opacity: 1;
-  filter: blur(93px);
-  border-radius: 33.5px;
-  left: 30%;
-  top: 15px;
-  z-index: -1;
-}
-@media (max-width: 756px) {
-  .mission-top__item:nth-child(2):before {
-    width: 187px;
-    filter: blur(65px);
-    left: 25%;
-    top: 0;
-  }
-}
-.mission-top__item:nth-child(3):before {
-  content: "";
-  position: absolute;
-  width: 245px;
-  height: 90px;
-  background: rgba(246,130,189,0.5);
-  opacity: 1;
-  filter: blur(93px);
-  border-radius: 33.5px;
-  left: 30%;
-  top: 15px;
-  z-index: -1;
-}
-@media (max-width: 756px) {
-  .mission-top__item:nth-child(3):before {
-    width: 187px;
-    filter: blur(65px);
-    left: 25%;
-    top: 0;
   }
 }
 .mission-top__icon {
@@ -342,7 +278,6 @@
   background: rgba(0,0,0,0.3);
   border: 1px solid rgba(50,37,66,0.5);
   box-shadow: 0 15px 13px #000;
-  backdrop-filter: blur(28px);
   border-radius: 20px;
   padding: 35px 0;
   margin-bottom: 18px;
@@ -357,24 +292,6 @@
 @media (max-width: 1000px) {
   .mission-bottom__item {
     padding: 20px 0;
-  }
-}
-.mission-bottom__item:before {
-  content: "";
-  position: absolute;
-  background: #4e31b3;
-  opacity: 0.6;
-  filter: blur(93px);
-  border-radius: 33.5px;
-  height: 91px;
-  width: 318px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  top: 10px;
-}
-@media (max-width: 756px) {
-  .mission-bottom__item:before {
-    width: 100%;
   }
 }
 .mission-bottom__item:nth-child(1) {

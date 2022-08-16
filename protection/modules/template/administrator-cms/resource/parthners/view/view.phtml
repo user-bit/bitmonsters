@@ -19,12 +19,12 @@
 <div class="events">
     <div class="events__texture">
         <picture>
-            <source srcset="/resource/front/img/s-texture.webp" type="image/webp" >
-            <source srcset="/resource/front/img/s-texture.png">
+            <source class="lazy" data-srcset="/resource/front/img/s-texture.webp" type="image/webp" >
+            <source class="lazy" data-srcset="/resource/front/img/s-texture.png">
             <img src="">
         </picture>
     </div>
-    <div class="events__left-gradient"></div>
+<!--    <div class="events__left-gradient"></div>-->
     <div class="events__line-one"></div>
     <div class="events__line-two"></div>
     <div class="events__line-three"></div>
@@ -34,7 +34,7 @@
              data-aos-duration="1400"><?php echo $vars['constructor']['content_page_res'][$content['id']]['title_two']['value'] ?></div>
         <div class="events__slide" data-aos="type1" data-aos-duration="1400" data-aos-delay="200">
             <div class="swiper-wrapper event__wrapper">
-                <div class="events__line-active"></div>
+                <div class="events__line-active" data-line="<?php echo $vars['constructor']['content_page_res'][$content['id']]['event_active']['value'] ?>"></div>
                 <?php foreach ($vars['constructor']['content_event'] as $key => $content_event) {
                     $state = '';
                     if ($content_event['state'] == 0)
@@ -63,36 +63,4 @@
         </div>
     </div>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        new Swiper(".events__slide", {
-            loop: false,
-            slidesPerView: 1,
-            initialSlide: 3,
-            watchOverflow: true,
-            spaceBetween: 10,
-            // preloadImages: false,
-            // momentumRatio: 1,
-            // freeMode: true,
-            // lazy: true,
-            breakpoints: {
-                575: {slidesPerView: 2.5, initialSlide: 2},
-                1000: {slidesPerView: 4.5, initialSlide: 0},
-                1165: {slidesPerView: 6.5, initialSlide: 0},
 
-            },
-            on: {
-                init: function () {
-                    startSliderEvent();
-                },
-            },
-        });
-        function startSliderEvent() {
-            const widthSlide = document.querySelector('.events__slide .swiper-slide').offsetWidth;
-            const marginSlide = parseInt(window.getComputedStyle(document.querySelector('.events__slide .swiper-slide')).marginRight);
-            const widthAllElement = widthSlide + marginSlide;
-            const widthActive = widthAllElement * <?php echo $vars['constructor']['content_page_res'][$content['id']]['event_active']['value'] ?>;
-            document.querySelector('.events__line-active').style.width = widthActive + 'px';
-        }
-    });
-</script>

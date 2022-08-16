@@ -34,8 +34,22 @@ document.addEventListener('DOMContentLoaded', () => {
             1440: {slidesPerView: 3},
         }
     });
-
-
+    new Swiper(".events__slide", {
+        loop: false,
+        slidesPerView: 1,
+        initialSlide: 3,
+        watchOverflow: true,
+        spaceBetween: 10,
+        // preloadImages: false,
+        // momentumRatio: 1,
+        // freeMode: true,
+        // lazy: true,
+        breakpoints: {
+            575: {slidesPerView: 2.5, initialSlide: 2},
+            1000: {slidesPerView: 4.5, initialSlide: 0},
+            1165: {slidesPerView: 6.5, initialSlide: 0},
+        }
+    });
     new Swiper(".about__content", {
         loop: false,
         slidesPerView: 1.1,
@@ -48,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         breakpoints: {
             550: {slidesPerView: 2},
             1000: {slidesPerView: 3},
-
         },
         navigation: {
             nextEl: ".about__next",
@@ -56,5 +69,55 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
+    new Swiper(".roadmap__slide", {
+            loop: false,
+            slidesPerView: 2.4,
+            watchOverflow: true,
+            spaceBetween: 35,
+            // momentumRatio: 1,
+            // freeMode: true,
+            breakpoints: {
+                756: {slidesPerView: 4},
+                1000: {slidesPerView: 8},
+            },
+            on: {
+                init: function () {
+                    startSliderRoad();
+                },
+            },
+        });
+        function startSliderRoad() {
+            const widthSlide = document.querySelector('.roadmap__slide .swiper-slide').offsetWidth;
+            const marginSlide = parseInt(window.getComputedStyle(document.querySelector('.roadmap__slide .swiper-slide')).marginRight);
+            const widthAllElement = widthSlide + marginSlide;
+            const widthActive = widthAllElement * document.querySelector('.roadmap-top__line').getAttribute('data-line');
+            document.querySelector('.roadmap-top__line-active').style.width = widthActive + 'px';
+        }
+
+    new Swiper(".events__slide", {
+        loop: false,
+        slidesPerView: 1,
+        initialSlide: 3,
+        watchOverflow: true,
+        spaceBetween: 10,
+        breakpoints: {
+            575: {slidesPerView: 2.5, initialSlide: 2},
+            1000: {slidesPerView: 4.5, initialSlide: 0},
+            1165: {slidesPerView: 6.5, initialSlide: 0},
+
+        },
+        on: {
+            init: function () {
+                startSliderEvent();
+            },
+        },
+    });
+    function startSliderEvent() {
+        const widthSlide = document.querySelector('.events__slide .swiper-slide').offsetWidth;
+        const marginSlide = parseInt(window.getComputedStyle(document.querySelector('.events__slide .swiper-slide')).marginRight);
+        const widthAllElement = widthSlide + marginSlide;
+        const widthActive = widthAllElement * document.querySelector('.events__line-active').getAttribute('data-line');
+        document.querySelector('.events__line-active').style.width = widthActive + 'px';
+    }
 });
 

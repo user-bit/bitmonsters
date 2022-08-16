@@ -1,6 +1,6 @@
 <div class="info">
-    <div class="info__bg-left"></div>
-    <div class="info__bg-right"></div>
+<!--    <div class="info__bg-left"></div>-->
+<!--    <div class="info__bg-right"></div>-->
     <div class="info__texture">
         <picture>
             <source srcset="/resource/front/img/m-texture.webp" type="image/webp">
@@ -51,12 +51,12 @@
 </div>
 <div class="about" id="about">
     <div class="container">
-        <div class="about__circle">
-            <picture>
-                <source srcset='/resource/front/img/m-texture.webp' type='image/webp'>
-                <img src="/resource/front/img/m-texture.png">
-            </picture>
-        </div>
+<!--        <div class="about__circle">-->
+<!--            <picture>-->
+<!--                <source srcset='/resource/front/img/m-texture.webp' type='image/webp'>-->
+<!--                <img src="/resource/front/img/m-texture.png">-->
+<!--            </picture>-->
+<!--        </div>-->
         <div class="about__title" data-aos="type1"
              data-aos-duration="1400"><?php echo $vars['constructor']['content_page_res'][$content['id']]['about_title']['value'] ?></div>
         <div class="about__content">
@@ -65,8 +65,7 @@
                     <div class="swiper-slide">
                         <div class="about__item" data-aos="type1" data-aos-duration="1400" data-aos-delay="200">
                             <div class="about__photo">
-                                <img class="lazy"
-                                     data-src="/<?php echo $content_team['photo'] ?>">
+                                <img src="/<?php echo $content_team['photo'] ?>">
                             </div>
                             <div class="about__info">
                                 <div class="about__position"><?php echo $content_team['name'] ?></div>

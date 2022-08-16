@@ -105,12 +105,7 @@ export const libsFront = () => {
 export const jsFront = () => {
     return src([
         'app/front/js/slider.js',
-        'app/front/js/header.js',
-        'app/front/js/menu.js',
         'app/front/js/ajax.js',
-        'app/front/js/filters.js',
-        'app/front/js/product.js',
-        'app/front/js/reviews.js',
         'app/front/js/main.js',
     ])
         .pipe(plumber({

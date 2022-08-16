@@ -20,7 +20,6 @@
   top: -256px;
   background: rgba(252,253,74,0.15);
   opacity: 0.5;
-  filter: blur(200px);
 }
 @media (max-width: 756px) {
   .info__bg-left {
@@ -35,7 +34,6 @@
   top: 600px;
   background: #9636ef;
   opacity: 0.15;
-  filter: blur(200px);
 }
 @media (max-width: 756px) {
   .info__bg-right {
@@ -43,7 +41,6 @@
     height: 200px;
     background: #9636ef;
     opacity: 0.2;
-    filter: blur(80px);
     right: -105px;
     top: unset;
     bottom: 17px;
@@ -71,16 +68,15 @@
   width: 20vh;
   height: 100%;
   top: 0;
-  right: 50%;
   background: #9636ef;
+  right: -20%;
+  will-change: right;
+  animation: run 10s 0s infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
 }
 @media (min-width: 756px) {
   .info__line-one:before {
-    right: -20%;
-    will-change: right;
-    animation: run 10s 0s infinite;
-    animation-fill-mode: forwards;
-    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
     background: linear-gradient(225deg, #3b1aa7 0%, #4e31b3 30.49%, #9636ef 64.35%, #f682bd 100%);
   }
 }
@@ -108,14 +104,13 @@
   width: 20vh;
   height: 100%;
   top: 0;
-  right: 30%;
+  right: -20%;
+  animation: run 21s 0s infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
 }
 @media (min-width: 756px) {
   .info__line-two:before {
-    right: -20%;
-    animation: run 21s 0s infinite;
-    animation-fill-mode: forwards;
-    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
     background: linear-gradient(225deg, #3b1aa7 0%, #4e31b3 30.49%, #9636ef 64.35%, #f682bd 100%);
   }
 }
@@ -294,11 +289,7 @@
   left: 311px;
   top: 65px;
   z-index: 2;
-}
-@media (min-width: 756px) {
-  .arrow-up__one {
-    animation: 8s ease-in 1s infinite reverse both running wakeUpSm;
-  }
+  animation: 8s ease-in 1s infinite reverse both running wakeUpSm;
 }
 @media (max-width: 756px) {
   .arrow-up__one {
@@ -401,10 +392,9 @@
   height: unset !important;
 }
 .about__item {
-  background: linear-gradient(225deg, rgba(91,12,161,0.05) 0%, rgba(39,30,249,0.05) 30.49%, rgba(121,57,253,0.05) 64.35%, rgba(166,71,255,0.05) 100%), rgba(0,0,0,0.3);
+  background: #0d0f20;
   border: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 15px 13px rgba(0,0,0,0.11);
-  backdrop-filter: blur(28px);
   border-radius: 40px;
   padding: 28px;
   width: 100%;

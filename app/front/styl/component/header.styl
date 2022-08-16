@@ -71,7 +71,7 @@ a.sign-up-xs
     height: 630.04px
     background: #9636EF
     opacity: 0.2
-    filter: blur(329px)
+    //filter: blur(329px)
     transform: matrix(0.47, -0.95, 0.79, 0.53, 0, 0)
     z-index -1
     @media (max-width: 765px)
@@ -88,7 +88,7 @@ a.sign-up-xs
     height 546.29px
     background: #FCFD4A
     opacity: 0.15
-    filter: blur(200px)
+    //filter: blur(200px)
     transform: rotate(-78.59deg)
     z-index -1
     @media (max-width: 765px)
@@ -160,8 +160,11 @@ a.sign-up-xs
           font-size: 18px
           color: #F8FAFC
           text-decoration none
+          transition color 0.3s ease-in-out
           @media (max-width: large)
             font-size 16px
+          &:hover
+            color #9636ef
   &__btn
     width 20%
     display flex
@@ -183,7 +186,7 @@ a.sign-up-xs
   background: linear-gradient(225deg, rgba(91, 12, 161, 0.05) 0%, rgba(39, 30, 249, 0.05) 30.49%, rgba(121, 57, 253, 0.05) 64.35%, rgba(166, 71, 255, 0.05) 100%), rgba(0, 0, 0, 0.3);
   border: 1.7672px solid rgba(50, 37, 66, 0.5);
   box-shadow: 0px 26.5079px 22.9735px rgb(0 0 0 / 11%);
-  backdrop-filter: blur(49.4815px);
+  //backdrop-filter: blur(49.4815px);
   border-radius: 17.672px;
   width: 56px;
   height: 56px;

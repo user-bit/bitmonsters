@@ -1,11 +1,11 @@
 <div class="roadmap" id="roadmap">
     <div class="roadmap-top">
-        <div class="roadmap-top__right-gradient"></div>
+<!--        <div class="roadmap-top__right-gradient"></div>-->
         <div class="container">
             <div class="roadmap-top__title" data-aos="type1" data-aos-duration="1400"><?php echo $vars['constructor']['content_page_res'][$content['id']]['name_one']['value'] ?></div>
             <div class="roadmap__slide" data-aos="type1" data-aos-duration="1400" data-aos-delay="200">
                 <div class="swiper-wrapper roadmap__wrapper">
-                    <div class="roadmap-top__line">
+                    <div class="roadmap-top__line" data-line="<?php echo $vars['constructor']['content_page_res'][$content['id']]['roadmap_active']['value'] ?>">
                         <div class="roadmap-top__line-active"></div>
                     </div>
                     <?php foreach ($vars['constructor']['content_roadmap'] as $key => $content_roadmap) { ?>
@@ -47,35 +47,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        new Swiper(".roadmap__slide", {
-            loop: false,
-            slidesPerView: 2.4,
-            watchOverflow: true,
-            spaceBetween: 35,
-            // preloadImages: false,
-            // lazy: true,
-            momentumRatio: 1,
-            freeMode: true,
-
-            breakpoints: {
-                756: {slidesPerView: 4},
-                1000: {slidesPerView: 8},
-            },
-            on: {
-                init: function () {
-                    startSliderRoad();
-                },
-            },
-        });
-        function startSliderRoad() {
-            const widthSlide = document.querySelector('.roadmap__slide .swiper-slide').offsetWidth;
-            const marginSlide = parseInt(window.getComputedStyle(document.querySelector('.roadmap__slide .swiper-slide')).marginRight);
-            const widthAllElement = widthSlide + marginSlide;
-            const widthActive = widthAllElement * <?php echo $vars['constructor']['content_page_res'][$content['id']]['roadmap_active']['value'] ?>;
-            document.querySelector('.roadmap-top__line-active').style.width = widthActive + 'px';
-        }
-    });
-</script>
